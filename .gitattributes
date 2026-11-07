@@ -1,0 +1,5 @@
+# Finales de línea LF en todas las plataformas: la compilación busca texto exacto
+# en index.html y Windows convertiría a CRLF al descargar el repositorio.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf

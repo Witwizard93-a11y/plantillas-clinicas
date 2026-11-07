@@ -24,7 +24,7 @@ const norm = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 
 // Archivos de contenido, en el orden en que los carga index.html
 export function archivosContenido() {
-  const html = readFileSync(join(WWW, 'index.html'), 'utf8');
+  const html = readFileSync(join(WWW, 'index.html'), 'utf8').replace(/\r\n/g, '\n');
   const bloque = html.match(/<!-- contenido -->([\s\S]*?)<!-- \/contenido -->/);
   if (!bloque) throw new Error('index.html no tiene el bloque <!-- contenido --> ... <!-- /contenido -->');
   const rutas = [...bloque[1].matchAll(/<script src="([^"]+)"><\/script>/g)].map((m) => m[1]);

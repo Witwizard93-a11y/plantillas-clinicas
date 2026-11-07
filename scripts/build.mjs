@@ -20,7 +20,11 @@ import { archivosContenido, validar } from './validar.mjs';
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WWW = join(RAIZ, 'www');
 const DIST = join(RAIZ, 'dist');
-const leer = (ruta, cod = 'utf8') => readFileSync(join(WWW, ruta), cod);
+// Texto siempre con saltos LF, aunque el repositorio se haya descargado en Windows con CRLF
+const leer = (ruta, cod = 'utf8') => {
+  const datos = readFileSync(join(WWW, ruta), cod);
+  return cod ? datos.replace(/\r\n/g, '\n') : datos;
+};
 
 // 1. Versión única para web, Windows y Android
 const { version } = JSON.parse(readFileSync(join(RAIZ, 'package.json'), 'utf8'));
