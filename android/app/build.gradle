@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+// ---------------------------------------------------------------------------
+// Versión: se toma de package.json (1.2.3 -> versionCode 10203), así web,
+// Windows y Android comparten número. Súbela antes de cada nueva publicación.
+// ---------------------------------------------------------------------------
+def paquete = new groovy.json.JsonSlurper().parse(rootProject.file('../package.json'))
+def versionApp = paquete.version.toString()
+def partesVersion = versionApp.tokenize('.').collect { it.replaceAll('[^0-9]', '').toInteger() }
+def codigoVersion = partesVersion[0] * 10000 + partesVersion[1] * 100 + partesVersion[2]
+
+// ---------------------------------------------------------------------------
+// Firma: variables de entorno (GitHub Actions) o firma-android/keystore.properties.
+// Conserva siempre la misma clave: Android solo actualiza la app si la firma coincide.
+// ---------------------------------------------------------------------------
+def firmaArchivo = rootProject.file('../firma-android/keystore.properties')
+def firma = new Properties()
+if (firmaArchivo.exists()) { firmaArchivo.withInputStream { firma.load(it) } }
+
+android {
+    namespace = "es.plantillasclinicas.app"
+    compileSdk = rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "es.plantillasclinicas.app"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode codigoVersion
+        versionName versionApp
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    signingConfigs {
+        release {
+            if (System.getenv('ANDROID_KEYSTORE_FILE')) {
+                storeFile file(System.getenv('ANDROID_KEYSTORE_FILE'))
+                storePassword System.getenv('ANDROID_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('ANDROID_KEY_ALIAS')
+                keyPassword System.getenv('ANDROID_KEY_PASSWORD')
+            } else if (firmaArchivo.exists()) {
+                storeFile rootProject.file('../firma-android/' + firma.getProperty('storeFile'))
+                storePassword firma.getProperty('storePassword')
+                keyAlias firma.getProperty('keyAlias')
+                keyPassword firma.getProperty('keyPassword')
+            }
+        }
+    }
+    buildTypes {
+        release {
+            if (signingConfigs.release.storeFile != null) {
+                signingConfig signingConfigs.release
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}

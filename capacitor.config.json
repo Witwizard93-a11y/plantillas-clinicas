@@ -1,0 +1,17 @@
+{
+  "appId": "es.plantillasclinicas.app",
+  "appName": "Plantillas Clínicas",
+  "webDir": "www",
+  "loggingBehavior": "none",
+  "android": {
+    "backgroundColor": "#F3F6F5",
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": false
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "css",
+      "initialViewportFitValueHint": "cover"
+    }
+  }
+}

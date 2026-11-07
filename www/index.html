@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro" data-letra="normal">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Plantillas Clínicas</title>
+<meta name="description" content="Plantillas de exploración y tratamiento para Medicina general (Familia y Urgencias), Pediatría, Traumatología y Oftalmología. Se copian al portapapeles con un clic.">
+<meta name="theme-color" content="#F3F6F5">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/app.css">
+<script>
+  // Tema y tamaño de letra antes del primer pintado (evita el destello claro en modo oscuro).
+  (function () {
+    try {
+      var a = JSON.parse(localStorage.getItem('pc.ajustes') || '{}');
+      var t = a.tema || 'auto';
+      var oscuro = t === 'oscuro' || (t === 'auto' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-tema', oscuro ? 'oscuro' : 'claro');
+      if (a.letra) document.documentElement.setAttribute('data-letra', a.letra);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- Navegación lateral (escritorio) -->
+  <aside class="rail" aria-label="Secciones">
+    <div class="marca">
+      <span class="marca-icono" aria-hidden="true"></span>
+      <span class="marca-nombre">Plantillas<br>Clínicas</span>
+    </div>
+    <nav class="rail-nav" id="railNav"></nav>
+    <div class="rail-pie">
+      <button type="button" class="rail-item" data-accion="nueva"><span data-icono="mas"></span><span>Nueva plantilla</span></button>
+      <button type="button" class="rail-item" data-accion="ajustes"><span data-icono="ajustes"></span><span>Ajustes</span></button>
+    </div>
+  </aside>
+
+  <!-- Listado -->
+  <main class="listado" id="listado">
+    <header class="cabecera">
+      <div class="cabecera-superior">
+        <h1 class="vista-titulo" id="vistaTitulo">Medicina general</h1>
+        <button type="button" class="boton-icono solo-movil" data-accion="ajustes" aria-label="Ajustes"><span data-icono="ajustes"></span></button>
+      </div>
+      <div class="buscador" role="search">
+        <span class="buscador-icono" data-icono="buscar" aria-hidden="true"></span>
+        <input id="buscar" type="search" placeholder="Buscar en todas las plantillas" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="Buscar plantilla">
+        <button type="button" class="buscador-borrar" id="borrarBusqueda" aria-label="Borrar búsqueda" hidden><span data-icono="cerrar"></span></button>
+        <kbd class="atajo solo-escritorio" id="atajoBuscar">Ctrl K</kbd>
+      </div>
+      <div class="pestanas" id="pestanas" role="tablist" aria-label="Tipo de plantilla"></div>
+      <div class="chips" id="chips" role="group" aria-label="Ámbito"></div>
+    </header>
+    <div class="aviso-contenido" id="avisoContenido" hidden></div>
+    <div class="lista" id="lista"></div>
+  </main>
+
+  <!-- Detalle -->
+  <section class="detalle" id="detalle" aria-labelledby="detalleTitulo"></section>
+
+  <!-- Navegación inferior (móvil) -->
+  <nav class="barra-inferior" id="barraInferior" aria-label="Secciones"></nav>
+</div>
+
+<div class="capa-modales" id="capaModales"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-punto" aria-hidden="true"></span><span class="toast-texto" id="toastTexto"></span></div>
+
+<!-- contenido -->
+<script src="plantillas/config.js"></script>
+<script src="plantillas/medicina-general.js"></script>
+<script src="plantillas/pediatria.js"></script>
+<script src="plantillas/traumatologia.js"></script>
+<script src="plantillas/oftalmologia.js"></script>
+<!-- /contenido -->
+<script src="js/app.js"></script>
+</body>
+</html>
