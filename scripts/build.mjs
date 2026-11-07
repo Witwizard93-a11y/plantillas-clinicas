@@ -56,7 +56,10 @@ cpSync(WWW, join(DIST, 'web'), { recursive: true });
 const hash = createHash('sha256').update(leer('index.html')).update(leer('css/app.css'));
 contenidos.forEach((c) => hash.update(c.js));
 const resumen = hash.update(appJsVersionado).digest('hex').slice(0, 10);
-const sw = sw0.replace('__VERSION__', `${version}-${resumen}`);
+// La caché del service worker cambia de nombre con cada contenido nuevo
+const lineaCache = "var CACHE = 'plantillas-__VERSION__';";
+if (!sw0.includes(lineaCache)) throw new Error('No se encontró en sw.js la línea: ' + lineaCache);
+const sw = sw0.replace(lineaCache, `var CACHE = 'plantillas-${version}-${resumen}';`);
 writeFileSync(join(DIST, 'web', 'sw.js'), sw);
 writeFileSync(join(DIST, 'web', '.nojekyll'), '');
 
