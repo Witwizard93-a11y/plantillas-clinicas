@@ -10,6 +10,8 @@
   "scripts": {
     "web": "node scripts/build.mjs",
     "validar": "node scripts/validar.mjs",
+    "word": "node scripts/exportar-word.mjs",
+    "word:importar": "node scripts/importar-word.mjs",
     "servir": "node scripts/servir.mjs",
     "iconos": "python3 scripts/generar-iconos.py",
     "windows": "node scripts/build.mjs && electron-builder --win --x64 --publish never",
@@ -25,8 +27,11 @@
     "@capacitor/clipboard": "^8.0.1",
     "@capacitor/core": "^8.6.0",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "@xmldom/xmldom": "^0.9.12",
+    "docx": "^9.15.3",
     "electron": "^45.2.3",
-    "electron-builder": "^26.18.0"
+    "electron-builder": "^26.18.0",
+    "jszip": "^3.10.2"
   },
   "build": {
     "appId": "es.plantillasclinicas.app",

@@ -159,7 +159,7 @@ export function validar() {
   const enlaces = plantillas.reduce((n, p) => n + (p && Array.isArray(p.enlaces) ? p.enlaces.length : 0), 0);
   resumen.push(`Total: ${total} · con catalán: ${catalan} · pendientes de revisar: ${revisar} · enlaces: ${enlaces}`);
 
-  return { errores, avisos, plantillas, fuentes, rutas, resumen };
+  return { errores, avisos, plantillas, fuentes, rutas, resumen, config };
 }
 
 // Uso directo: node scripts/validar.mjs

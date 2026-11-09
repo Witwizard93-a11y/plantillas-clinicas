@@ -78,6 +78,18 @@ Las plantillas creadas desde la propia app se guardan solo en ese dispositivo. P
 
 `REVISION.md` resume qué se ha incorporado de cada documento, qué se ha corregido y qué observaciones clínicas quedan pendientes.
 
+### Editar con Word
+
+Para revisar o reescribir muchas plantillas a la vez, el contenido se puede pasar a un documento de Word y volver:
+
+```bash
+npm run word                                   # dist/Plantillas-Clinicas-<versión>.docx
+npm run word:importar -- Plantillas.docx       # informe: nuevas, modificadas y eliminadas
+npm run word:importar -- Plantillas.docx --aplicar   # reescribe www/plantillas/*.js
+```
+
+El propio Word explica en su primera página cómo editarlo (cada plantilla es un título y una tabla; para añadir una, se copia otra y se escribe `nueva` en el ID). El importador acepta los cambios hechos con «Control de cambios», convierte las viñetas automáticas de Word en «- » y no escribe nada si encuentra un problema. Después de `--aplicar`, revisa el resultado con `git diff www/plantillas`, sube la versión y compila.
+
 ## Compilar
 
 Requisitos: Node.js 22 o superior. Para Android, además JDK 21 y Android SDK (o Android Studio). El instalador de Windows se compila en Windows (en Linux necesita Wine).
@@ -112,7 +124,7 @@ www/                 la app (HTML, CSS, JS): la misma para todas las plataformas
   js/app.js          la lógica
 android/             proyecto Android (Capacitor 8)
 electron/            envoltorio de escritorio para Windows (Electron)
-scripts/             compilación web, validación del contenido, iconos y servidor local
+scripts/             compilación web, validación del contenido, Word de plantillas, iconos y servidor local
 assets/, build/      iconos de Android y Windows
 firma-android/       clave de firma del APK (no subir a internet)
 .github/workflows/   compilación automática
