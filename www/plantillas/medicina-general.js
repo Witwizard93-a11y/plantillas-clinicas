@@ -403,13 +403,18 @@ Dexametasona 1 mg:
     ambito: ["familia", "urgencias"],
     grupo: "Infecciones",
     titulo: "Infección urinaria (ITU)",
-    etiquetas: "cistitis fosfomicina monurol cefuroxima ciprofloxacino pielonefritis PNA",
-    revisar: "Fosfomicina: la pauta habitual es una dosis única de 3 g; cuando se dan dos, se separan 48-72 h, no 24 h. PNA sin ingreso: la cefuroxima-axetilo se pauta cada 12 h, 7-10 días. Varones: 21 días de ciprofloxacino solo si se sospecha prostatitis (2-4 semanas); sin afectación prostática suelen bastar 7 días. Fuentes: INFAC 2025 (Osakidetza) y Guía Terapéutica Antimicrobiana del SNS.",
+    etiquetas: "cistitis fosfomicina monurol nitrofurantoina cefuroxima ciprofloxacino pielonefritis PNA prostatitis",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): fosfomicina en dosis única (en el hombre, segunda dosis a las 48 h; antes 2 sobres separados 24 h); nitrofurantoína si intolerancia; se retira la cefuroxima en la cistitis (la guía no recomienda betalactámicos en la cistitis aguda); PNA sin ingreso: cefuroxima-axetilo cada 12 h durante 7-10 días (antes cada 8 h, 14 días); ciprofloxacino solo en la prostatitis aguda, 14 días (antes 21 días en todo varón).",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Infección urinaria", url: "https://guiaterapeutica.net/problemas/408/infeccion-urinaria" }
+    ],
     texto: `
-- Monurol (fosfomicina) sobres 3 g, 2 sobres: 1 sobre cada 24 h.
-- Cefuroxima 500 mg cada 12 horas durante 7 días (10 días si varón, ITU recidivante, enfermedad de base grave, diabetes, insuficiencia renal o alteraciones urológicas).
-- Si varón: ciprofloxacino 500 mg cada 12 h durante 21 días (mejor penetración prostática).
-- PNA sin ingreso: cefuroxima 500 mg cada 8 h durante 14 días.
+- Cistitis aguda en la mujer: Monurol (fosfomicina trometamol) sobre 3 g, dosis única.
+- Si intolerancia a la fosfomicina: nitrofurantoína 100 mg cada 12 h durante 5 días.
+- Cistitis aguda en el hombre: Monurol (fosfomicina trometamol) sobre 3 g, dosis única, y una segunda dosis a las 48 h.
+- PNA sin ingreso: cefuroxima-axetilo 500 mg cada 12 h durante 7-10 días (alargar a 10 días según evolución; en la pielonefritis subclínica, 14 días con urocultivo antes y después). Adaptar al urocultivo y antibiograma.
+- PNA con contraindicación de cefalosporinas: ciprofloxacino 500 mg cada 12 h durante 10-14 días.
+- Prostatitis aguda: ciprofloxacino 500 mg cada 12 h durante 14 días (alargar hasta 28 días según evolución). Adaptar al urocultivo y antibiograma.
 `
   },
 
@@ -420,11 +425,16 @@ Dexametasona 1 mg:
     ambito: ["familia", "urgencias"],
     grupo: "Infecciones",
     titulo: "Amigdalitis",
-    etiquetas: "faringoamigdalitis estreptococo augmentine clindamicina",
-    revisar: "En la faringoamigdalitis estreptocócica, el tratamiento de elección es la penicilina V 500 mg cada 12 h durante 10 días (alternativa: amoxicilina 500 mg cada 12 h). La amoxicilina-clavulánico se reserva para las recurrencias (Guía Terapéutica Antimicrobiana del SNS).",
+    etiquetas: "faringoamigdalitis estreptococo penicilina fenoximetilpenicilina azitromicina clindamicina augmentine",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): analgesia con paracetamol o ibuprofeno; antibiótico solo si Centor ≥ 2 y prueba antigénica rápida positiva: fenoximetilpenicilina 500 mg cada 12 h durante 7-10 días (antes amoxicilina/clavulánico de entrada, que la guía deja para la faringitis estreptocócica de repetición); alergia: azitromicina 5 días o clindamicina 150-300 mg cada 8 h (antes 300 mg). La guía no da dosis de amoxicilina/clavulánico: se conserva la de la plantilla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Faringoamigdalitis aguda", url: "https://guiaterapeutica.net/problemas/13/faringoamigdalitis-aguda" }
+    ],
     texto: `
-- Amoxicilina/clavulánico 875/125 mg cada 8 h durante 10 días (Augmentine).
-- Si alergia: clindamicina (Dalacin) 300 mg cada 8 h durante 10 días.
+- Paracetamol 0,5-1 g cada 4-6 h vo (máx. 4 g/día; en ancianos o IR grave, máx. 3 g/día; en IH, máx. 2 g/día), o ibuprofeno 400-1.200 mg/día en 1-3 dosis vo.
+- Si criterios de Centor ≥ 2 y prueba antigénica rápida positiva: fenoximetilpenicilina (penicilina V) 500 mg cada 12 h durante 7-10 días vo, con el estómago vacío.
+- Si alergia a la penicilina: azitromicina 500 mg cada 24 h durante 5 días vo, o clindamicina (Dalacin) 150-300 mg cada 8 h durante 10 días vo.
+- Faringitis estreptocócica de repetición: repetir la misma pauta o amoxicilina/clavulánico 875/125 mg cada 8 h durante 10 días (Augmentine).
 `
   },
 
@@ -435,11 +445,17 @@ Dexametasona 1 mg:
     ambito: ["familia", "urgencias"],
     grupo: "Infecciones",
     titulo: "Laringitis / accesos de tos / tos perruna",
-    etiquetas: "azitromicina codeisan codeina tos",
-    revisar: "La laringitis aguda suele ser vírica y no precisa antibiótico; la azitromicina solo tendría sentido si se sospecha tos ferina.",
+    etiquetas: "laringitis tos dextrometorfano codeina codeisan azitromicina",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): la laringitis aguda se trata con medidas no farmacológicas; síntomas: AINE (ibuprofeno) y dextrometorfano 15-30 mg cada 6-8 h; codeína 15-30 mg cada 6-8 h solo si no mejora (antes Codeisan 28,7 mg cada 6 h de entrada); antibiótico solo si se sospecha infección bacteriana. Pendiente de decidir: la guía no dice qué antibiótico (se conserva la azitromicina de la plantilla) ni recoge la ebastina en este problema.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Laringitis aguda", url: "https://guiaterapeutica.net/problemas/17/laringitis-aguda-laringitis-cronica-crup" },
+      { titulo: "Guía Terapéutica semFYC · Tos aguda", url: "https://guiaterapeutica.net/problemas/133/tos-aguda" }
+    ],
     texto: `
-- Azitromicina 500 mg cada 24 h durante 3 días.
-- Codeisan 28,7 mg cada 6 h durante 4 días.
+- Reposo de la voz, ambiente caliente y húmedo (inhalaciones de vapor), hidratación, gárgaras con antisépticos o productos naturales (miel/limón) y evitar irritantes. No fumar.
+- Tratamiento sintomático: AINE (ibuprofeno) y, si la tos afecta la calidad de vida, dextrometorfano 15-30 mg cada 6-8 h vo.
+- Si la tos no mejora: codeína 15-30 mg cada 6-8 h vo durante 4 días.
+- Solo si se sospecha infección bacteriana: azitromicina 500 mg cada 24 h durante 3 días.
 - Valorar Ebastel Forte 20 mg cada 24 h.
 `
   },
@@ -450,12 +466,17 @@ Dexametasona 1 mg:
     tipo: "tratamiento",
     ambito: ["familia", "urgencias"],
     grupo: "Infecciones",
-    titulo: "Herpes zóster: pauta con linimento",
-    etiquetas: "zoster valaciclovir linimento oleocalcareo",
+    titulo: "Herpes zóster: pauta con paracetamol y AINE",
+    etiquetas: "zoster valaciclovir linimento solucion secante paracetamol codeina voltaren",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): se indica cuándo dar valaciclovir (dosis sin cambios); se retira el linimento oleocalcáreo con gentamicina (según la guía ningún tratamiento tópico ha demostrado ser eficaz: solución secante si lesiones exudativas y ácido fusídico o mupirocina si sobreinfección), por lo que el título ya no lo menciona; si la analgesia no basta, paracetamol-codeína. La guía recomienda empezar con paracetamol o un AINE sin dar dosis: se conservan las de la plantilla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Herpes zóster", url: "https://guiaterapeutica.net/problemas/204/herpes-zoster" }
+    ],
     texto: `
-- Valaciclovir 1 g cada 8 h durante 7 días.
-- Linimento oleocalcáreo + óxido de zinc al 10 % + gentamicina al 0,1 %.
+- Valaciclovir 1 g cada 8 h durante 7 días (si < 72 h de evolución del exantema en > 50 años, diabéticos, inmunodeprimidos, herpes oftálmico u ótico, dolor grave o eccemas severos).
+- Lesiones exudativas: solución secante. Si sobreinfección: ácido fusídico o mupirocina pomada, 1 aplicación cada 8 h.
 - Paracetamol 1 g cada 8 h, alternado con Voltaren 50 mg cada 8 h.
+- Si no es suficiente, sustituir el paracetamol por paracetamol-codeína 500-30 mg cada 6 h vo (máx. 4.000-240 mg/día).
 `
   },
 
@@ -467,9 +488,12 @@ Dexametasona 1 mg:
     grupo: "Infecciones",
     titulo: "Herpes zóster: pauta con tramadol",
     etiquetas: "zoster valaciclovir tramadol avental",
-    revisar: "Valaciclovir en el herpes zóster: 1 g cada 8 h durante 7 días. La pauta de 1 g cada 24 h corresponde a la supresión del herpes genital.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): valaciclovir 1 g cada 8 h durante 7 días (antes cada 24 h) y cuándo indicarlo. Pendiente de decidir: la guía propone como analgésico paracetamol-codeína 500-30 mg cada 6 h (metamizol 1-2 g cada 8 h si dolor intenso no controlado) y sitúa el tramadol como tercer escalón de la neuralgia postherpética; se conservan el paracetamol, el tramadol y el Avental, para los que la guía no da otra pauta en la fase aguda.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Herpes zóster", url: "https://guiaterapeutica.net/problemas/204/herpes-zoster" }
+    ],
     texto: `
-- Valaciclovir 1000 mg cada 24 h durante 7 días.
+- Valaciclovir 1 g cada 8 h durante 7 días (si < 72 h de evolución del exantema en > 50 años, diabéticos, inmunodeprimidos, herpes oftálmico u ótico, dolor grave o eccemas severos).
 - Paracetamol 1 g cada 8 horas.
 - Tramadol 50 mg cada 24 h durante 2 días, cada 12 h durante 2 días y después cada 8 h.
 - Avental talco líquido, 1 aplicación al día.
@@ -483,10 +507,16 @@ Dexametasona 1 mg:
     ambito: ["familia", "urgencias"],
     grupo: "Infecciones",
     titulo: "Sarna (escabiosis)",
-    etiquetas: "escabiosis permetrina sarcop",
-    revisar: "Intervalo: la pauta habitual es repetir la aplicación a los 7 días (así figura en la plantilla de pediatría). El documento decía 48 h y anotaba «yo diría que se repite a los 7 y a los 14 días».",
+    etiquetas: "escabiosis permetrina sarcop dexclorfeniramina hidroxizina",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): la permetrina se retira con una ducha a las 8-12 h y la segunda aplicación se hace al cabo de 1 semana (antes a las 48 h); se añaden el antihistamínico para el prurito, el tratamiento simultáneo de convivientes y contactos y el lavado de la ropa.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Sarna o escabiosis", url: "https://guiaterapeutica.net/problemas/227/sarna-o-escabiosis" }
+    ],
     texto: `
-Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies, y repetir a las 48 h.
+Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a la punta de los pies, incluidas las plantas (excepto cara y mucosas). Ducharse a las 8-12 h para retirarla y repetir la aplicación al cabo de 1 semana.
+- Si prurito: dexclorfeniramina 2-6 mg cada 8-12 h vo, o hidroxizina 25 mg cada 6-8 h vo (máx. 100 mg/día).
+- Tratar a la vez (en 24 h) a convivientes y contactos íntimos, aunque no tengan síntomas.
+- Lavar a más de 60 °C (mínimo 10 min) la ropa de cama, el pijama y la ropa usada en las 48 h previas; la que no se pueda lavar, en una bolsa cerrada durante 15 días.
 `
   },
 
@@ -500,14 +530,16 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     grupo: "Digestivo",
     titulo: "Diarrea aguda / abdominalgia",
     etiquetas: "gastroenteritis GEA citorsal SRO motilium",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): Motilium (domperidona) solo si náuseas o vómitos, máx. 30 mg/día; alternativa: metoclopramida 10 mg cada 8 h. La guía no da dosis de paracetamol ni de las sales de rehidratación: se conservan.",
     enlaces: [
-      { titulo: "Diarrea aguda en el adulto (CAMFiC)", url: "https://gestor.camfic.cat/Uploads/ITEM_439_EBLOG_1725.pdf" }
+      { titulo: "Diarrea aguda en el adulto (CAMFiC)", url: "https://gestor.camfic.cat/Uploads/ITEM_439_EBLOG_1725.pdf" },
+      { titulo: "Guía Terapéutica semFYC · Diarrea aguda. Gastroenteritis aguda", url: "https://guiaterapeutica.net/problemas/246/diarrea-aguda-gastroenteritis-aguda" }
     ],
     texto: `
 - Iniciar dieta astringente según demanda.
 - Citorsal sobres: diluir en 500 ml de agua, cada 8 horas.
 - Paracetamol 1 g cada 8 h si dolor.
-- Motilium 10 mg cada 8 h.
+- Si náuseas o vómitos: Motilium (domperidona) 10 mg cada 8 h (máx. 30 mg/día) o metoclopramida 10 mg cada 8 h vo.
 `
   },
 
@@ -518,13 +550,16 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     ambito: ["familia", "urgencias"],
     grupo: "Digestivo",
     titulo: "Gastritis / epigastralgia",
-    etiquetas: "dispepsia omeprazol almax primperan",
+    etiquetas: "dispepsia epigastralgia omeprazol almax almagato primperan",
     nota: "Solicitar amilasa en orina (normal hasta 1000, en relación con la amilasa plasmática) y Rx de abdomen para ver que no haya dilatación del estómago.",
-    revisar: "Para descartar pancreatitis se recomienda hoy la lipasa sérica, más sensible y específica que la amilasa (en orina o en plasma).",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): omeprazol 20-40 mg/día, máximo 4 semanas; almagato 1-1,5 g entre 1 y 2 h después de cada comida y al acostarse, o a demanda (antes 1 g cada 8 h); medidas de la guía. La guía no recoge Primperan ni paracetamol en este problema: se conservan. Sigue pendiente (no lo trata la guía): para descartar pancreatitis se recomienda hoy la lipasa sérica, más sensible y específica que la amilasa (en orina o en plasma).",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Epigastralgia. Ulcus gastroduodenal", url: "https://guiaterapeutica.net/problemas/254/epigastralgia-ulcus-gastroduodenal" }
+    ],
     texto: `
-- Dieta blanda según tolerancia.
-- Omeprazol 20 mg cada 24 h.
-- Almax 500 mg, 2 comprimidos cada 8 h (1 h después de las comidas principales).
+- Dieta blanda según tolerancia. Evitar café, alcohol, tabaco, los alimentos que le causen molestias y los AINE (salvo por indicación médica).
+- Omeprazol 20-40 mg cada 24 h, máximo 4 semanas.
+- Almax (almagato) 1-1,5 g (2-3 comprimidos de 500 mg) entre 1 y 2 h después de cada comida y al acostarse, o a demanda.
 - Asociar Primperan 10 mg cada 24 h si náuseas (máximo cada 8 h).
 - Paracetamol 1 g cada 8 h si dolor.
 `
@@ -537,13 +572,15 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     ambito: ["familia", "urgencias"],
     grupo: "Digestivo",
     titulo: "Estreñimiento",
-    etiquetas: "plantaben fibra",
+    etiquetas: "plantaben plantago fibra",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, estreñimiento crónico funcional): primero medidas higienicodietéticas; si no hay mejoría, Plantago ovata 3,5-7 g (1-2 sobres) en ayunas por la mañana con 1-2 vasos de agua, con una dosis adicional opcional de 3,5 g por la noche (antes 1 sobre cada 12 h). Si es un estreñimiento agudo, la guía recomienda de elección supositorios de glicerina (otra entrada).",
     enlaces: [
-      { titulo: "Estreñimiento crónico (CAMFiC)", url: "https://gestor.camfic.cat/Uploads/ITEM_441_EBLOG_1727.pdf" }
+      { titulo: "Estreñimiento crónico (CAMFiC)", url: "https://gestor.camfic.cat/Uploads/ITEM_441_EBLOG_1727.pdf" },
+      { titulo: "Guía Terapéutica semFYC · Estreñimiento crónico funcional", url: "https://guiaterapeutica.net/problemas/258/estrenimiento-cronico-funcional" }
     ],
     texto: `
-- Plantaben sobres, 1 cada 12 horas.
-- Dieta rica en fibra.
+- Dieta rica en fibra (salvado de trigo, frutas como ciruelas o kiwis, legumbres y verduras), más líquidos y actividad física, y hábito deposicional regular.
+- Si no hay mejoría: Plantaben (Plantago ovata) 1-2 sobres (3,5-7 g) en ayunas por la mañana con 1-2 vasos de agua; puede tomarse una dosis adicional de 3,5 g por la noche.
 `
   },
 
@@ -558,12 +595,15 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     titulo: "Vértigo",
     etiquetas: "mareo biodramina dimenhidrinato serc betahistina",
     nota: "Valorar Serc 8 mg cada 8 h durante 14 días. Primperan 10 mg cada 24 h si precisa (máximo cada 8 h). Nunca Dogmatil (sulpirida) si Parkinson.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, vértigo periférico): dimenhidrinato 50 mg cada 4-6 h el menor tiempo posible (48-72 h), en lugar de la pauta descendente de 6 días; maniobra de Epley en el VPPB y rehabilitación vestibular. Pendiente de decidir: la guía cita como antiemético la metoclopramida 10 mg cada 8 h y no la domperidona (se conserva); la nota sugiere betahistina, a la que la guía atribuye una eficacia escasa y a veces contradictoria, y la guía no recomienda la sulpirida.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Vértigo periférico", url: "https://guiaterapeutica.net/problemas/59/vertigo-periferico" }
+    ],
     texto: `
-- Biodramina (dimenhidrinato) 50 mg:
-  1-1-1 durante 2 días,
-  1-0-1 durante 2 días,
-  0-0-1 durante 2 días, y suspender.
+- Biodramina (dimenhidrinato) 50 mg cada 4-6 h vo o vía rectal, el menor tiempo posible (48-72 h).
 - Motilium 10 mg cada 8 h si náuseas o vómitos.
+- Si VPPB: maniobra de recolocación de Epley.
+- Reposo en cama durante la crisis y, en cuanto se pueda, ejercicios de rehabilitación vestibular.
 `
   },
 
@@ -574,10 +614,14 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     ambito: ["familia", "urgencias"],
     grupo: "Neurología",
     titulo: "Cefalea",
-    etiquetas: "naproxeno diazepam tensional",
+    etiquetas: "tensional acido acetilsalicilico paracetamol ibuprofeno diazepam",
     nota: "Signos de alarma: aparición súbita (sobre todo con el ejercicio); curso progresivo, con aumento de intensidad o frecuencia; cambio en las características de una cefalea habitual; signos de HTIC (alteración visual, empeora en decúbito, por la mañana o con Valsalva, náuseas); focalidad neurológica, alteración de la conducta o del nivel de consciencia; fiebre, meningismo o papiledema; inicio después de los 40 años sin cefalea previa; mala respuesta al tratamiento analgésico.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, cefalea tensional): analgésico de elección AAS 500 mg cada 6 h, paracetamol o ibuprofeno (antes naproxeno 500 mg cada 12 h durante 7 días). Pendiente de decidir: la guía no recoge el diazepam y desaconseja los relajantes musculares (no son eficaces y producen habituación); tampoco recoge el omeprazol. Se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Cefalea tensional", url: "https://guiaterapeutica.net/problemas/45/cefalea-tensional" }
+    ],
     texto: `
-1. Naproxeno 500 mg cada 12 h durante 7 días.
+1. Ácido acetilsalicílico 500 mg cada 6 h vo, o paracetamol 0,5-1 g cada 4-6 h vo (máx. 4 g/día; en ancianos o IR grave, máx. 3 g/día; en IH, máx. 2 g/día), o ibuprofeno 400-1.200 mg/día en 1-3 dosis vo.
 2. Omeprazol 20 mg cada 24 h durante 7 días.
 3. Diazepam 2,5 mg cada 8 h durante 2 días, luego cada 12 h durante 2 días más y finalmente cada 24 h al acostarse durante 2 días, y suspender.
 4. Reposo y evitar ruidos y luz excesiva mientras dure la cefalea.
@@ -591,14 +635,18 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     ambito: ["familia", "urgencias"],
     grupo: "Neurología",
     titulo: "Parálisis facial periférica",
-    etiquetas: "bell facial hidroxil",
+    etiquetas: "bell facial prednisona corticoide ramsay hunt valaciclovir hidroxil",
     nota: "Valorar aciclovir si VHS.",
-    revisar: "El tratamiento de elección de la parálisis facial periférica idiopática son los corticoides orales iniciados en las primeras 72 h (por ejemplo, prednisona 50-60 mg/día durante 5-10 días). El ibuprofeno y las vitaminas del grupo B no han demostrado beneficio; el antiviral solo se valora asociado al corticoide en los casos graves.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): tratamiento de elección prednisona 1 mg/kg/día durante 10 días, lo antes posible y con descenso gradual (sustituye al ibuprofeno 600 mg cada 8 h); Ramsay-Hunt: prednisona + valaciclovir 1 g cada 8 h durante 7 días; protección ocular según la guía. Pendiente de decidir: la guía no recoge el omeprazol ni el Hidroxil (se conservan).",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Parálisis facial", url: "https://guiaterapeutica.net/problemas/54/paralisis-facial" }
+    ],
     texto: `
-- Ibuprofeno 600 mg cada 8 h durante 10 días (1-1-1).
+- Prednisona 1 mg/kg/día vo durante 10 días, iniciada lo antes posible; el descenso de la dosis ha de ser gradual (un tercio de la dosis cada 2 días).
+- Si síndrome de Ramsay-Hunt: prednisona 1 mg/kg/día vo + valaciclovir 1 g cada 8 h durante 7 días vo.
 - Omeprazol 20 mg cada 24 h durante 10 días (1-0-0).
 - Hidroxil (vitaminas B1-B6-B12) cápsulas cada 8 h (1-1-1).
-- Medidas higiénicas: tapar los ojos durante la noche, lágrimas artificiales cada 6 h, gafas oscuras, etc.
+- Protección ocular: lágrimas artificiales por el día (cada 6 h), pomada lubricante por la noche, gafas de sol y cierre palpebral por la noche con gasas.
 `
   },
 
@@ -611,11 +659,17 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     ambito: ["familia", "urgencias"],
     grupo: "Alergia",
     titulo: "Urticaria / reacción alérgica",
-    etiquetas: "ebastel ebastina polaramine dexclorfeniramina corticoide",
+    etiquetas: "cetirizina polaramine dexclorfeniramina metilprednisolona prednisona corticoide angioedema",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, urticaria aguda): antihistamínico de elección cetirizina 10 mg/día (antes ebastina 20 mg), mantenido 5-7 días (antes 14); casos graves: metilprednisolona 40-60 mg im o iv + dexclorfeniramina 5 mg im; urticaria grave con angioedema: antihistamínico 10-15 días + prednisona 0,5 mg/kg/día menos de 10 días con retirada progresiva (sustituye a las pautas de Urbason 12 días o Dacortin 9 días: la guía no recomienda corticoides más de 10 días). La guía no da la dosis oral de dexclorfeniramina en adultos: se conserva la de la plantilla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Urticaria aguda", url: "https://guiaterapeutica.net/problemas/235/urticaria-aguda" }
+    ],
     texto: `
-- Ebastel Forte 20 mg (ebastina) cada 24 h durante 14 días (1-0-0), o
-- Polaramine (dexclorfeniramina) 2 mg cada 8 h (1-1-1) durante 14 días, o
-- Valorar pauta descendente de corticoides (Urbason 12 días o Dacortin 9 días).
+- Cetirizina 10 mg cada 24 h (1-0-0) durante 5-7 días, aunque esté asintomático (si no cede, aumentar hasta 4 veces la dosis estándar), o
+- Polaramine (dexclorfeniramina) 2 mg cada 8 h (1-1-1) durante 5-7 días, si se precisa un mayor efecto sedante.
+- Casos graves (gran afectación cutánea, síntomas sistémicos o angioedema): metilprednisolona 40-60 mg im o iv (1 mg/kg) + dexclorfeniramina 5 mg im.
+- Urticaria grave con angioedema: mantener el antihistamínico 10-15 días y añadir prednisona 0,5 mg/kg/día vo menos de 10 días, con retirada progresiva; reevaluar a las 2 semanas.
+- Si compromiso de la vía aérea o cardiovascular: tratar como anafilaxia.
 `
   },
 
@@ -626,15 +680,23 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a los pies
     ambito: ["urgencias"],
     grupo: "Alergia",
     titulo: "Anafilaxia",
-    etiquetas: "adrenalina shock anafilactico glucagon",
+    etiquetas: "adrenalina shock anafilactico glucagon metilprednisolona dexclorfeniramina salbutamol",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): adrenalina 1/1.000 0,3-0,5 ml im en el muslo o sc, repetible cada 5-10 min (antes 0,5 mg cada 5-15 min), con metilprednisolona y dexclorfeniramina; broncoespasmo: salbutamol nebulizado; refractaria: dilución y perfusión de adrenalina de la guía (antes 1 mg en 100 ml a 0,5-1 ml/kg/h); glucagón 1-5 mg iv (antes 1-2 mg); observación 6-8 h y corticoide y antihistamínico vo al alta; en lugar del autoinyector de 0,15/0,3 mg, la medicación que la guía recomienda llevar encima. La guía no recoge la atropina ni las aminas: se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Anafilaxia", url: "https://guiaterapeutica.net/problemas/409/anafilaxia" }
+    ],
     texto: `
-- Adrenalina 0,5 mg IM (repetir a los 5-15 min) ± salbutamol ± corticoides.
+- Adrenalina 1/1.000: 0,3-0,5 ml IM en el muslo, preferentemente, o SC; se puede repetir cada 5-10 min.
+- Metilprednisolona 40-60 mg IM o IV (1 mg/kg) + dexclorfeniramina 5 mg IM.
+- Dificultad respiratoria: vía aérea permeable y oxígeno a 6-8 l/min. Broncoespasmo grave: salbutamol nebulizado al 0,5 %, 0,5-1 ml con 2-3 ml de suero (si no se puede nebulizar, media o 1 ampolla SC).
+- Hipotensión: elevar las EEII, vía de calibre grueso y suero salino isotónico IV lo antes posible.
 Si refractaria:
-- BIC de adrenalina: diluir 1 mg en 100 ml de SSF (= 0,01 mg/ml). Dosis: 0,5-1 ml/kg/h.
-- Glucagón si betabloqueantes: 1-2 mg IV/IM en bolo en 5 min.
+- PAS < 60 mmHg o deterioro: diluir 0,5-1 mg de adrenalina 1/1.000 en suero salino hasta 10 ml e infundir lentamente hasta un máximo de 5 ml. Si no responde tras repetir dosis cada 5-10 min: perfusión IV de 1 mg de adrenalina 1/1.000 en 250 ml de suero salino a 15-60 microgotas/min.
+- Glucagón si betabloqueantes: 1-5 mg IV en bolo administrado en 5 min, junto a la expansión de volumen.
 - Atropina si bradicardia: 0,5-1 mg en bolo (hasta 3 mg).
 - Aminas y UCI.
-Al alta, considerar autoinyector de adrenalina: 0,15/0,3 mg según peso.
+Tras estabilizar: observación 6-8 h y, al alta, corticoides y antihistamínicos vo un mínimo de 3-4 días y hasta 10 días.
+Si reacciones anafilácticas graves repetidas: llevar consigo adrenalina 1/1.000 (0,3-0,5 ml IM), loratadina 1-2 comprimidos y prednisona 50 mg vo, para tomar en una sola toma y acudir a un centro hospitalario.
 `
   },
 
@@ -647,14 +709,16 @@ Al alta, considerar autoinyector de adrenalina: 0,15/0,3 mg según peso.
     ambito: ["familia", "urgencias"],
     grupo: "Aparato locomotor",
     titulo: "Dolor torácico mecánico / atípico",
-    etiquetas: "enantyum dexketoprofeno relajante yurelax robaxin",
+    etiquetas: "osteomuscular paracetamol diclofenaco naproxeno ibuprofeno diazepam enantyum relajante",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, dolor osteomuscular agudo; la guía no tiene una entrada de dolor torácico mecánico): elección paracetamol o diclofenaco tópico; si no mejora, naproxeno o ibuprofeno (antes Enantyum: según la guía no consta que el dexketoprofeno sangre menos que el ibuprofeno); los relajantes musculares (ciclobenzaprina, metocarbamol) se sustituyen por diazepam 5-10 mg cada 12-24 h, fármaco de referencia de la guía si contractura, dificultad para dormir o ansiedad. La guía no recoge el omeprazol: se conserva.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Dolor osteomuscular agudo", url: "https://guiaterapeutica.net/problemas/448/dolor-osteomuscular-agudo" }
+    ],
     texto: `
-- Enantyum sobres 25 mg, 1-1-1 durante 5 días.
+- Paracetamol 0,5-1 g cada 4-6 h vo (máx. 4 g/día; en ancianos o IR grave, máx. 3 g/día; en IH, máx. 2 g/día), o diclofenaco tópico, 1 aplicación cada 6-8 h.
+- Si no mejora: naproxeno 500 mg cada 12-24 h vo, o ibuprofeno 400-1.200 mg/día en 1-3 tomas vo.
 - Omeprazol 20 mg, 1-0-0 durante 5 días.
-- Asociar relajante muscular hasta resolución clínica:
-  - Yurelax 10 mg (ciclobenzaprina): cada 12 h.
-  - Robaxin 500 mg (metocarbamol): cada 6-8 h.
-  - Robaxisal 380/300 mg (metocarbamol + paracetamol): 2 comprimidos cada 6 h.
+- Si contractura muscular, dificultad para dormir o ansiedad asociada: añadir diazepam 5-10 mg cada 12-24 h vo.
 `
   },
 
