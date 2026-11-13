@@ -1276,10 +1276,19 @@ La morfina no es un sedante sino un analgésico: para la sedación deben usarse 
     grupo: "Dolor y paliativos",
     titulo: "Analgesia opioide oral y transdérmica (consulta)",
     etiquetas: "oramorph MST morfina tramadol versatis lidocaina",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): la dosis de morfina oral pasa a mg, como en la guía (antes Oramorph 2-4 gotas como máximo cada 4 h; la guía no da la equivalencia en gotas). Disnea o tos intensa sin dolor: inicialmente 2,5-5 mg cada 4 h (máx. 15-20 mg cada 4 h). Dolor: inicialmente 5-10 mg cada 4 h (ancianos, 2,5-5 mg). Formas retard solo con el dolor controlado más de 3 días; rescates de una sexta parte de la dosis diaria. Tramadol 50 mg/día, máx. 400 mg/día; ancianos o IR crónica, 25 mg/día, máx. 300 mg/día (antes 50-100 mg y después 50 o 100 mg cada 6-8 h). A decidir: la guía solo da la conversión a la vía subcutánea (la mitad de la dosis oral), no la de la IV; se conserva «dosis x 2». Tampoco recoge el parche de lidocaína (Versatis); se conserva.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Dolor crónico nociceptivo y neuropático", url: "https://guiaterapeutica.net/problemas/1/dolor-cronico-nociceptivo-y-neuropatico" },
+      { titulo: "Guía Terapéutica semFYC · Paciente al final de la vida", url: "https://guiaterapeutica.net/problemas/415/paciente-al-final-de-la-vida" }
+    ],
     texto: `
-- Oramorph 20 mg/ml: 2-4 gotas, como máximo cada 4 h, si disnea o dolor mal controlado.
-- MST Continus 5/10/30/60 mg cada 12 h (si venimos de morfina IV, al pasar a vía oral: dosis x 2).
-- Tramadol VIR 100 mg/ml: dosis inicial habitual de 50-100 mg (20-40 gotas), seguida de 50 o 100 mg cada 6-8 h, sin sobrepasar 400 mg/día (160 gotas). Tomar con un vaso de agua.
+- Morfina oral (Oramorph 20 mg/ml):
+  - Disnea o tos intensa (sin dolor): inicialmente 2,5-5 mg cada 4 h vo (máx. 15-20 mg cada 4 h).
+  - Dolor: inicialmente 5-10 mg cada 4 h vo (ancianos: 2,5-5 mg cada 4 h).
+  - Doblar la dosis si tomaba opiáceos menores. No asociar morfina con opiáceos menores.
+- MST Continus 5/10/30/60 mg cada 12 h vo, con la dosis en función del dolor y de las dosis de rescate. Las formas retard se reservan para cuando el dolor está controlado más de 3 días, y no pueden masticarse ni machacarse (peligro de sobredosis por absorción rápida). Si venimos de morfina IV, al pasar a vía oral: dosis x 2 (la dosis subcutánea es la mitad de la oral).
+- Rescates: una sexta parte de la dosis total diaria. Si precisa más de 4 rescates en 24 h, ajustar la dosis base. En Atención Primaria se aconseja no superar los 100 mg/día de morfina.
+- Tramadol VIR 100 mg/ml (50 mg equivalen a 20 gotas o 0,50 ml): 50 mg/día, sin sobrepasar 400 mg/día (160 gotas). En ancianos o IR crónica, 25 mg/día (máx. 300 mg/día). En mayores de 75 años, ajustar la dosis. Tomar con un vaso de agua.
 - Versatis parche.
 `
   },
@@ -1326,9 +1335,16 @@ Ampollas de 20 mg/2 ml (10 mg/ml) y de 250 mg/25 ml (10 mg/ml).
     grupo: "Perfusiones (BIC)",
     titulo: "Morfina (bolo y BIC)",
     etiquetas: "cloruro morfico opioide infarto",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): dolor del SCA que no cede con nitroglicerina sublingual, 2-5 mg en bolo IV lento cada 5-10 min hasta que desaparezca el dolor, máx. 20 mg (antes 4 mg y dosis crecientes de 3 mg hasta 15 mg). La guía propone antes la nitroglicerina IV y reserva la morfina para el dolor muy intenso e intratable. Fallo ventricular izquierdo: 3 mg en bolo IV lento con furosemida 20-40 mg IV (antes 2-3 mg si EAP). Se añaden la meperidina para el dolor con hipotensión o bradicardia y la naloxona. La guía no recoge la BIC; se conserva.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Cardiopatía isquémica. Sospecha de síndrome coronario agudo", url: "https://guiaterapeutica.net/problemas/142/cardiopatia-isquemica-sospecha-de-sindrome-coronario-agudo" }
+    ],
     texto: `
 Morfina 10 mg/ml (1 %): 1 ampolla en 9 ml de SF. IV lenta (4-5 min).
-Dolor asociado a infarto: 4 mg en bolo (2-3 mg si EAP), pudiendo administrar dosis crecientes de 3 mg cada 5-10 min, hasta un máximo de 15 mg.
+Dolor asociado a infarto que no cede con nitroglicerina sublingual: 2-5 mg en bolo IV lento cada 5-10 min hasta que desaparezca el dolor (máx. 20 mg). Antes, nitroglicerina IV: reservar la morfina para el dolor muy intenso e intratable, porque aumenta la mortalidad al interferir en la acción de los antiagregantes.
+Fallo ventricular izquierdo (EAP): 3 mg en bolo IV lento, con furosemida 20-40 mg IV.
+Dolor persistente con hipotensión (PAS < 90 mmHg) y/o bradicardia: meperidina 25 mg cada 5-10 min en bolo IV lento hasta que ceda el dolor (máx. 100 mg).
+Sobredosis de morfina: naloxona 1 ampolla de 0,4 mg IV lenta (sin diluir).
 BIC: jeringa con 2 ampollas al 1 % (2 ml) + 18 ml de SG 5 %. Concentración final: 1 mg/ml.
 `
   },
@@ -1357,8 +1373,18 @@ Ojo con la función renal.
     grupo: "Perfusiones (BIC)",
     titulo: "Flumazenilo",
     etiquetas: "anexate benzodiacepinas intoxicacion",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): intoxicación por benzodiacepinas, 0,2 mg IV en 1-2 min; esperar 5-10 min y, si no responde, 0,3 y 0,5 mg IV cada 1-2 min hasta el efecto deseado (antes 0,3-1 mg, repetible hasta 2 mg). Se retira su uso en la inconsciencia de origen desconocido: la guía no lo recomienda en la intoxicación por agente desconocido ni como parte del «cóctel de coma». Se añaden las situaciones en que no debe darse y la dosis pediátrica. A decidir: la pauta de UCI (0,3-1 mg, máx. 2 mg) y la perfusión de 0,1-0,4 mg/h no figuran en la guía; se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Intoxicación aguda por medicamento conocido", url: "https://guiaterapeutica.net/problemas/427/intoxicacion-aguda-por-medicamento-conocido" },
+      { titulo: "Guía Terapéutica semFYC · Intoxicación aguda por agente desconocido y con alteración de la consciencia", url: "https://guiaterapeutica.net/problemas/311/intoxicacion-aguda-por-agente-desconocido-y-con-alteracion-de-la-consciencia" }
+    ],
     texto: `
-En las unidades de cuidados intensivos y en el diagnóstico de la inconsciencia de origen desconocido: dosis inicial de 0,3-1 mg. Si pasados 60 segundos no se ha obtenido el grado de conciencia deseado, puede repetirse la dosis hasta que el paciente se despierte, sin sobrepasar una dosis total de 2 mg. Si reaparece la somnolencia, puede administrarse en bolo IV o en infusión IV de 0,1-0,4 mg/h. La velocidad de infusión debe ajustarse individualmente según el grado de conciencia deseado.
+- Intoxicación por benzodiacepinas: dosis inicial de 0,2 mg IV (en 1-2 min). Esperar 5-10 min. Si no hay respuesta, las dosis siguientes serán de 0,3 y 0,5 mg IV, cada 1-2 min hasta lograr el efecto deseado.
+- Si toma benzodiacepinas de forma crónica o tiene antecedentes de trastorno convulsivo, evitarlo, por la posibilidad de precipitar un síndrome de abstinencia. Algunos expertos aconsejan una dosis inicial de 0,1 mg IV y seguir con 0,2, 0,3 y 0,5 mg IV a intervalos de 10-15 min.
+- No se recomienda en la intoxicación por agente desconocido. No administrarlo de forma rutinaria como parte del «cóctel de coma» en la obnubilación indiferenciada, ni si hay una convulsión presenciada o sospechada, si se sospecha la ingesta conjunta de proconvulsivos (p. ej., antidepresivos tricíclicos o bupropión), si toma una benzodiacepina por un trastorno convulsivo o en la sobredosis iatrogénica por el tratamiento del estado epiléptico.
+- Niños pequeños con sedación profunda tras la ingesta accidental de una benzodiacepina: 0,01 mg/kg IV lenta en 1-2 min (máx. 0,2 mg). Repetir a intervalos de 1 min (o más), hasta cuatro dosis de 0,005-0,01 mg/kg (máx. 0,2 mg por dosis) o hasta lograr el efecto deseado. Dosis total máxima: 1 mg o 0,05 mg/kg.
+- En UCI: dosis inicial de 0,3-1 mg. Si pasados 60 segundos no se ha obtenido el grado de conciencia deseado, puede repetirse la dosis hasta que el paciente se despierte, sin sobrepasar una dosis total de 2 mg.
+- Si reaparece la somnolencia, puede administrarse en bolo IV o en infusión IV de 0,1-0,4 mg/h. La velocidad de infusión debe ajustarse individualmente según el grado de conciencia deseado.
 `
   },
 
@@ -1386,9 +1412,16 @@ BIC: 5 ampollas (0,2 mg x 5 = 5 ml) en 250 ml de SG; empezar a 30 ml/h.
     grupo: "Otros",
     titulo: "Anorexia en ancianos",
     etiquetas: "borea megestrol apetito",
-    revisar: "Borea es acetato de megestrol 160 mg: su indicación autorizada es la caquexia-anorexia asociada a neoplasia avanzada, y los criterios de Beers y STOPP desaconsejan su uso en mayores (riesgo trombótico, escaso beneficio). 1 comprimido cada 8 h son 480 mg/día. Revisad la indicación.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): el tratamiento de elección son las medidas no farmacológicas, tratar la causa y retirar los fármacos que causan anorexia. Acetato de megestrol solo si hay cáncer o sida con expectativa de vida corta, pero superior a 1 mes: iniciar con 160 mg/día y aumentar según la respuesta, 320-800 mg/día en 2-3 tomas (antes Borea 1 comprimido cada 8 h, sin indicación). La guía advierte del mayor riesgo de tromboembolismo (criterios de Beers) y de retención de líquidos. Con expectativa inferior a 1 mes, dexametasona 2-4 mg/día. Sustituye a la observación anterior sobre la indicación.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Anorexia (como síntoma)", url: "https://guiaterapeutica.net/problemas/160/anorexia-como-sintoma" },
+      { titulo: "Guía Terapéutica semFYC · Paciente al final de la vida", url: "https://guiaterapeutica.net/problemas/415/paciente-al-final-de-la-vida" }
+    ],
     texto: `
-Borea, 1 comprimido cada 8 h.
+- Comidas frecuentes, en pequeñas cantidades, líquidas o semilíquidas, frías, de alto contenido calórico y proteico. Evitar los malos olores o los olores fuertes. Comer en compañía, con comida bien preparada, variada y condimentada.
+- Tratar la causa y retirar, si es posible, los fármacos que causan anorexia (teofilina, AINE, amiodarona, laxantes, clorpromazina...).
+- Solo si hay cáncer o sida con expectativa de vida corta, pero superior a 1 mes: acetato de megestrol (Borea), iniciar con 160 mg/día y aumentar según la respuesta (320-800 mg/día en 2-3 tomas, vo). Su efecto se aprecia a partir de las 2 semanas. Aumenta el riesgo de tromboembolismo y de retención de líquidos.
+- Si la expectativa de vida es inferior a 1 mes: dexametasona 2-4 mg/día en 1-2 tomas vo. Evitar más de 1 mes y retirarla de forma gradual.
 `
   },
 

@@ -419,9 +419,13 @@ Tras {{Horas de observación}} horas de observación, dada la mejoría clínica 
       grupo: "Evolución en urgencias",
       titulo: "Evolutivo: laringitis moderada-grave (adrenalina)",
       etiquetas: "evolucion westley crup adrenalina nebulizada dexametasona",
-      nota: "Adrenalina nebulizada (1 mg/ml): 0,5 ml/kg, máximo 5 ml (5 mg).",
+      nota: "Crup grave según la Guía Terapéutica semFYC: adrenalina nebulizada 3-5 ml al 1/1.000 (1 amp/1 ml) + 3 ml de suero fisiológico, y dexametasona 0,15-0,6 mg/kg vo en dosis única (máx. 10 mg). Alternativa a la dexametasona: budesonida nebulizada 2 mg en dosis única.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): adrenalina nebulizada 3-5 ml al 1/1.000 + 3 ml de suero fisiológico (antes 0,5 mg/kg, máx. 5 mg). Dexametasona con un máximo de 10 mg: pasa a ser un campo, con 0,6 mg/kg por defecto.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Laringitis aguda. Laringitis crónica. Crup", url: "https://guiaterapeutica.net/problemas/17/laringitis-aguda-laringitis-cronica-crup" }
+      ],
       texto: `
-Score de Westley modificado por Mintegi: {{Puntuación Westley}}. Se administra nebulización de adrenalina 0,5 mg/kg y dexametasona 0,6 mg/kg vía oral.
+Score de Westley modificado por Mintegi: {{Puntuación Westley}}. Se administra nebulización de adrenalina al 1/1.000 {{ml de adrenalina}} ml + 3 ml de suero fisiológico y dexametasona {{Dexametasona (mg/kg)=0,6}} mg/kg vía oral.
 Tras {{Horas de observación}} horas de observación, dada la mejoría clínica y auscultatoria, se decide el alta a domicilio con tratamiento y control por su pediatra.
 `
     },
@@ -525,10 +529,12 @@ Cuestiones importantes:
       grupo: "Respiratorio",
       titulo: "Laringitis",
       etiquetas: "crup tos perruna estridor westley dexametasona",
-      nota: "Escala de Westley en ≤6 años. Dexametasona 0,15-0,6 mg/kg v.o., dosis única (máx. 16 mg).",
+      nota: "Escala de Westley en ≤6 años. Crup, según la Guía Terapéutica semFYC: dexametasona 0,15-0,6 mg/kg v.o., dosis única (máx. 10 mg); 0,15 mg/kg parece igual de eficaz que las dosis superiores. Alternativa: budesonida nebulizada 2 mg en dosis única.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): dosis máxima de dexametasona 10 mg (antes 16 mg) y budesonida nebulizada como alternativa, en la nota. A decidir: para el crup la guía recomienda las medidas de la laringitis aguda, que incluyen el descanso en ambiente caliente y húmedo (inhalaciones de vapor); la plantilla aconseja aire húmedo y fresco. No se ha cambiado.",
       enlaces: [
         { titulo: "Escala de Westley (UpToDate, requiere suscripción)", url: "https://www.uptodate.com/contents/calculator-westley-croup-severity-score-appropriate-for-use-in-children-6-years-of-age" },
-        hoja.laringitis
+        hoja.laringitis,
+        { titulo: "Guía Terapéutica semFYC · Laringitis aguda. Laringitis crónica. Crup", url: "https://guiaterapeutica.net/problemas/17/laringitis-aguda-laringitis-cronica-crup" }
       ],
       texto: `
 - Hidratación abundante.
@@ -577,14 +583,18 @@ Qüestions importants:
       grupo: "Respiratorio",
       titulo: "Neumonía",
       etiquetas: "NAC amoxicilina",
-      nota: "Según el documento: amoxicilina-clavulánico si es menor de 6 meses y amoxicilina si es mayor de 6 meses.",
-      enlaces: [hoja.neumonia],
+      nota: "Según la Guía Terapéutica semFYC: amoxicilina 80-90 mg/kg/día repartidos cada 8 h durante 5-7 días (5 días si la evolución clínica es favorable). Amoxicilina-clavulánico, 80-90 mg de amoxicilina/kg/día en 3 tomas durante 5-7 días, si hay factores de riesgo, como no estar vacunado de H. influenzae. Alergia a la penicilina: azitromicina 10 mg/kg/día durante 3-5 días (máx. 500 mg/día) o claritromicina 15 mg/kg/día en 2 tomas durante 5-7 días. Sospecha de gérmenes atípicos: azitromicina 10 mg/kg/día durante 3-5 días (máx. 500 mg/día). Doxiciclina y quinolonas no deben utilizarse en niños. Reevaluar a las 48 h.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): antibiótico durante 5-7 días, 5 si la evolución es favorable (antes 7 días). Dosis por peso, indicación de amoxicilina-clavulánico y alternativas en la nota. Se añade el reposo. A decidir: el documento daba amoxicilina-clavulánico a los menores de 6 meses; la guía lo indica si hay factores de riesgo, como no estar vacunado de H. influenzae.",
+      enlaces: [
+        hoja.neumonia,
+        { titulo: "Guía Terapéutica semFYC · Neumonía adquirida en la comunidad", url: "https://guiaterapeutica.net/problemas/132/neumonia-adquirida-en-la-comunidad" }
+      ],
       texto: `
-- Hidratación abundante.
+- Hidratación abundante y reposo.
 - Posición semiincorporada, también para dormir.
 - Lavados nasales con suero fisiológico o sonarse mucho la nariz.
 - Si fiebre o dolor, paracetamol (100 mg/ml) {{ml de paracetamol}} ml cada 4-6 horas, vía oral.
-- {{Antibiótico|*Amoxicilina (250 mg/5 ml)|Amoxicilina-clavulánico (250 mg/5 ml)}} {{ml de antibiótico}} ml cada 8 horas durante 7 días, vía oral.
+- {{Antibiótico|*Amoxicilina (250 mg/5 ml)|Amoxicilina-clavulánico (250 mg/5 ml)}} {{ml de antibiótico}} ml cada 8 horas durante {{Días de antibiótico|*5|7}} días, vía oral.
 - Control evolutivo por su pediatra en 24-48 horas.
 - Reacudir si empeoramiento clínico (dificultad respiratoria, persistencia de la fiebre tras dos días de antibiótico, no tolerancia del antibiótico...).
 `
@@ -617,12 +627,15 @@ Qüestions importants:
       grupo: "ORL y boca",
       titulo: "Amigdalitis",
       etiquetas: "faringoamigdalitis estreptococo penilevel penicilina",
-      nota: "Según el documento: 50 mg/kg/día repartidos cada 12 h (25 mg/kg cada 12 h); 1 sobre si <25 kg, 2 sobres si >25 kg; si >45 kg, sobres de 1 g.",
-      revisar: "Corte de peso de la penicilina V: la Guía ABE y la Guía Terapéutica Antimicrobiana del SNS indican 250 mg cada 12 h si <27 kg y 500 mg cada 12 h si ≥27 kg, durante 10 días (el documento pone 25 kg).",
+      nota: "Según la Guía Terapéutica semFYC: antibiótico solo si hay 2 o más criterios de Centor (fiebre > 38 ºC, exudado faringoamigdalar, adenitis regional, ausencia de tos y rinorrea) y la prueba antigénica rápida es positiva. Penicilina V cada 12 h durante 7-10 días, con el estómago vacío: < 1 año, 125 mg; 1-5 años, 250 mg; 6-11 años, 250-500 mg; > 12 años o > 27 kg, 500 mg. Si hay intolerancia digestiva o problema de cumplimentación: penicilina benzatina im en dosis única (≥ 25 kg, 1.200.000 UI; < 25 kg, 600.000 UI). Alergia a la penicilina: azitromicina, o clindamicina 15-25 mg/kg/día en 3 tomas durante 10 días. Analgesia: ibuprofeno 5-10 mg/kg cada 4-6 h (máx. 40 mg/kg/día) o paracetamol 10-15 mg/kg cada 4-6 h vo o vr (máx. 60-80 mg/kg/día).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): penicilina V solo si Centor ≥ 2 y prueba antigénica rápida positiva, con dosis por edad (> 12 años o > 27 kg, 500 mg cada 12 h), durante 7-10 días (antes 10) y con el estómago vacío; resuelve la observación anterior sobre el corte de peso. Ibuprofeno cada 4-6 h (antes 6-8 h). Se añaden los líquidos y el reposo relativo. A decidir: la dosis pediátrica de azitromicina de la guía (10 mg/kg/día en 1 toma durante 5 días consecutivos, máx. 30 mg/kg) no cuadra, porque 5 días suman 50 mg/kg; no se ha copiado en la nota.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Faringoamigdalitis aguda", url: "https://guiaterapeutica.net/problemas/13/faringoamigdalitis-aguda" }
+      ],
       texto: `
-- Ibuprofeno (20 mg/ml) {{ml de ibuprofeno}} ml cada 6-8 horas si dolor o temperatura >38 ºC con malestar general.
-- Dieta blanda; mejor alimentos fríos. Evitar alimentos muy calientes o picantes.
-- Penilevel (penicilina V) sobres de 250 mg: {{Sobres de Penilevel|1 sobre|2 sobres}} cada 12 horas durante 10 días, vía oral.
+- Ibuprofeno (20 mg/ml) {{ml de ibuprofeno}} ml cada 4-6 horas si dolor o temperatura >38 ºC con malestar general.
+- Abundantes líquidos y reposo relativo. Dieta blanda; mejor alimentos fríos. Evitar alimentos muy calientes o picantes.
+- Penilevel (penicilina V) sobres de 250 mg: {{Sobres de Penilevel|1 sobre|2 sobres}} cada 12 horas durante {{Días de penicilina=10}} días, vía oral, con el estómago vacío.
 - Control evolutivo por su pediatra en 24-48 horas.
 - Reacudir si empeoramiento clínico o signos de alarma (se explican).
 `
@@ -635,10 +648,15 @@ Qüestions importants:
       grupo: "ORL y boca",
       titulo: "Otitis externa",
       etiquetas: "oido otix ciflot ciprofloxacino gotas",
+      nota: "Según la Guía Terapéutica semFYC: trimetoprima/polimixina B/dexametasona en niños > 7 años, 2-4 gotas cada 4-6 h durante 7-10 días (no da dosis para menores de 7 años; contraindicada si hay perforación timpánica). Ciprofloxacino ótico solo en la otitis externa extensa grave o en inmunodeprimidos, con dosis solo para adultos. Si hay dolor, paracetamol o ibuprofeno. Derivar al especialista para limpieza si es recurrente, no responde o hay otorrea importante u otomicosis.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): Otix 2-4 gotas cada 4-6 h durante 7-10 días (antes 2 gotas cada 8 h durante 7 días), que es la pauta de la guía para trimetoprima/polimixina B/dexametasona en niños mayores de 7 años. La guía no cita marcas: comprobad que Otix es esta asociación. Se añade no usar tapones. A decidir: la guía no da dosis para menores de 7 años ni dosis pediátrica de ciprofloxacino ótico, que reserva para la otitis extensa grave o en inmunodeprimidos; se conserva la pauta de Ciflot.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Otitis externa aguda", url: "https://guiaterapeutica.net/problemas/20/otitis-externa-aguda" }
+      ],
       texto: `
-- Evitar la entrada de agua y la manipulación del oído afecto durante 7-10 días.
+- Evitar la entrada de agua y la manipulación del oído afecto durante 7-10 días. No utilizar tapones.
 - Ibuprofeno (20 mg/ml) {{ml de ibuprofeno}} ml cada 8 horas durante 3 días; después, solo si dolor o fiebre.
-- {{Gotas óticas|*Otix 2 gotas en el oído afecto cada 8 horas durante 7 días|Ciflot (ciprofloxacino 0,2 %) 1 monodosis cada 12 horas durante 7 días}}.
+- {{Gotas óticas|*Otix 2-4 gotas en el oído afecto cada 4-6 horas durante 7-10 días|Ciflot (ciprofloxacino 0,2 %) 1 monodosis cada 12 horas durante 7 días}}.
 - Si perforación timpánica: ciprofloxacino ótico (Ciflot, Ciproxina o Baycip) 2 gotas en el oído afecto cada 8 horas durante 7 días.
 - Control evolutivo por su pediatra en 24-48 horas.
 - Reacudir si empeoramiento clínico (fiebre, otorrea intensa, malestar general...).
