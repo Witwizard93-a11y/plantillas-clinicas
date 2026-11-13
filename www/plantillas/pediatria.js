@@ -670,13 +670,16 @@ Qüestions importants:
       grupo: "ORL y boca",
       titulo: "Otitis media aguda",
       etiquetas: "OMA oido amoxicilina",
-      nota: "Según el documento: amoxicilina-clavulánico si es menor de 6 meses y amoxicilina si es mayor de 6 meses.",
-      revisar: "La plantilla de pediatría la titulaba «otitis interna»; por el contenido es otitis media. La concentración de amoxicilina-clavulánico no coincide entre documentos (100 mg/ml en RESIS y 250 mg/5 ml en pediatría) y cambia los ml: comprobad qué presentación usáis.",
-      enlaces: [hoja.otitis],
+      nota: "Según la Guía Terapéutica semFYC: amoxicilina 80-90 mg/kg/día en 3 tomas; en < 2 años, durante 10 días; en > 2 años, solo si la clínica es grave (fiebre > 39 ºC y otalgia importante), si no mejora en 48 h o si hay factores de riesgo, durante 5 días (para 2-5 años las observaciones dicen 7 días). Si fracasa la amoxicilina a las 48-72 h: amoxicilina-clavulánico 80-90 mg/kg/día + 10 mg/kg/día en 3 tomas, o cefuroxima axetilo 30 mg/kg/día en 2 tomas, durante 10 días. Alergia a betalactámicos: azitromicina 10 mg/kg/día en 1 toma durante 3 días consecutivos (máx. 30 mg/kg). Analgesia: paracetamol 10-15 mg/kg cada 4-6 h (máx. 60 mg/kg/día) o ibuprofeno 5-10 mg/kg cada 6-8 h (máx. 40 mg/kg/día). El 80-90 % de las OMA se resuelven sin antibióticos.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): amoxicilina de elección; amoxicilina-clavulánico solo si fracasa la amoxicilina a las 48-72 h (antes, según el documento, en los menores de 6 meses). Duración de 10 días en menores de 2 años y de 5 días en mayores (antes 10 días en todos). Indicaciones y alternativas en la nota. Ambigüedad: para 2-5 años la tabla de la guía da 5 días y sus observaciones, 7. Sigue pendiente: la concentración de amoxicilina-clavulánico no coincide entre documentos (100 mg/ml en RESIS y 250 mg/5 ml en pediatría) y cambia los ml; comprobad qué presentación usáis. La plantilla de pediatría la titulaba «otitis interna»; por el contenido es otitis media.",
+      enlaces: [
+        hoja.otitis,
+        { titulo: "Guía Terapéutica semFYC · Otitis media aguda simple o supurada", url: "https://guiaterapeutica.net/problemas/22/otitis-media-aguda-simple-o-supurada" }
+      ],
       texto: `
 - Evitar la entrada de agua y la manipulación del oído afecto durante 7-10 días.
 - Ibuprofeno (20 mg/ml) {{ml de ibuprofeno}} ml cada 8 horas durante 3 días; después, solo si dolor o fiebre.
-- {{Antibiótico|*Amoxicilina (250 mg/5 ml)|Amoxicilina-clavulánico (100 mg/ml)|Amoxicilina-clavulánico (250 mg/5 ml)}} {{ml de antibiótico}} ml cada 8 horas durante 10 días, vía oral.
+- {{Antibiótico|*Amoxicilina (250 mg/5 ml)|Amoxicilina-clavulánico (100 mg/ml)|Amoxicilina-clavulánico (250 mg/5 ml)}} {{ml de antibiótico}} ml cada 8 horas durante {{Días de antibiótico|*10|7|5}} días, vía oral.
 - Control evolutivo por su pediatra en 24-48 horas.
 - Reacudir si empeoramiento clínico (fiebre, otorrea intensa, malestar general...).
 `
@@ -701,12 +704,18 @@ Qüestions importants:
       tipo: "tratamiento",
       grupo: "ORL y boca",
       titulo: "Herpangina / gingivoestomatitis herpética",
-      etiquetas: "aftas boca coxsackie aloclair",
+      etiquetas: "aftas boca coxsackie aloclair aciclovir",
+      nota: "Gingivoestomatitis herpética según la Guía Terapéutica semFYC: aciclovir oral en la primoinfección en < 12 años con dolor y deshidratación, 15 mg/kg 5 veces al día durante 7 días; en > 12 años con síntomas graves, valaciclovir 1 g cada 8 h durante 7 días. Es más eficaz si se empieza antes de las 72 h. Tratar el dolor con analgésicos orales; en niños pequeños no usar anestésicos tópicos (para evitar mordeduras). El aciclovir tópico no ha demostrado eficacia. La herpangina no figura en la guía.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): en la gingivoestomatitis herpética se añaden el aciclovir oral (15 mg/kg 5 veces al día durante 7 días, si es una primoinfección en menores de 12 años con dolor y deshidratación), la ingesta adecuada de líquidos y la vaselina para evitar adherencias. A decidir: la guía no da la dosis del analgésico ni recoge Aloclair, y no tiene entrada de herpangina; se conservan.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Gingivoestomatitis herpética", url: "https://guiaterapeutica.net/problemas/430/gingivoestomatitis-herpetica" }
+      ],
       texto: `
-- Alimentos templados y dieta blanda.
+- Alimentos templados y dieta blanda. Asegurar una ingesta adecuada de líquidos.
 - Ibuprofeno (20 mg/ml) {{ml de ibuprofeno}} ml cada 6 horas.
 - Aloclair Plus spray o gel.
 - Suero de rehidratación oral, uno al día (riesgo de deshidratación solo en la gingivoestomatitis).
+- Gingivoestomatitis herpética: aplicar vaselina para evitar adherencias. Si hay dolor y deshidratación: aciclovir oral {{Aciclovir (mg por toma)}} mg 5 veces al día durante 7 días.
 `
     },
 
@@ -717,12 +726,16 @@ Qüestions importants:
       grupo: "ORL y boca",
       titulo: "Muguet oral (candidiasis orofaríngea)",
       etiquetas: "candida nistatina mycostatin boca lactante",
-      nota: "Dosis según el documento: <1 mes, 1 ml cada 6 h; <1 año, 2 ml cada 6 h; >1 año, 3-5 ml cada 6 h.",
+      nota: "Según la Guía Terapéutica semFYC: nistatina 2-4 ml cada 6 h durante 7-14 días (enjuagar, mantener la solución en la boca varios minutos y deglutir). Alternativa: fluconazol 6 mg/kg el 1.er día y seguir con 3 mg/kg durante 14 días. En recién nacidos o si no mejora: miconazol en gel oral al 2 %, lactantes 25 mg cada 6 h y niños 50 mg cada 6 h, durante 7-28 días.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): nistatina 2-4 ml cada 6 h durante 7-14 días (antes 1, 2 o 3-5 ml según la edad, durante 7-10 días). A decidir: el documento daba 1 ml a los menores de 1 mes; para los recién nacidos la guía propone miconazol en gel oral (en la nota).",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Candidiasis oral", url: "https://guiaterapeutica.net/problemas/6/candidiasis-oral" }
+      ],
       texto: `
-Nistatina tópica {{Dosis de nistatina|1 ml|2 ml|3-5 ml}} cada 6 horas durante 7-10 días. Aplicar y repartir con una gasa por toda la boca; también en el chupete, las tetinas y el pezón.
+Nistatina tópica {{Dosis de nistatina|2 ml|3 ml|4 ml}} cada 6 horas durante 7-14 días. Aplicar y repartir con una gasa por toda la boca; también en el chupete, las tetinas y el pezón.
 `,
       texto_ca: `
-Nistatina tòpica {{Dosis de nistatina|1 ml|2 ml|3-5 ml}} cada 6 hores durant 7-10 dies. Aplicar i repartir amb una gasa per tota la boca; també al xumet, les tetines i el mugró.
+Nistatina tòpica {{Dosis de nistatina|2 ml|3 ml|4 ml}} cada 6 hores durant 7-14 dies. Aplicar i repartir amb una gasa per tota la boca; també al xumet, les tetines i el mugró.
 `
     },
 
@@ -801,11 +814,16 @@ Consultar si el llanto se acompaña de palidez, sudoración, decaimiento intenso
       grupo: "Digestivo",
       titulo: "Estreñimiento",
       etiquetas: "casenlax casenfibra macrogol glicerina fibra",
-      nota: "Casenlax según el documento: 6 meses-1 año, 1 sobre de 4 g al día; 1-4 años, 1-2 sobres de 4 g; 4-8 años, 2-4 sobres de 4 g; >8 años, 1-2 sobres de 10 g.",
-      enlaces: [hoja.estrenimiento],
+      nota: "Casenlax según el documento: 6 meses-1 año, 1 sobre de 4 g al día; 1-4 años, 1-2 sobres de 4 g; 4-8 años, 2-4 sobres de 4 g; >8 años, 1-2 sobres de 10 g. Según la Guía Terapéutica semFYC, si no mejora con las medidas: polietilenglicol 3350, 2-6 años 6,9 g/día y 7-11 años 13,8 g/día; Plantago ovata en > 3 años, 33-50 % de la dosis de adulto (3,5-7 g); o lactulosa (< 1 año, 5 ml/día; 1-6 años, 10 ml/día al inicio y 5-10 ml/día de mantenimiento; 7-14 años, 20 ml/día al inicio y 10-15 ml/día de mantenimiento).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): supositorio de glicerina infantil, 1-2 al día (antes sin dosis). A decidir: la guía da el polietilenglicol 3350 en gramos por edad (2-6 años, 6,9 g/día; 7-11 años, 13,8 g/día), que no encajan con los sobres de 4 y 10 g de Casenlax ni con las dosis del documento, y no da dosis para menores de 2 años. La guía no cita marcas: comprobad que Casenlax es polietilenglicol 3350. Casenfibra no figura en la guía; se conserva.",
+      enlaces: [
+        hoja.estrenimiento,
+        { titulo: "Guía Terapéutica semFYC · Estreñimiento crónico funcional", url: "https://guiaterapeutica.net/problemas/258/estrenimiento-cronico-funcional" },
+        { titulo: "Guía Terapéutica semFYC · Estreñimiento agudo", url: "https://guiaterapeutica.net/problemas/257/estrenimiento-agudo" }
+      ],
       texto: `
 - Dieta rica en fibra (pan, pasta o cereales integrales, verduras y varias piezas de fruta al día) e hidratación abundante (5-6 vasos de agua al día). Ejercicio físico regular (al menos 3 días a la semana, 1 hora seguida). Hábito de sentarse en el baño cada día 10-15 minutos.
-- Si dolor o malestar con las deposiciones, o heces duras: supositorio de glicerina de forma puntual.
+- Si dolor o malestar con las deposiciones, o heces duras: supositorio de glicerina infantil, 1-2 al día, de forma puntual.
 - Casenfibra 5-15 ml de jarabe una vez al día o 1-3 barritas al día, vía oral. Si no es suficiente, Casenlax {{Dosis de Casenlax|1 sobre de 4 g|1-2 sobres de 4 g|2-4 sobres de 4 g|1-2 sobres de 10 g}} al día, vía oral.
 - Si dolor o fiebre: paracetamol (100 mg/ml) {{ml de paracetamol}} ml cada 4-6 horas.
 - Control evolutivo por su pediatra en 24-48 horas.
@@ -819,11 +837,17 @@ Consultar si el llanto se acompaña de palidez, sudoración, decaimiento intenso
       tipo: "tratamiento",
       grupo: "Digestivo",
       titulo: "Fisura anal",
-      etiquetas: "rectorragia ruscus cohortan",
-      nota: "Alternativa: Sinalar rectal (lleva corticoide).",
+      etiquetas: "rectorragia ruscus cohortan banos de asiento",
+      nota: "Alternativa: Sinalar rectal (lleva corticoide). Según la Guía Terapéutica semFYC, la mayoría responden a las medidas higienicodietéticas (baños de asiento con agua templada y dieta rica en fibra, sin laxantes). Analgesia: paracetamol 10-15 mg/kg en 4-6 tomas al día (máx. 60 mg/kg/día).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): se añaden los baños de asiento con agua templada (no caliente) durante 10-15 minutos después de cada deposición, durante 1-2 semanas, y el paracetamol si hay dolor, que son el tratamiento de la guía. A decidir: Ruscus Llorens, Cohortan y Sinalar no figuran en la guía; se conservan.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Fisura anal", url: "https://guiaterapeutica.net/problemas/260/fisura-anal" }
+      ],
       texto: `
-- Ruscus Llorens o Cohortan rectal cada 12 horas durante 5 días.
+- Baños de asiento con agua templada (no caliente) durante 10-15 minutos después de cada deposición o cuando sea necesario, durante 1-2 semanas.
 - Dieta rica en fibra, verduras y frutas, y beber 1,5-2 litros de agua al día.
+- Si dolor: paracetamol (100 mg/ml) {{ml de paracetamol}} ml 4-6 veces al día, vía oral.
+- Ruscus Llorens o Cohortan rectal cada 12 horas durante 5 días.
 `
     },
 
@@ -834,11 +858,16 @@ Consultar si el llanto se acompaña de palidez, sudoración, decaimiento intenso
       grupo: "Digestivo",
       titulo: "Oxiuros (mayores de 2 años)",
       etiquetas: "lombrices enterobius mebendazol lomper picor anal",
-      nota: "Solo en mayores de 2 años.",
+      nota: "Solo en mayores de 2 años: el mebendazol está contraindicado en menores de 2 años y en el embarazo. Alternativa según la Guía Terapéutica semFYC (y de elección en el embarazo): pamoato de pirantel 11 mg/kg vo en dosis única (máx. 1 g).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): tratar a toda la familia, aunque no tenga síntomas (antes «contactos cercanos»), y medidas higiénicas para toda la familia durante 2 semanas. La guía da dosis única y dice que algunos autores aconsejan repetirla a las 2 semanas; se conserva la repetición. Pirantel como alternativa en la nota.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Parásitos intestinales. Helmintiasis", url: "https://guiaterapeutica.net/problemas/416/parasitos-intestinales-helmintiasis" }
+      ],
       texto: `
 - Mebendazol (Lomper 100 mg comprimidos o suspensión 100 mg/5 ml): 100 mg (5 ml) vía oral, dosis única hoy, y repetir a las 2 semanas.
-- Se recomienda que lo tomen también los contactos cercanos (adultos: 1 comprimido de 100 mg en cada dosis).
-- Lavar toda la ropa, también la de cama, a alta temperatura.
+- Debe tomarlo también toda la familia, aunque no tenga síntomas (adultos: 1 comprimido de 100 mg en cada dosis).
+- Durante 2 semanas, toda la familia: lavarse las manos y cepillarse las uñas antes de cada comida y después de ir al baño, ducharse nada más levantarse y dormir con ropa interior y pijama cerrado para evitar el rascado.
+- Lavar a fondo la ropa interior y la de cama, a alta temperatura.
 `
     },
 
@@ -850,11 +879,16 @@ Consultar si el llanto se acompaña de palidez, sudoración, decaimiento intenso
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Dermatitis atópica",
-      etiquetas: "eccema emolientes corticoide topico",
-      revisar: "Reordenada: el documento ponía Peitel (prednicarbato, un corticoide) junto a los emolientes; se ha pasado a los brotes.",
+      etiquetas: "eccema emolientes corticoide topico hidroxicina",
+      nota: "Según la Guía Terapéutica semFYC: betametasona al 0,05-0,1 %, 1 aplicación cada 12 h durante 5 días y después un corticoide de baja potencia 1 vez al día; en niños pequeños, hidrocortisona al 0,25-1 %, 1-2 aplicaciones al día durante 1-2 semanas, con reducción progresiva. Prurito: hidroxizina 2 mg/kg/día en 2-3 tomas vo (los antihistamínicos sedantes, por la noche; no usar antihistamínicos tópicos). Sobreinfección: amoxicilina-clavulánico 40-80 mg/kg/día en 3 tomas durante 5-7 días. Sin mejoría, intolerancia a los corticoides o lesiones en cara, cuello o pliegues: tacrolimus al 0,03 % 2 veces al día en > 2 años. Mantenimiento, si los emolientes no bastan: corticoide de potencia moderada 1 vez por semana. Casos graves o con muchas recurrencias: derivar a dermatología.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): emolientes 1-2 veces al día, justo después del baño; medidas generales; no aplicar el corticoide en pliegues, cuello ni cara, y reducirlo de forma progresiva. Prurito, sobreinfección, tacrolimus y mantenimiento en la nota. A decidir: la guía da betametasona cada 12 h durante 5 días o, en niños pequeños, hidrocortisona 1-2 veces al día durante 1-2 semanas, pero también dice que una aplicación al día es tan eficaz como más frecuente, y no cita marcas: se conservan las marcas y la pauta de la plantilla (cada 24 h, 3-5 días). Se mantiene: el documento ponía Peitel (prednicarbato) junto a los emolientes y se pasó a los brotes.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Dermatitis atópica", url: "https://guiaterapeutica.net/problemas/185/dermatitis-atopica" }
+      ],
       texto: `
-- Emolientes a diario: crema para pieles atópicas (p. ej., la de Mercadona), Xeramance Plus o Leti AT4.
-- En los brotes, corticoide tópico cada 24 horas durante 3-5 días: Peitel crema (o solución en el cuero cabelludo), Nutrasona (ISDIN), Lactisona, Lexxema o Betnovate.
+- Emolientes a diario, 1-2 veces al día y justo después del baño: crema para pieles atópicas (p. ej., la de Mercadona), Xeramance Plus o Leti AT4.
+- Ropa de algodón (evitar la lana y los tejidos sintéticos), jabones suaves y ducha corta con agua templada mejor que baños largos. Evitar la calefacción excesiva y los irritantes. Aclarar bien la ropa y no usar suavizantes.
+- En los brotes, corticoide tópico cada 24 horas durante 3-5 días: Peitel crema (o solución en el cuero cabelludo), Nutrasona (ISDIN), Lactisona, Lexxema o Betnovate. No aplicarlo en los pliegues de axilas e ingles, el cuello ni la cara. A medida que mejore, reducirlo de forma progresiva y aumentar los emolientes.
 `
     },
 
@@ -864,12 +898,17 @@ Consultar si el llanto se acompaña de palidez, sudoración, decaimiento intenso
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Dermatitis del pañal",
-      etiquetas: "culito zinc mitosyl candida",
+      etiquetas: "culito zinc mitosyl candida lassar",
+      nota: "Pasta Lassar según la Guía Terapéutica semFYC: 1 aplicación cada 12-24 h, en capa fina tras limpiar y secar la zona; se retira con aceite. Fórmula: óxido de cinc 10 g, almidón 10 g y vaselina 20 g (también hay presentaciones comercializadas).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): clotrimazol al 1 % cada 12 h durante 1-2 semanas (antes 7 días). Se añaden la pasta Lassar (elección en la guía), las medidas (aire, cambios frecuentes, limpieza suave, sin toallitas, perfumes ni talco) y aplicar el corticoide suave antes de la pasta o crema barrera. A decidir: la guía no da la pauta del corticoide ni recoge las marcas; se conservan.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Dermatitis del pañal", url: "https://guiaterapeutica.net/problemas/187/dermatitis-del-panal" }
+      ],
       texto: `
-- Mantener la zona del pañal lo más limpia y seca posible.
-- Crema reparadora con zinc en cada cambio de pañal hasta la mejoría: Nutraisdin ZN40, Mitosyl o Cicalfate de Avène.
-- Si no mejora, corticoide tópico: Nutrasona cada 12-24 horas durante 5-7 días.
-- Si no mejora o sospecha de cándida, antifúngico: Nutraisdin AF o clotrimazol pomada cada 12 horas durante 7 días.
+- Mantener la zona del pañal lo más limpia y seca posible: dejarla al aire el máximo tiempo posible, cambiar el pañal en cuanto orine o haga deposición y limpiar con suavidad. Evitar las toallitas, los perfumes y el talco.
+- Crema o pasta barrera con zinc en cada cambio de pañal hasta la mejoría, en capa fina sobre la piel limpia y seca: pasta Lassar (se retira con aceite), Nutraisdin ZN40, Mitosyl o Cicalfate de Avène.
+- Si no mejora, corticoide tópico suave, siempre antes de la pasta o crema barrera: Nutrasona cada 12-24 horas durante 5-7 días.
+- Si no mejora o sospecha de cándida, antifúngico: Nutraisdin AF o clotrimazol al 1 % cada 12 horas durante 1-2 semanas.
 `
     },
 
@@ -891,12 +930,19 @@ Nutraisdin reparador perioral cada 8-12 horas hasta la mejoría clínica.
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Acné",
-      etiquetas: "adolescente clindamicina peroxido benzoilo",
+      etiquetas: "adolescente clindamicina peroxido benzoilo adapaleno doxiciclina",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): se añade el adapaleno al 0,1 % por la noche si hay comedones. Las tetraciclinas orales pasan a doxiciclina 100 mg/día durante 3-6 meses, siempre con el tratamiento tópico (peróxido de benzoílo + adapaleno) y evitándola en primavera y verano. Se añaden las medidas y la derivación del acné grave. La guía da estas dosis en la columna de adultos.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Acné vulgar", url: "https://guiaterapeutica.net/problemas/449/acne-vulgar" },
+        { titulo: "Guía Terapéutica semFYC · Acné inflamatorio leve-moderado (grado I-II)", url: "https://guiaterapeutica.net/problemas/177/acne-inflamatorio-leve-moderado-grado-i-ii" }
+      ],
       texto: `
-Escalonado según la intensidad:
-1. Jabón Avène o Bactopur gel cada 12-24 horas.
-2. Añadir clindamicina tópica (Clinwash) por la mañana y peróxido de benzoilo tópico por la noche.
-3. Tetraciclinas orales.
+Escalonado según la intensidad (la respuesta tarda 8-12 semanas):
+1. Lavar la zona con agua y jabón neutro o gel para pieles acneicas (Avène o Bactopur gel), no más de 1-2 veces al día, y secar bien. No manipular las lesiones. Evitar las cremas hidratantes y los cosméticos grasos.
+2. Si hay comedones: adapaleno al 0,1 % en crema o gel, 1 aplicación por la noche.
+3. Si hay lesiones inflamatorias: añadir clindamicina tópica (Clinwash) por la mañana y peróxido de benzoilo tópico por la noche.
+4. Acné moderado o sin respuesta: añadir doxiciclina 100 mg al día, vía oral, durante 3-6 meses (evitarla en primavera y verano por el riesgo de fotosensibilidad).
+No usar antibióticos orales ni tópicos solos. Acné grave (nódulos, cicatrices, muy extenso o sin respuesta a 6 meses de tratamiento): derivar a dermatología.
 `
     },
 
@@ -923,10 +969,16 @@ Escalonado según la intensidad:
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Picadura de insecto / avispa / abeja",
-      etiquetas: "picadura mosquito vaspit polaramine",
+      etiquetas: "picadura mosquito vaspit polaramine hidrocortisona",
+      nota: "Según la Guía Terapéutica semFYC: hidrocortisona al 1 %, 1 aplicación al día en niños, si la reacción local es intensa y persistente o hay prurito intenso; si la lesión es importante, corticoide de potencia moderada o alta durante menos de 7 días, evitando los de potencia elevada en cara, pliegues y piel fina. Dexclorfeniramina en > 2 años: 0,15-0,30 mg/kg/día en 3-4 tomas. No usar antihistamínicos tópicos. Dolor: paracetamol o ibuprofeno. Si hay infección, considerar amoxicilina-clavulánico. Si se sospecha anafilaxia: adrenalina im y prednisona 1 mg/kg (máx. 50 mg) durante 5-7 días.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): medidas locales; corticoide tópico de la guía, hidrocortisona al 1 % 1 vez al día, si la reacción local es intensa o persistente (Vaspit queda como opción); Polaramine en 3-4 tomas al día en mayores de 2 años (antes cada 12 h). A decidir: la guía solo da corticoide oral si se sospecha anafilaxia (prednisona 1 mg/kg, máx. 50 mg, 5-7 días); se conserva la Estilsona. No da la dosis de amoxicilina-clavulánico ni recoge Vaspit ni Bactroban; se conservan.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Picaduras por insectos, garrapatas, medusas y pez araña", url: "https://guiaterapeutica.net/problemas/217/picaduras-por-insectos-garrapatas-medusas-y-pez-arana-dermatitis-por-orugas-o-caterpillar" }
+      ],
       texto: `
-- Vaspit pomada sobre las lesiones cada 12 horas durante 5 días.
-- Polaramine {{ml de Polaramine}} ml cada 12 horas durante 5 días, vía oral.
+- Lavar la picadura con agua y jabón y aplicar compresas frías. Si queda el aguijón, retirarlo raspando suavemente la piel, sin apretar ni tirar de él. Puede aplicarse loción de calamina, salvo en la cara y los genitales.
+- Si la reacción local es intensa o persistente: {{Corticoide tópico|*hidrocortisona al 1 % en crema 1 vez al día|Vaspit pomada cada 12 horas durante 5 días}} sobre las lesiones.
+- Si hay mucho picor (mayores de 2 años): Polaramine {{ml de Polaramine}} ml 3-4 veces al día durante 5 días, vía oral.
 - Estilsona {{ml de Estilsona}} ml cada 12 horas durante 3 días, vía oral.
 - Si infección: Bactroban pomada cada 12 horas durante 7 días o amoxicilina-clavulánico 50 mg/kg/día repartido cada 8 horas, vía oral, durante 7 días.
 `
@@ -939,13 +991,17 @@ Escalonado según la intensidad:
       grupo: "Piel",
       titulo: "Escabiosis (sarna)",
       etiquetas: "sarna permetrina sarcop picor",
-      revisar: "Según la ficha técnica de la permetrina (Sarcop, a partir de 2 meses), en lactantes se aplica también en cuero cabelludo, cuello, frente y sienes, evitando ojos y boca; la plantilla excluye cabeza y cara. Conviene además tratar a la vez a todos los convivientes, aunque no tengan lesiones.",
+      nota: "Según la Guía Terapéutica semFYC: la permetrina es segura en niños de más de 2 meses; suelen bastar 30 g por aplicación. Prurito en > 2 años: dexclorfeniramina 0,15-0,30 mg/kg/día en 3-4 tomas o hidroxizina 1-2 mg/kg/día en 2-3 tomas. Si fracasa el tratamiento: ivermectina 200 µg/kg vo en dosis única, solo a partir de 15 kg. No hace falta tratar a perros ni gatos.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): retirar la permetrina con una ducha a las 8-14 h; tratar a la vez a todos los convivientes y contactos íntimos, aunque no tengan síntomas (antes, los padres solo si tenían lesiones), lo que resuelve parte de la observación anterior; ropa usada en las 48 h previas a más de 60 ºC y, la que no se pueda lavar, en bolsa cerrada 15 días (antes 3); no lavarse las manos tras aplicarla. Dosis del antihistamínico y alternativas en la nota. Sigue pendiente: según la ficha técnica de Sarcop, en lactantes se aplica también en cuero cabelludo, cuello, frente y sienes; la guía indica aplicarla desde el cuello hasta los pies, salvo la cara y las mucosas, y no trata el caso de los lactantes.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Sarna o escabiosis", url: "https://guiaterapeutica.net/problemas/227/sarna-o-escabiosis" }
+      ],
       texto: `
-- Permetrina 5 % (Sarcop crema): aplicar por todo el cuerpo, excepto cabeza y cara, por la noche después de la ducha, y dejar actuar durante la noche. Repetir a los 7 días.
-- Lavar toda la ropa, incluida la de cama, a 60 ºC, o guardarla en una bolsa cerrada durante 3 días.
-- Cortar las uñas.
-- Polaramine si picor.
-- Los padres deberán tratarse si aparecen lesiones.
+- Permetrina 5 % (Sarcop crema): aplicar por la noche, después de la ducha, por todo el cuerpo desde el cuello hasta la punta de los pies (incluidas las plantas), sin dejar ninguna zona salvo la cara y las mucosas, con especial cuidado en axilas, ingles, genitales, ombligo, entre los dedos y debajo de las uñas. Retirarla con una ducha con agua tibia a las 8-14 horas (mínimo 8). Repetir a los 7 días.
+- Cortar las uñas antes de aplicarla y no lavarse las manos después.
+- Deben tratarse a la vez (en 24 horas) todos los convivientes y contactos íntimos, aunque no tengan síntomas.
+- Lavar la ropa de cama, el pijama y la ropa usada en las 48 horas anteriores a más de 60 ºC (mínimo 10 minutos) o en seco; la que no se pueda lavar, guardarla en una bolsa cerrada durante 15 días. No compartir ropa ni ropa de cama.
+- Polaramine si picor (mayores de 2 años). El picor puede durar 1-2 semanas aunque el tratamiento haya funcionado.
 `
     },
 
@@ -955,9 +1011,17 @@ Escalonado según la intensidad:
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Tiña cutánea / candidiasis cutánea / pitiriasis versicolor",
-      etiquetas: "hongos dermatofitos terbinafina lamisil ketoconazol",
+      etiquetas: "hongos dermatofitos terbinafina lamisil ketoconazol clotrimazol",
+      nota: "Pitiriasis versicolor, según la Guía Terapéutica semFYC: el ketoconazol en gel se extiende por todo el cuerpo, se mantiene 10-15 minutos y después hay que ducharse; no es contagiosa y la luz solar acelera la repigmentación.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): tiña, terbinafina tópica 1 vez al día durante 2 semanas, o clotrimazol al 1 % cada 12 h durante 4 semanas (antes terbinafina cada 12 h durante 1 mes, y ketoconazol como alternativa); candidiasis cutánea, clotrimazol al 1 % cada 12 h durante 3-4 semanas; pitiriasis versicolor, ketoconazol al 2 % 1 vez al día durante 4 semanas. Se añaden las medidas. En la tiña corporis la guía solo tiene columna de adultos.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Tiña de la cara. Tiña corporis. Tiña cruris", url: "https://guiaterapeutica.net/problemas/230/dermatomicosis-tina-de-la-cara-tina-emcorporisem-tina-emcrurisem" },
+        { titulo: "Guía Terapéutica semFYC · Candidiasis interdigital. Intertrigo candidiásico", url: "https://guiaterapeutica.net/problemas/181/dermatomicosis-candidiasis-interdigital-intertrigo-candidiasico" },
+        { titulo: "Guía Terapéutica semFYC · Pitiriasis versicolor", url: "https://guiaterapeutica.net/problemas/220/dermatomicosis-pitiriasis-versicolor" }
+      ],
       texto: `
-Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alternativa: ketoconazol tópico.
+{{Diagnóstico|*Tiña: Lamisil (terbinafina) crema 1 vez al día sobre las lesiones durante 2 semanas. Alternativa: clotrimazol al 1 % cada 12 horas durante 4 semanas|Candidiasis cutánea: clotrimazol al 1 % cada 12 horas durante 3-4 semanas|Pitiriasis versicolor: ketoconazol al 2 % en gel o crema 1 vez al día durante 4 semanas}}.
+Mantener la zona seca y no compartir la ropa. La tiña contagia hasta 10-15 días después de empezar el tratamiento, pero no hace falta dejar de ir al colegio.
 `
     },
 
@@ -968,10 +1032,14 @@ Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alte
       grupo: "Piel",
       titulo: "Tiña capitis",
       etiquetas: "tinea cuero cabelludo terbinafina hongos querion",
-      nota: "Antes de iniciar el tratamiento, tomar cultivo: extraer 1-2 pelos y frotis con medio.",
-      revisar: "La terbinafina oral se dosifica por peso: 62,5 mg/día si <20 kg, 125 mg/día si 20-40 kg y 250 mg/día si >40 kg, durante 2-4 semanas en Trichophyton. Frente a Microsporum responde peor: es preferible la griseofulvina.",
+      nota: "Antes de iniciar el tratamiento, tomar cultivo (extraer 1-2 pelos y frotis con medio) y empezar el tratamiento de forma empírica. Terbinafina oral según la Guía Terapéutica semFYC, en niños > 4 años: < 25 kg, 125 mg/día; 25-35 kg, 187,5 mg/día; > 35 kg, 250 mg/día; durante 6 semanas. Alternativa: itraconazol 5 mg/kg/día durante 6 semanas (si no mejora, 3-5 mg/kg/día durante 4-6 semanas). La terbinafina es de elección si es Trichophyton; si es Microsporum, griseofulvina (no comercializada en España), y el tratamiento oral puede alargarse un 50-100 %. El champú de sulfuro de selenio acelera la resolución. Estudiar a los convivientes y tratar con champú antifúngico a los portadores asintomáticos (en la tiña por T. tonsurans, a toda la familia).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): terbinafina oral por peso en mayores de 4 años (125 mg/día si < 25 kg, 187,5 mg/día si 25-35 kg y 250 mg/día si > 35 kg) durante 6 semanas (antes 125 mg durante 2 semanas). Sustituye a la observación anterior. Se añaden las medidas (limpieza, retirada de costras y depilación de los pelos afectados; desinfectar los peines; no compartir peines ni gorros). A decidir: la guía no da dosis de terbinafina para menores de 4 años, dice que la prohibición de ir al colegio es controvertida (contagia hasta 10-15 días tras empezar el tratamiento) y no recoge Hibiscrub ni Augmentine; se conservan.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Tiña capitis. Tiña de la barba", url: "https://guiaterapeutica.net/problemas/229/dermatomicosis-tina-emcapitisem-tina-de-la-barba" }
+      ],
       texto: `
-- Terbinafina 125 mg cada 24 horas durante 2 semanas.
+- Terbinafina {{Dosis de terbinafina|*125 mg|187,5 mg|250 mg}} cada 24 horas durante 6 semanas, vía oral.
+- Limpieza de las lesiones, retirada de las costras y depilación de los pelos afectados. Desinfectar los peines de casa y no compartir peines ni gorros.
 - Ibuprofeno si dolor.
 - Si sobreinfección: Augmentine (100 mg/ml) {{ml de Augmentine}} ml cada 8 horas durante 7 días.
 - Hibiscrub champú cada 24 horas durante 2 semanas.
@@ -985,14 +1053,19 @@ Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alte
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Urticaria",
-      etiquetas: "habones alergia polaramine estilsona",
-      nota: "Alternativa al Polaramine: Atarax (hidroxicina 10 mg/5 ml) 0,5 mg/kg cada 6 h.",
-      enlaces: [hoja.urticaria, hoja.anafilaxia],
+      etiquetas: "habones alergia polaramine estilsona cetirizina",
+      nota: "Según la Guía Terapéutica semFYC: cetirizina de elección (6 meses-2 años, 2,5 mg cada 24 h; 2-5 años, 5 mg cada 24 h; 6-12 años, 5 mg cada 12 h); dexclorfeniramina si se necesita la vía im o más efecto sedante (> 2 años: 0,15-0,3 mg/kg/día en 3-4 tomas). Mantener el antihistamínico 5-7 días aunque esté asintomático; si no cede, se puede aumentar hasta 4 veces la dosis estándar. Casos graves (gran afectación cutánea, síntomas sistémicos o angioedema): metilprednisolona 2 mg/kg im o iv en < 14 años. Con angioedema: antihistamínico durante 10-15 días y prednisona 0,5 mg/kg/día vo menos de 10 días, con retirada progresiva. Los corticoides y los antihistamínicos tópicos no son útiles. Riesgo vital: tratar como anafilaxia. Alternativa de la plantilla, que no figura en esta entrada: Atarax (hidroxicina 10 mg/5 ml) 0,5 mg/kg cada 6 h.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): cetirizina de elección (2,5 mg/24 h de 6 meses a 2 años; 5 mg/24 h de 2 a 5 años; 5 mg/12 h de 6 a 12 años) durante 5-7 días; Polaramine si se busca más sedación. Corticoide oral solo si hay angioedema o urticaria grave (antes Estilsona en todos los casos). Se añaden evitar los AINE y la aspirina, y las compresas frías. A decidir: con angioedema la guía da prednisona 0,5 mg/kg/día menos de 10 días, con retirada progresiva, y el antihistamínico 10-15 días; se conserva la Estilsona 3 días.",
+      enlaces: [
+        hoja.urticaria, hoja.anafilaxia,
+        { titulo: "Guía Terapéutica semFYC · Urticaria aguda", url: "https://guiaterapeutica.net/problemas/235/urticaria-aguda" }
+      ],
       texto: `
-- Polaramine (2 mg/5 ml) {{ml de Polaramine}} ml cada {{Polaramine cada (horas)|*8|6-8}} horas durante 5-7 días, vía oral.
-- Estilsona (7 mg/ml) {{ml de Estilsona}} ml cada 12 horas durante 3 días, vía oral.
-- Ropa poco ajustada, preferiblemente de algodón.
-- Evitar jabones, colonias u otros irritantes de la piel durante las próximas semanas.
+- Cetirizina {{Dosis de cetirizina|2,5 mg cada 24 horas|5 mg cada 24 horas|5 mg cada 12 horas}} durante 5-7 días, vía oral, aunque desaparezcan los habones.
+- Si se necesita más efecto sedante, en su lugar (mayores de 2 años): Polaramine (2 mg/5 ml) {{ml de Polaramine}} ml cada {{Polaramine cada (horas)|*8|6-8}} horas durante 5-7 días, vía oral.
+- Solo si hay angioedema o urticaria grave: Estilsona (7 mg/ml) {{ml de Estilsona}} ml cada 12 horas durante 3 días, vía oral.
+- Compresas frías si hay picor. Ropa poco ajustada, preferiblemente de algodón.
+- Evitar jabones, colonias u otros irritantes de la piel durante las próximas semanas. Evitar los antiinflamatorios (como el ibuprofeno) y la aspirina.
 - Reacudir si sensación de dificultad respiratoria o edemas.
 - Control evolutivo por su pediatra en 2-3 días.
 `
@@ -1004,12 +1077,18 @@ Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alte
       tipo: "tratamiento",
       grupo: "Piel",
       titulo: "Varicela",
-      etiquetas: "exantema vesiculas calamina polaramine",
+      etiquetas: "exantema vesiculas calamina polaramine aciclovir",
+      nota: "Según la Guía Terapéutica semFYC: en niños < 12 años sanos, tratamiento sintomático. Paracetamol 10-15 mg/kg cada 6-8 h. Dexclorfeniramina en > 2 años: 0,15-0,30 mg/kg/día en 3-4 tomas. Niños < 12 años tratados con corticoides con riesgo de complicaciones graves: aciclovir oral 20 mg/kg/dosis (máx. 800 mg/dosis) 4 veces al día durante 5 días. Adolescentes no vacunados (riesgo de complicaciones): valaciclovir 1 g cada 8 h durante 7 días, antes de las 24 h de la erupción. Varicela grave (neumonía, encefalitis, hepatitis, trombocitopenia) o inmunodeprimidos: remitir al hospital para aciclovir iv.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): paracetamol cada 6-8 h (antes 4-6 h); Polaramine 3-4 veces al día en mayores de 2 años (se retira la opción de cada 12 h). Se añaden evitar el calor y el rascado, la dieta blanda si hay lesiones en la boca y las uñas cortas. Antivíricos para los grupos de riesgo, en la nota. A decidir: la guía dice que hay riesgo de contagio hasta el desprendimiento de las costras; la plantilla permite volver al colegio cuando todas las lesiones son costras. No se ha cambiado.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Varicela", url: "https://guiaterapeutica.net/problemas/237/varicela" }
+      ],
       texto: `
 - Solución de calamina tópica en la piel.
-- Higiene frecuente de manos y uñas.
-- Si dolor o fiebre, paracetamol (100 mg/ml) {{ml de paracetamol}} ml cada 4-6 horas, vía oral.
-- Si mucho picor: Polaramine (2 mg/5 ml) {{ml de Polaramine}} ml cada {{Polaramine cada (horas)|*6-8|12}} horas durante 5 días, vía oral.
+- Evitar el calor y el rascado de las lesiones. Mantener las uñas cortas y limpias y lavar las manos con frecuencia.
+- Dieta blanda si hay lesiones en la boca.
+- Si dolor o fiebre, paracetamol (100 mg/ml) {{ml de paracetamol}} ml cada 6-8 horas, vía oral.
+- Si mucho picor (mayores de 2 años): Polaramine (2 mg/5 ml) {{ml de Polaramine}} ml 3-4 veces al día durante 5 días, vía oral.
 - Si sobreinfección de alguna lesión: Bactroban (mupirocina) pomada sobre la lesión cada 12 horas durante 5-7 días.
 - Evitar el contacto con embarazadas o bebés que no hayan pasado la varicela.
 - No acudir al colegio o a la guardería hasta que ceda la fiebre y todas las lesiones sean costras.
@@ -1025,15 +1104,20 @@ Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alte
       tipo: "tratamiento",
       grupo: "Ojos",
       titulo: "Conjuntivitis",
-      etiquetas: "ojo rojo legañas tobrex tobramicina bilina",
-      nota: "Alternativa: Oftalmowell colirio (polimixina B, neomicina y gramicidina; a partir de 2 años), 4 veces al día durante 5 días.",
-      revisar: "Frecuencia del Tobrex: RESIS pone cada 4 horas y la plantilla de pediatría cada 8. Según la ficha técnica, en infecciones leves o moderadas son 1-2 gotas cada 4 horas, y está indicado a partir de 1 año.",
+      etiquetas: "ojo rojo legañas tobrex tobramicina bilina eritromicina",
+      nota: "Según la Guía Terapéutica semFYC: en las formas leves, solo medidas no farmacológicas; antibiótico si no mejora tras 2-3 días o si hay circunstancias de riesgo (inmunodepresión, lentes de contacto, diabetes mal controlada, cirugía ocular reciente, ojo seco, imposibilidad de seguimiento o empeoramiento). Niños > 28 días: eritromicina pomada al 0,5 %, 1 aplicación cada 4-6 h durante 5-7 días. Niños > 1 año con contraindicación o intolerancia a la eritromicina: tobramicina colirio 1 gota cada 4-6 h o pomada 1 aplicación cada 8 h, durante 5-7 días. Menores de 28 días o conjuntivitis hiperaguda: remitir a urgencias de oftalmología. Evitar colirios y pomadas con corticoides. Alérgica: levocabastina en > 4 años, 1 gota cada 8-12 h, u olopatadina en > 3 años, 1 gota cada 12 h. Alternativa de la plantilla, que no figura en la guía: Oftalmowell colirio (polimixina B, neomicina y gramicidina; a partir de 2 años), 4 veces al día durante 5 días.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): en las formas leves, lavados y medidas higiénicas, y antibiótico solo si no mejora tras 2-3 días. En niños, eritromicina pomada al 0,5 % cada 4-6 h durante 5-7 días; Tobrex (> 1 año) si la eritromicina está contraindicada o no se tolera: colirio cada 4-6 h o pomada cada 8 h, 5-7 días (antes colirio cada 4 u 8 h 7 días más pomada por la noche); resuelve la observación anterior. Puede ir a la guardería o al colegio si no tiene fiebre ni malestar (antes no hasta la resolución). Bilina 1 gota cada 8-12 h (antes 2 gotas cada 12 h), que es la pauta de la guía para la levocabastina en mayores de 4 años: la guía no cita marcas; comprobad que Bilina es levocabastina.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Conjuntivitis bacteriana", url: "https://guiaterapeutica.net/problemas/355/conjuntivitis-bacteriana" },
+        { titulo: "Guía Terapéutica semFYC · Conjuntivitis alérgica", url: "https://guiaterapeutica.net/problemas/354/conjuntivitis-alergica" }
+      ],
       texto: `
-- Lavados oculares con suero fisiológico y, después, Tobrex colirio (0,3 %) 1 gota en el ojo afecto cada {{Tobrex cada (horas)|*4|8}} horas durante 7 días.
-- Tobrex pomada 1 vez al día, por la noche, en ambos ojos.
+- Lavados oculares con suero fisiológico si hay secreciones; las lágrimas artificiales pueden aliviar las molestias.
+- Si no mejora tras 2-3 días de lavados: {{Antibiótico ocular|*eritromicina pomada oftálmica al 0,5 % 1 aplicación cada 4-6 horas durante 5-7 días|Tobrex colirio (0,3 %) 1 gota en el ojo afecto cada 4-6 horas durante 5-7 días|Tobrex pomada 1 aplicación cada 8 horas durante 5-7 días}}.
+- Lavado frecuente de manos; toallas, pañuelos y sábanas de uso individual.
 - No ir a la piscina ni a la playa.
-- No acudir a la guardería o al colegio hasta la resolución del cuadro.
-- Si conjuntivitis alérgica: Bilina colirio 2 gotas en cada ojo cada 12 horas durante 7 días.
+- Puede ir a la guardería o al colegio, salvo que tenga fiebre o malestar.
+- Si conjuntivitis alérgica: Bilina colirio 1 gota en cada ojo cada 8-12 horas durante 7 días. Compresas frías y evitar frotarse los ojos.
 - Reconsultar con su pediatra si mala evolución.
 `
     },
@@ -1045,10 +1129,17 @@ Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alte
       grupo: "Ojos",
       titulo: "Erosión corneal",
       etiquetas: "cornea traumatismo ocular epitelizante oculos",
-      revisar: "La oclusión no se recomienda de rutina en la erosión corneal: no acelera la curación ni reduce el dolor (revisión Cochrane).",
+      nota: "Según la Guía Terapéutica semFYC: hay riesgo de infección si la erosión la ha causado material contaminado u orgánico, uñas, etc. (bajo con papel o metales). Si la han causado lentes de contacto, materia vegetal o un arañazo, la guía da ciprofloxacino (o tobramicina si las quinolonas están contraindicadas), con dosis solo de adultos. No dar corticoides ni anestésicos tópicos para casa. Derivar con urgencia si se sospecha penetración ocular (Seydell +), si la erosión es muy extensa o si no mejora en 48 h.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): antibiótico solo si hay riesgo de infección, eritromicina pomada cada 6-8 h durante 3-5 días (antes Tobrex u otra pomada con antibiótico). Se retira la oclusión: la guía no aconseja tapar con vendaje compresivo, lo que resuelve la observación anterior. Se añaden las gafas de sol, el analgésico oral y el control a las 24 h. A decidir: Oculos Epitelizante no figura en la guía (que prefiere las pomadas por su efecto lubricante); se conserva.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Úlceras y erosiones corneales. Cuerpo extraño corneal", url: "https://guiaterapeutica.net/problemas/357/ulceras-y-erosiones-corneales-cuerpo-extrano-corneal" }
+      ],
       texto: `
-- Pomada Oculos Epitelizante cada 8 horas (no financiada); si no, Tobrex u otra pomada con antibiótico.
-- Oclusión ocular durante 24 horas.
+- Si hay riesgo de infección (erosión por material contaminado u orgánico, uñas...): eritromicina pomada oftálmica 1 aplicación cada 6-8 horas durante 3-5 días.
+- Pomada Oculos Epitelizante cada 8 horas (no financiada).
+- No es aconsejable tapar el ojo. Gafas de sol.
+- Analgésico oral si dolor.
+- Control en 24 horas. Reconsultar si no mejora en 48 horas.
 `
     },
 
@@ -1060,12 +1151,15 @@ Lamisil (terbinafina) crema cada 12 horas sobre las lesiones durante 1 mes. Alte
       tipo: "tratamiento",
       grupo: "Genitourinario",
       titulo: "Infección urinaria (ITU)",
-      etiquetas: "cefixima denvar urocultivo pielonefritis",
-      nota: "Si es menor de 3 meses: ingreso.",
-      revisar: "El máximo de la cefixima es 400 mg al día; el documento RESIS ponía 400 mg por dosis.",
+      etiquetas: "cefuroxima cefixima denvar urocultivo pielonefritis",
+      nota: "Si es menor de 3 meses: ingreso. Según la Guía Terapéutica semFYC: ITU con fiebre, cefuroxima axetilo 15-30 mg/kg cada 12 h durante 7-10 días vo; ITU sin fiebre, cefuroxima axetilo 15-30 mg/kg cada 12 h durante 3-4 días, o fosfomicina trometamol en dosis única (6-12 años, 2 g; > 12 años, 3 g). Adaptar al urocultivo y al antibiograma. Derivar a los niños muy pequeños, con factores de riesgo (uropatía previa), afectación del estado general o sin respuesta al tratamiento oral en 48 h. En los no continentes (aprox. < 2 años), recoger la orina por método estéril (sonda o punción suprapúbica).",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): en la ITU con fiebre, cefuroxima axetilo 15-30 mg/kg cada 12 h durante 7-10 días (antes cefixima 8 mg/kg/día durante 10 días; la guía no recoge la cefixima en niños). Sustituye a la observación anterior sobre la dosis máxima de cefixima. La ITU sin fiebre y los criterios de derivación, en la nota.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Infección urinaria", url: "https://guiaterapeutica.net/problemas/408/infeccion-urinaria" }
+      ],
       texto: `
 - Si fiebre o dolor, paracetamol (100 mg/ml) {{ml de paracetamol}} ml cada 4-6 horas.
-- Cefixima (Denvar 100 mg/5 ml) 8 mg/kg/día repartido cada 12 horas: {{ml de Denvar}} ml cada 12 horas (o comprimidos de 200 mg) durante 10 días, vía oral.
+- Cefuroxima axetilo ({{Presentación de cefuroxima}}) {{ml de cefuroxima}} ml cada 12 horas durante {{Días de antibiótico|*10|7}} días, vía oral.
 - Control evolutivo por su pediatra en 24-48 horas.
 - Reacudir si empeoramiento clínico (malestar general intenso con escalofríos, persistencia de la fiebre tras dos días de antibiótico, no tolerancia del antibiótico...).
 - Llamar en 2-3 días a urgencias de pediatría, por la mañana, para conocer el resultado del urocultivo.
