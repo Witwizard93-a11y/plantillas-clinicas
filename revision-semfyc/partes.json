@@ -1,0 +1,723 @@
+[
+ {
+  "parte": 1,
+  "plantillas": [
+   {
+    "id": "mg-evol-alta",
+    "categoria": "Medicina general",
+    "grupo": "Evolución y alta",
+    "titulo": "Evolutivo: alta a domicilio"
+   },
+   {
+    "id": "mg-evol-pruebas",
+    "categoria": "Medicina general",
+    "grupo": "Evolución y alta",
+    "titulo": "Evolutivo: llegada, pruebas y alta"
+   },
+   {
+    "id": "mg-evol-monitorizada",
+    "categoria": "Medicina general",
+    "grupo": "Evolución y alta",
+    "titulo": "Evolutivo: observación monitorizada y alta (paciente mujer)"
+   },
+   {
+    "id": "mg-evol-dolor-toracico",
+    "categoria": "Medicina general",
+    "grupo": "Evolución y alta",
+    "titulo": "Evolutivo: dolor torácico atípico"
+   },
+   {
+    "id": "mg-control",
+    "categoria": "Medicina general",
+    "grupo": "Evolución y alta",
+    "titulo": "Control y signos de alarma"
+   },
+   {
+    "id": "mg-cort-prednisona-9",
+    "categoria": "Medicina general",
+    "grupo": "Corticoides: pautas descendentes",
+    "titulo": "Prednisona 30 mg (Dacortin), 9 días"
+   },
+   {
+    "id": "mg-cort-prednisona-17",
+    "categoria": "Medicina general",
+    "grupo": "Corticoides: pautas descendentes",
+    "titulo": "Prednisona 30 mg (Dacortin), 17 días"
+   },
+   {
+    "id": "mg-cort-urbason-12",
+    "categoria": "Medicina general",
+    "grupo": "Corticoides: pautas descendentes",
+    "titulo": "Metilprednisolona 16 mg (Urbason), 12 días"
+   },
+   {
+    "id": "mg-cort-dexametasona",
+    "categoria": "Medicina general",
+    "grupo": "Corticoides: pautas descendentes",
+    "titulo": "Dexametasona 1 mg, pauta descendente"
+   },
+   {
+    "id": "mg-itu",
+    "categoria": "Medicina general",
+    "grupo": "Infecciones",
+    "titulo": "Infección urinaria (ITU)"
+   },
+   {
+    "id": "mg-amigdalitis",
+    "categoria": "Medicina general",
+    "grupo": "Infecciones",
+    "titulo": "Amigdalitis"
+   },
+   {
+    "id": "mg-laringitis",
+    "categoria": "Medicina general",
+    "grupo": "Infecciones",
+    "titulo": "Laringitis / accesos de tos / tos perruna"
+   },
+   {
+    "id": "mg-zoster-1",
+    "categoria": "Medicina general",
+    "grupo": "Infecciones",
+    "titulo": "Herpes zóster: pauta con linimento"
+   },
+   {
+    "id": "mg-zoster-2",
+    "categoria": "Medicina general",
+    "grupo": "Infecciones",
+    "titulo": "Herpes zóster: pauta con tramadol"
+   },
+   {
+    "id": "mg-sarna",
+    "categoria": "Medicina general",
+    "grupo": "Infecciones",
+    "titulo": "Sarna (escabiosis)"
+   },
+   {
+    "id": "mg-diarrea",
+    "categoria": "Medicina general",
+    "grupo": "Digestivo",
+    "titulo": "Diarrea aguda / abdominalgia"
+   },
+   {
+    "id": "mg-gastritis",
+    "categoria": "Medicina general",
+    "grupo": "Digestivo",
+    "titulo": "Gastritis / epigastralgia"
+   },
+   {
+    "id": "mg-estrenimiento",
+    "categoria": "Medicina general",
+    "grupo": "Digestivo",
+    "titulo": "Estreñimiento"
+   },
+   {
+    "id": "mg-vertigo",
+    "categoria": "Medicina general",
+    "grupo": "Neurología",
+    "titulo": "Vértigo"
+   },
+   {
+    "id": "mg-cefalea",
+    "categoria": "Medicina general",
+    "grupo": "Neurología",
+    "titulo": "Cefalea"
+   },
+   {
+    "id": "mg-paralisis-facial",
+    "categoria": "Medicina general",
+    "grupo": "Neurología",
+    "titulo": "Parálisis facial periférica"
+   },
+   {
+    "id": "mg-urticaria",
+    "categoria": "Medicina general",
+    "grupo": "Alergia",
+    "titulo": "Urticaria / reacción alérgica"
+   },
+   {
+    "id": "mg-anafilaxia",
+    "categoria": "Medicina general",
+    "grupo": "Alergia",
+    "titulo": "Anafilaxia"
+   },
+   {
+    "id": "mg-dolor-toracico-mecanico",
+    "categoria": "Medicina general",
+    "grupo": "Aparato locomotor",
+    "titulo": "Dolor torácico mecánico / atípico"
+   }
+  ]
+ },
+ {
+  "parte": 2,
+  "plantillas": [
+   {
+    "id": "mg-contractura",
+    "categoria": "Medicina general",
+    "grupo": "Aparato locomotor",
+    "titulo": "Contractura muscular"
+   },
+   {
+    "id": "mg-lumbalgia",
+    "categoria": "Medicina general",
+    "grupo": "Aparato locomotor",
+    "titulo": "Lumbalgia / dorsalgia"
+   },
+   {
+    "id": "mg-crisis-asmatica",
+    "categoria": "Medicina general",
+    "grupo": "Respiratorio",
+    "titulo": "Crisis asmática: tratamiento"
+   },
+   {
+    "id": "mg-asma-urgencias",
+    "categoria": "Medicina general",
+    "grupo": "Respiratorio",
+    "titulo": "Asma: manejo en urgencias (consulta)"
+   },
+   {
+    "id": "mg-asma-alta",
+    "categoria": "Medicina general",
+    "grupo": "Respiratorio",
+    "titulo": "Asma: tratamiento al alta"
+   },
+   {
+    "id": "mg-irvb-urgencias",
+    "categoria": "Medicina general",
+    "grupo": "Respiratorio",
+    "titulo": "Infección respiratoria de vías bajas ± broncoespasmo"
+   },
+   {
+    "id": "mg-irvb-alta",
+    "categoria": "Medicina general",
+    "grupo": "Respiratorio",
+    "titulo": "Infección respiratoria de vías bajas: tratamiento al alta"
+   },
+   {
+    "id": "mg-oxigenoterapia",
+    "categoria": "Medicina general",
+    "grupo": "Respiratorio",
+    "titulo": "Oxigenoterapia: FiO2 según dispositivo (consulta)"
+   },
+   {
+    "id": "mg-fa",
+    "categoria": "Medicina general",
+    "grupo": "Cardiovascular",
+    "titulo": "Fibrilación auricular"
+   },
+   {
+    "id": "mg-taquicardias",
+    "categoria": "Medicina general",
+    "grupo": "Cardiovascular",
+    "titulo": "Taquicardias: TPSV / flutter (adenosina)"
+   },
+   {
+    "id": "mg-eap",
+    "categoria": "Medicina general",
+    "grupo": "Cardiovascular",
+    "titulo": "Edema agudo de pulmón"
+   },
+   {
+    "id": "mg-sca",
+    "categoria": "Medicina general",
+    "grupo": "Cardiovascular",
+    "titulo": "SCASEST / SCACEST"
+   },
+   {
+    "id": "mg-cad",
+    "categoria": "Medicina general",
+    "grupo": "Endocrino y metabolismo",
+    "titulo": "Cetoacidosis diabética"
+   },
+   {
+    "id": "mg-hiponatremia",
+    "categoria": "Medicina general",
+    "grupo": "Endocrino y metabolismo",
+    "titulo": "Hiponatremia / SIADH"
+   },
+   {
+    "id": "mg-hipopotasemia",
+    "categoria": "Medicina general",
+    "grupo": "Endocrino y metabolismo",
+    "titulo": "Hipopotasemia"
+   },
+   {
+    "id": "mg-tirotoxicosis",
+    "categoria": "Medicina general",
+    "grupo": "Endocrino y metabolismo",
+    "titulo": "Tirotoxicosis"
+   },
+   {
+    "id": "mg-acidosis-hiperpotasemia",
+    "categoria": "Medicina general",
+    "grupo": "Endocrino y metabolismo",
+    "titulo": "Hiperpotasemia y acidosis metabólica"
+   },
+   {
+    "id": "mg-fra",
+    "categoria": "Medicina general",
+    "grupo": "Renal",
+    "titulo": "Fracaso renal agudo (consulta)"
+   },
+   {
+    "id": "mg-hematuria",
+    "categoria": "Medicina general",
+    "grupo": "Renal",
+    "titulo": "Hematuria (protocolo)"
+   },
+   {
+    "id": "mg-cirrosis",
+    "categoria": "Medicina general",
+    "grupo": "Hepatología",
+    "titulo": "Cirrosis: precauciones e infecciones (consulta)"
+   },
+   {
+    "id": "mg-encefalopatia-hepatica",
+    "categoria": "Medicina general",
+    "grupo": "Hepatología",
+    "titulo": "Encefalopatía hepática"
+   },
+   {
+    "id": "mg-descompensacion-ascitica",
+    "categoria": "Medicina general",
+    "grupo": "Hepatología",
+    "titulo": "Descompensación ascítica (DAE)"
+   },
+   {
+    "id": "mg-hepatitis-aguda",
+    "categoria": "Medicina general",
+    "grupo": "Hepatología",
+    "titulo": "Hepatitis aguda (consulta)"
+   },
+   {
+    "id": "mg-sedacion-paliativa",
+    "categoria": "Medicina general",
+    "grupo": "Dolor y paliativos",
+    "titulo": "Sedación paliativa (pauta)"
+   }
+  ]
+ },
+ {
+  "parte": 3,
+  "plantillas": [
+   {
+    "id": "mg-opioides-orales",
+    "categoria": "Medicina general",
+    "grupo": "Dolor y paliativos",
+    "titulo": "Analgesia opioide oral y transdérmica (consulta)"
+   },
+   {
+    "id": "mg-bic-nitroglicerina",
+    "categoria": "Medicina general",
+    "grupo": "Perfusiones (BIC)",
+    "titulo": "Nitroglicerina (BIC)"
+   },
+   {
+    "id": "mg-bic-furosemida",
+    "categoria": "Medicina general",
+    "grupo": "Perfusiones (BIC)",
+    "titulo": "Furosemida (BIC)"
+   },
+   {
+    "id": "mg-bic-morfina",
+    "categoria": "Medicina general",
+    "grupo": "Perfusiones (BIC)",
+    "titulo": "Morfina (bolo y BIC)"
+   },
+   {
+    "id": "mg-bic-heparina",
+    "categoria": "Medicina general",
+    "grupo": "Perfusiones (BIC)",
+    "titulo": "Heparina sódica (BIC)"
+   },
+   {
+    "id": "mg-flumazenilo",
+    "categoria": "Medicina general",
+    "grupo": "Perfusiones (BIC)",
+    "titulo": "Flumazenilo"
+   },
+   {
+    "id": "mg-isoprenalina",
+    "categoria": "Medicina general",
+    "grupo": "Perfusiones (BIC)",
+    "titulo": "Isoprenalina (Aleudrina)"
+   },
+   {
+    "id": "mg-anorexia-ancianos",
+    "categoria": "Medicina general",
+    "grupo": "Otros",
+    "titulo": "Anorexia en ancianos"
+   },
+   {
+    "id": "mg-hoja-boxes",
+    "categoria": "Medicina general",
+    "grupo": "Otros",
+    "titulo": "Hoja de tratamiento en boxes"
+   },
+   {
+    "id": "mg-exitus",
+    "categoria": "Medicina general",
+    "grupo": "Otros",
+    "titulo": "Constatación de éxitus"
+   },
+   {
+    "id": "pe-evol-bronquitis",
+    "categoria": "Pediatría",
+    "grupo": "Evolución en urgencias",
+    "titulo": "Evolutivo: bronquitis / bronquiolitis / asma"
+   },
+   {
+    "id": "pe-evol-laringitis-leve",
+    "categoria": "Pediatría",
+    "grupo": "Evolución en urgencias",
+    "titulo": "Evolutivo: laringitis leve (dexametasona)"
+   },
+   {
+    "id": "pe-evol-laringitis-grave",
+    "categoria": "Pediatría",
+    "grupo": "Evolución en urgencias",
+    "titulo": "Evolutivo: laringitis moderada-grave (adrenalina)"
+   },
+   {
+    "id": "pe-evol-gea-deshidratacion",
+    "categoria": "Pediatría",
+    "grupo": "Evolución en urgencias",
+    "titulo": "Evolutivo: GEA con deshidratación leve"
+   },
+   {
+    "id": "pe-evol-gea-hipoglucemia",
+    "categoria": "Pediatría",
+    "grupo": "Evolución en urgencias",
+    "titulo": "Evolutivo: GEA con deshidratación e hipoglucemia"
+   },
+   {
+    "id": "pe-bronquiolitis",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Bronquiolitis"
+   },
+   {
+    "id": "pe-bronquitis-asma",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Bronquitis / asma"
+   },
+   {
+    "id": "pe-crisis-asma-padres",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Crisis asmática: información para padres"
+   },
+   {
+    "id": "pe-laringitis",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Laringitis"
+   },
+   {
+    "id": "pe-laringitis-alta-ca",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Laringitis: recomendaciones al alta (catalán)"
+   },
+   {
+    "id": "pe-neumonia",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Neumonía"
+   },
+   {
+    "id": "pe-resfriado",
+    "categoria": "Pediatría",
+    "grupo": "Respiratorio",
+    "titulo": "Resfriado / catarro de vías altas"
+   },
+   {
+    "id": "pe-amigdalitis",
+    "categoria": "Pediatría",
+    "grupo": "ORL y boca",
+    "titulo": "Amigdalitis"
+   },
+   {
+    "id": "pe-otitis-externa",
+    "categoria": "Pediatría",
+    "grupo": "ORL y boca",
+    "titulo": "Otitis externa"
+   }
+  ]
+ },
+ {
+  "parte": 4,
+  "plantillas": [
+   {
+    "id": "pe-otitis-media",
+    "categoria": "Pediatría",
+    "grupo": "ORL y boca",
+    "titulo": "Otitis media aguda"
+   },
+   {
+    "id": "pe-otomicosis",
+    "categoria": "Pediatría",
+    "grupo": "ORL y boca",
+    "titulo": "Otomicosis externa"
+   },
+   {
+    "id": "pe-herpangina",
+    "categoria": "Pediatría",
+    "grupo": "ORL y boca",
+    "titulo": "Herpangina / gingivoestomatitis herpética"
+   },
+   {
+    "id": "pe-muguet",
+    "categoria": "Pediatría",
+    "grupo": "ORL y boca",
+    "titulo": "Muguet oral (candidiasis orofaríngea)"
+   },
+   {
+    "id": "pe-gea",
+    "categoria": "Pediatría",
+    "grupo": "Digestivo",
+    "titulo": "Gastroenteritis aguda (GEA)"
+   },
+   {
+    "id": "pe-dolor-abdominal",
+    "categoria": "Pediatría",
+    "grupo": "Digestivo",
+    "titulo": "Dolor abdominal: información para padres"
+   },
+   {
+    "id": "pe-colicos",
+    "categoria": "Pediatría",
+    "grupo": "Digestivo",
+    "titulo": "Cólicos del lactante"
+   },
+   {
+    "id": "pe-estrenimiento",
+    "categoria": "Pediatría",
+    "grupo": "Digestivo",
+    "titulo": "Estreñimiento"
+   },
+   {
+    "id": "pe-fisura-anal",
+    "categoria": "Pediatría",
+    "grupo": "Digestivo",
+    "titulo": "Fisura anal"
+   },
+   {
+    "id": "pe-oxiuros",
+    "categoria": "Pediatría",
+    "grupo": "Digestivo",
+    "titulo": "Oxiuros (mayores de 2 años)"
+   },
+   {
+    "id": "pe-dermatitis-atopica",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Dermatitis atópica"
+   },
+   {
+    "id": "pe-dermatitis-panal",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Dermatitis del pañal"
+   },
+   {
+    "id": "pe-dermatitis-perioral",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Dermatitis perioral por la saliva"
+   },
+   {
+    "id": "pe-acne",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Acné"
+   },
+   {
+    "id": "pe-impetigo",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Impétigo"
+   },
+   {
+    "id": "pe-picadura",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Picadura de insecto / avispa / abeja"
+   },
+   {
+    "id": "pe-escabiosis",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Escabiosis (sarna)"
+   },
+   {
+    "id": "pe-tina-cutanea",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Tiña cutánea / candidiasis cutánea / pitiriasis versicolor"
+   },
+   {
+    "id": "pe-tina-capitis",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Tiña capitis"
+   },
+   {
+    "id": "pe-urticaria",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Urticaria"
+   },
+   {
+    "id": "pe-varicela",
+    "categoria": "Pediatría",
+    "grupo": "Piel",
+    "titulo": "Varicela"
+   },
+   {
+    "id": "pe-conjuntivitis",
+    "categoria": "Pediatría",
+    "grupo": "Ojos",
+    "titulo": "Conjuntivitis"
+   },
+   {
+    "id": "pe-erosion-corneal",
+    "categoria": "Pediatría",
+    "grupo": "Ojos",
+    "titulo": "Erosión corneal"
+   },
+   {
+    "id": "pe-itu",
+    "categoria": "Pediatría",
+    "grupo": "Genitourinario",
+    "titulo": "Infección urinaria (ITU)"
+   }
+  ]
+ },
+ {
+  "parte": 5,
+  "plantillas": [
+   {
+    "id": "pe-balanopostitis",
+    "categoria": "Pediatría",
+    "grupo": "Genitourinario",
+    "titulo": "Balanopostitis"
+   },
+   {
+    "id": "pe-vulvovaginitis",
+    "categoria": "Pediatría",
+    "grupo": "Genitourinario",
+    "titulo": "Vulvovaginitis"
+   },
+   {
+    "id": "pe-cefalea",
+    "categoria": "Pediatría",
+    "grupo": "Neurología",
+    "titulo": "Cefalea"
+   },
+   {
+    "id": "pe-tce",
+    "categoria": "Pediatría",
+    "grupo": "Neurología",
+    "titulo": "Traumatismo craneoencefálico (TCE)"
+   },
+   {
+    "id": "pe-convulsion-febril",
+    "categoria": "Pediatría",
+    "grupo": "Neurología",
+    "titulo": "Convulsión febril: información para padres"
+   },
+   {
+    "id": "pe-espasmos-sollozo",
+    "categoria": "Pediatría",
+    "grupo": "Neurología",
+    "titulo": "Espasmos del sollozo: información para padres"
+   },
+   {
+    "id": "pe-meningitis-aseptica",
+    "categoria": "Pediatría",
+    "grupo": "Neurología",
+    "titulo": "Meningitis aséptica: información para padres"
+   },
+   {
+    "id": "pe-sincope",
+    "categoria": "Pediatría",
+    "grupo": "Neurología",
+    "titulo": "Síncope: información para padres"
+   },
+   {
+    "id": "pe-fiebre",
+    "categoria": "Pediatría",
+    "grupo": "Fiebre y dolor",
+    "titulo": "Fiebre: información para padres"
+   },
+   {
+    "id": "pe-analgesia",
+    "categoria": "Pediatría",
+    "grupo": "Fiebre y dolor",
+    "titulo": "Analgesia: información para padres"
+   },
+   {
+    "id": "pe-tromboflebitis",
+    "categoria": "Pediatría",
+    "grupo": "Otros",
+    "titulo": "Tromboflebitis superficial"
+   },
+   {
+    "id": "pe-hojas-seup",
+    "categoria": "Pediatría",
+    "grupo": "Información para padres",
+    "titulo": "Hojas informativas para padres (SEUP)"
+   },
+   {
+    "id": "tr-trat-raquis",
+    "categoria": "Traumatología",
+    "grupo": "Columna",
+    "titulo": "Cervicalgia / lumbalgia: tratamiento"
+   },
+   {
+    "id": "tr-trat-contusion",
+    "categoria": "Traumatología",
+    "grupo": "Contusiones y esguinces",
+    "titulo": "Contusión / esguince: tratamiento"
+   },
+   {
+    "id": "tr-trat-fractura-radio",
+    "categoria": "Traumatología",
+    "grupo": "Fracturas",
+    "titulo": "Fractura de radio distal desplazada: reducción"
+   },
+   {
+    "id": "tr-trat-analgesia-ev",
+    "categoria": "Traumatología",
+    "grupo": "Analgesia",
+    "titulo": "Analgesia endovenosa"
+   },
+   {
+    "id": "tr-trat-analgesia-ninos",
+    "categoria": "Traumatología",
+    "grupo": "Analgesia",
+    "titulo": "Analgesia en niños"
+   },
+   {
+    "id": "tr-trat-agitacion",
+    "categoria": "Traumatología",
+    "grupo": "Otros",
+    "titulo": "Agitación"
+   },
+   {
+    "id": "of-trat-conjuntivitis-bact",
+    "categoria": "Oftalmología",
+    "grupo": "Conjuntiva",
+    "titulo": "Conjuntivitis bacteriana"
+   },
+   {
+    "id": "of-trat-ojo-seco",
+    "categoria": "Oftalmología",
+    "grupo": "Superficie ocular",
+    "titulo": "Ojo seco"
+   }
+  ]
+ }
+]
