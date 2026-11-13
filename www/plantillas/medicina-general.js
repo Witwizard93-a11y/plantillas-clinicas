@@ -559,7 +559,7 @@ Sarcop crema (permetrina 5 %): 1 aplicación por la noche, del cuello a la punta
     texto: `
 - Dieta blanda según tolerancia. Evitar café, alcohol, tabaco, los alimentos que le causen molestias y los AINE (salvo por indicación médica).
 - Omeprazol 20-40 mg cada 24 h, máximo 4 semanas.
-- Almax (almagato) 1-1,5 g (2-3 comprimidos de 500 mg) entre 1 y 2 h después de cada comida y al acostarse, o a demanda.
+- Almax 500 mg (almagato): 1-1,5 g entre 1 y 2 h después de cada comida y al acostarse, o a demanda.
 - Asociar Primperan 10 mg cada 24 h si náuseas (máximo cada 8 h).
 - Paracetamol 1 g cada 8 h si dolor.
 `
@@ -729,14 +729,16 @@ Si reacciones anafilácticas graves repetidas: llevar consigo adrenalina 1/1.000
     ambito: ["familia", "urgencias"],
     grupo: "Aparato locomotor",
     titulo: "Contractura muscular",
-    etiquetas: "relajante yurelax robaxin calor",
+    etiquetas: "relajante diazepam paracetamol diclofenaco naproxeno yurelax robaxin calor",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, dolor osteomuscular agudo): paracetamol 0,5-1 g cada 4-6 h (antes 1 g cada 8 h) o diclofenaco tópico; si no mejora, naproxeno o ibuprofeno; para la contractura, diazepam 5-10 mg cada 12-24 h, fármaco de referencia de la guía, en lugar de ciclobenzaprina y metocarbamol (según la guía, las evidencias de los miorrelajantes son escasas); el calor local es más eficaz a partir de las 48-72 h.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Dolor osteomuscular agudo", url: "https://guiaterapeutica.net/problemas/448/dolor-osteomuscular-agudo" }
+    ],
     texto: `
-- Relajante muscular:
-  - Yurelax 10 mg (ciclobenzaprina): cada 12 h.
-  - Robaxin 500 mg (metocarbamol): cada 6-8 h.
-  - Robaxisal 380/300 mg (metocarbamol + paracetamol): 2 comprimidos cada 6 h.
-- Paracetamol 1 g cada 8 h.
-- Calor local.
+- Paracetamol 0,5-1 g cada 4-6 h vo (máx. 4 g/día; en ancianos o IR grave, máx. 3 g/día; en IH, máx. 2 g/día), o diclofenaco tópico, 1 aplicación cada 6-8 h.
+- Contractura muscular (o dificultad para dormir o ansiedad asociada): añadir diazepam 5-10 mg cada 12-24 h vo.
+- Si no mejora: naproxeno 500 mg cada 12-24 h vo, o ibuprofeno 400-1.200 mg/día en 1-3 tomas vo.
+- Calor local, más eficaz a partir de las 48-72 primeras horas.
 `
   },
 
@@ -747,11 +749,19 @@ Si reacciones anafilácticas graves repetidas: llevar consigo adrenalina 1/1.000
     ambito: ["familia", "urgencias"],
     grupo: "Aparato locomotor",
     titulo: "Lumbalgia / dorsalgia",
-    etiquetas: "naproxeno metamizol calor espalda",
+    etiquetas: "naproxeno ibuprofeno tramadol paracetamol metamizol calor espalda",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, lumbalgia simple y dorsalgia): lumbalgia: naproxeno 500 mg cada 12-24 h (antes 550 mg cada 12 h) o ibuprofeno; metamizol solo si no puede tomar AINE (antes alternado con el naproxeno); si dolor intenso o sin mejoría, asociar tramadol; reposo relativo no más de 2 días. Dorsalgia: paracetamol de elección. La guía no da dosis de metamizol en esta entrada: se conserva la de la plantilla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Lumbalgia simple", url: "https://guiaterapeutica.net/problemas/321/lumbalgia-simple" },
+      { titulo: "Guía Terapéutica semFYC · Dorsalgia", url: "https://guiaterapeutica.net/problemas/291/dorsalgia" }
+    ],
     texto: `
-- Reposo relativo. Evitar sobreesfuerzos, sobrecarga de pesos y/o movimientos bruscos.
+- Reposo relativo no más de 2 días, manteniendo la actividad habitual. Evitar sobreesfuerzos, sobrecarga de pesos y/o movimientos bruscos. Higiene postural y estiramientos a partir de la 2.ª semana.
 - Calor local 15-30 min cada 4-6 horas, durante 3 días o hasta mejoría del dolor.
-- Alternar naproxeno 550 mg, 1 comprimido cada 12 horas, con metamizol 575 mg, 1 comprimido cada 8 horas, durante 5 días.
+- Lumbalgia: naproxeno 500 mg cada 12-24 h vo, o ibuprofeno 400-1.200 mg/día en 1-3 dosis vo, durante 5 días (a la menor dosis útil y durante el menor tiempo posible).
+- Si no puede tomar AINE: metamizol 575 mg, 1 comprimido cada 8 horas, o paracetamol.
+- Lumbalgia con dolor intenso o sin mejoría: asociar tramadol 50 mg/día (máx. 400 mg/día; en ancianos o IR crónica, 25 mg/día, máx. 300 mg/día).
+- Dorsalgia: paracetamol 0,5-1 g cada 4-6 h vo (máx. 4 g/día; en ancianos o IR grave, máx. 3 g/día; en IH, máx. 2 g/día).
 - Control evolutivo por su médico de familia si persiste el dolor a pesar de dichas medidas.
 - Se explican signos y síntomas de alarma por los que reacudir: fiebre >38 ºC o dolor que no cede a pesar de la analgesia, pérdida de sensibilidad o fuerza en EEII o empeoramiento del estado general.
 `
@@ -766,15 +776,18 @@ Si reacciones anafilácticas graves repetidas: llevar consigo adrenalina 1/1.000
     ambito: ["familia", "urgencias"],
     grupo: "Respiratorio",
     titulo: "Crisis asmática: tratamiento",
-    etiquetas: "asma ventolin salbutamol atrovent pulmicort symbicort",
-    revisar: "El propio documento la marcaba «REVISAR». Además: Pulmicort y Symbicort a la vez duplican el corticoide inhalado, y el antibiótico no está indicado de rutina en la crisis asmática (solo si hay infección bacteriana). Compárala con «Asma: tratamiento al alta».",
+    etiquetas: "asma ventolin salbutamol terbutalina atrovent ipratropio prednisona pulmicort symbicort",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, crisis asmática): salbutamol 600 µg (6 puffs) con cámara, repetible a los 20-30 min y a los 30-60 min (antes 3 inhalaciones cada 6 h); en la crisis moderada o grave, ipratropio 80-120 µg (4-6 puffs) (antes 4 inhalaciones cada 8 h) y prednisona 1 mg/kg/día vo en lugar de la pauta descendente de Dacortin (la guía no indica duración). Pendiente de decidir: la guía no incluye en la crisis corticoides inhalados (Pulmicort y Symbicort a la vez duplican el corticoide inhalado; el tratamiento de fondo está en «Asma bronquial») ni antibiótico (Augmentine); se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Asma. Crisis asmática", url: "https://guiaterapeutica.net/problemas/125/asma-crisis-asmatica" }
+    ],
     texto: `
-- Ventolín (salbutamol) 3 inhalaciones cada 6 horas.
-- Atrovent (bromuro de ipratropio) 4 inhalaciones cada 8 horas.
+- Ventolín (salbutamol) 600 µg (6 puffs) con cámara espaciadora, o terbutalina 1.500 µg (3 puffs). Si no hay respuesta, repetir 4-6 puffs a los 20-30 min; a los 30-60 min se puede repetir una tercera dosis.
+- Crisis moderada o grave: añadir Atrovent (bromuro de ipratropio) 80-120 µg (4-6 puffs) y prednisona 1 mg/kg/día vo (si la disnea impide la deglución, hay vómitos o ventilación mecánica: hidrocortisona 100-200 mg iv o metilprednisolona 1-2 mg/kg iv).
 - Pulmicort 2 inhalaciones cada 8 horas.
 - Symbicort (corticoide + broncodilatador) 2 inhalaciones cada 12 h.
 - Augmentine 875/125 mg cada 8 h, 10 días.
-- Si moderada-grave: Dacortin en pauta descendente.
+- Tranquilizar al paciente; no utilizar fármacos sedantes. Si la crisis es grave y no mejora rápidamente, solicitar ambulancia medicalizada mientras se inicia el tratamiento.
 `
   },
 
@@ -785,19 +798,23 @@ Si reacciones anafilácticas graves repetidas: llevar consigo adrenalina 1/1.000
     ambito: ["urgencias"],
     grupo: "Respiratorio",
     titulo: "Asma: manejo en urgencias (consulta)",
-    etiquetas: "crisis asmatica peak flow salbutamol atrovent magnesio actocortina urbason",
+    etiquetas: "crisis asmatica peak flow salbutamol atrovent ipratropio prednisona hidrocortisona metilprednisolona magnesio actocortina urbason",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, crisis asmática): crisis leve: salbutamol 600 µg (6 puffs) con cámara, repetible a los 20-30 min y a los 30-60 min, sin corticoide oral (la guía lo indica en la moderada o grave); moderada-grave: nebulización de salbutamol 5 mg (antes 2,5-7,5 mg) e ipratropio 0,5 mg en 3 ml de SF; prednisona 1 mg/kg/día vo (antes Urbason 40 mg o prednisona 50 mg) y, si no puede tomarla, hidrocortisona 100-200 mg iv (antes Actocortina 200-400 mg) o metilprednisolona 1-2 mg/kg iv (antes Urbason 40 mg y 20 mg cada 8 h). La guía no da la frecuencia de las nebulizaciones ni la duración del corticoide, ni recoge el oxígeno ni el sulfato de magnesio: se conservan los de la plantilla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Asma. Crisis asmática", url: "https://guiaterapeutica.net/problemas/125/asma-crisis-asmatica" }
+    ],
     texto: `
 Valorar PEF/FEV1 ± GSA (si SatO2 ≤94 %). Peak flow: en boxes siempre, antes de las nebulizaciones.
+Tranquilizar al paciente; no utilizar fármacos sedantes.
 
 Leve (>70 %):
-- Salbutamol siempre: 2-4 inhalaciones con cámara cada 20 min durante la 1.ª hora; luego, 2 inhalaciones cada 3-4 h.
-- Corticoides orales: Urbason 40 mg o prednisona 50 mg durante 5-10 días, sin descenso.
+- Salbutamol 600 µg (6 puffs) con cámara espaciadora, o terbutalina 1.500 µg (3 puffs). Si no hay respuesta, repetir 4-6 puffs a los 20-30 min; a los 30-60 min se puede repetir una tercera dosis.
 
 Moderada-grave (70-50 % o <50 %):
 - GN o VMK.
-- Hudson/NUSS: [salbutamol 2,5-7,5 mg + Atrovent 500 mcg] cada 20 min durante la 1.ª hora; luego, cada 3-4 h.
-- Corticoides: v.o. de 1.ª elección; si ingreso (previenen, pero no resuelven el broncoespasmo): dosis de ataque de Actocortina 200-400 mg IV (o Urbason 40 mg IV); luego, Urbason 20 mg cada 8 h.
-- Corticoides inhalados: budesonida nebulizada 0,5 mg cada 15 min durante la 1.ª hora; luego, en MDI 400 mcg cada 12 h, o 0,5 mg cada 12 h si nebulizada.
+- Hudson/NUSS: [salbutamol 5 mg + Atrovent 0,5 mg, cada uno diluido en 3 ml de SF; se pueden mezclar] cada 20 min durante la 1.ª hora; luego, cada 3-4 h.
+- Corticoides: prednisona 1 mg/kg/día v.o. de 1.ª elección, durante 5-10 días, sin descenso. Si la disnea impide la deglución, hay vómitos o ventilación mecánica (previenen, pero no resuelven el broncoespasmo): hidrocortisona (Actocortina) 100-200 mg IV o metilprednisolona (Urbason) 1-2 mg/kg IV.
+- Corticoides inhalados: budesonida nebulizada 0,5 mg (diluida en 3 ml de SF) cada 15 min durante la 1.ª hora; luego, en MDI 400 mcg cada 12 h, o 0,5 mg cada 12 h si nebulizada.
 - Sulfato de magnesio (avisar a NML): 2 g en perfusión en 20 min + omeprazol IV.
 `
   },
@@ -809,12 +826,17 @@ Moderada-grave (70-50 % o <50 %):
     ambito: ["familia", "urgencias"],
     grupo: "Respiratorio",
     titulo: "Asma: tratamiento al alta",
-    etiquetas: "foster formodual symbicort urbason salbutamol",
+    etiquetas: "foster formodual symbicort prednisona urbason salbutamol",
     nota: "LABA (formoterol) + corticoide inhalado. También: Symbicort/Rilast, Duoresp/Biresp/Bufomix o Flutiform. Misma pauta siempre.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): salbutamol de rescate con cámara espaciadora; corticoide oral: prednisona 1 mg/kg/día vo (antes Urbason 40 mg/día), conservando los 5-10 días de la plantilla (la guía no indica duración). Pendiente de decidir: la guía da las dosis por principio activo y no por inhalaciones de cada marca (asma moderada: beclometasona 100-200 µg/12 h + formoterol 4,5-9 µg/12 h; grave: 200-400 µg + 9-12 µg/12 h) y no recoge el omeprazol. Se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Asma bronquial", url: "https://guiaterapeutica.net/problemas/126/asma-bronquial" },
+      { titulo: "Guía Terapéutica semFYC · Asma. Crisis asmática", url: "https://guiaterapeutica.net/problemas/125/asma-crisis-asmatica" }
+    ],
     texto: `
-1. Salbutamol 2 inhalaciones, máximo cada 8 h, si precisa.
+1. Salbutamol (con cámara espaciadora) 2 inhalaciones, máximo cada 8 h, si precisa (rescate).
 2. {{Inhalador|Foster Nexthaler|Formodual}} 2 inhalaciones cada 12 h hasta la próxima visita.
-3. Urbason 40 mg cada 24 h durante 5-10 días.
+3. Prednisona 1 mg/kg/día vo durante 5-10 días.
 4. Omeprazol 20 mg cada 24 h durante 5-10 días.
 `
   },
@@ -887,22 +909,25 @@ Monaghan (reservorio):
     ambito: ["urgencias"],
     grupo: "Cardiovascular",
     titulo: "Fibrilación auricular",
-    etiquetas: "FA anticoagulacion amiodarona flecainida digoxina diltiazem CHA2DS2-VASc",
+    etiquetas: "FA anticoagulacion apixaban edoxaban acenocumarol amiodarona flecainida digoxina bisoprolol diltiazem CHA2DS2-VA",
     nota: "Referencia del documento: pág. 129 del manual HGTiP.",
-    revisar: "Digoxina: conviene indicar una dosis máxima acumulada en la impregnación. Flecainida: evitarla si hay cardiopatía estructural o isquémica.",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, FA: control de la FC y prevención de embolismos): escala CHA2DS2-VA (TAO si ≥ 2; sugerida si = 1) y ACOD (apixabán, edoxabán) como alternativa al acenocumarol en la FA no valvular; amiodarona oral 200 mg cada 8 h durante 8-10 días y luego 100-200 mg/día (antes 1 semana y 200 mg/día); flecainida solo con FE normal y sin cardiopatía estructural o isquémica; digoxina de mantenimiento 0,125-0,25 mg/día (antes 0,25); betabloqueante de elección bisoprolol (propranolol 80-240 mg/día solo si hipertiroidismo; antes propranolol hasta 40 mg cada 8 h); diltiazem oral 120-240 mg/día (antes 60-90 mg cada 8 h o 120 mg cada 12 h); FC objetivo < 110 lpm; TAO alrededor de la cardioversión. Pendiente de decidir (la guía no da pautas IV ni de terapia puente): amiodarona, digoxina y diltiazem IV, y Clexane + Sintrom al inicio; sigue pendiente indicar una dosis máxima acumulada en la impregnación con digoxina.",
     enlaces: [
       { titulo: "Manejo de la FA en urgencias (SEC y SEMES)", url: "https://secardiologia.es/images/stories/file/arritmias/publicaciones-arritmias-manejo-paciente-fibrilacion-auricular-fa-urgencias.pdf" },
-      { titulo: "Calculadora CHA2DS2-VASc (SAMIUC)", url: "http://www.samiuc.es/index.php/calculadores-medicos/calculadores-cardiovasculares/chads2-vasc-score.html" }
+      { titulo: "Calculadora CHA2DS2-VASc (SAMIUC)", url: "http://www.samiuc.es/index.php/calculadores-medicos/calculadores-cardiovasculares/chads2-vasc-score.html" },
+      { titulo: "Guía Terapéutica semFYC · FA: control de la frecuencia o reversión", url: "https://guiaterapeutica.net/problemas/411/fibrilacion-auricular-control-de-la-frecuencia-cardiaca-o-reversion-a-ritmo-sinusal" },
+      { titulo: "Guía Terapéutica semFYC · FA: prevención de embolismos", url: "https://guiaterapeutica.net/problemas/412/fibrilacion-auricular-prevencion-de-embolismos" }
     ],
     texto: `
-- Anticoagulación (calcular CHA2DS2-VASc): iniciar Clexane 60 mg cada 12 h (o Clexane 100 mg cada 24 h) + 1/2 comprimido de Sintrom 4 mg cada 24 h, con control al 3.er día para la pauta de Sintrom.
-- Amiodarona: dosis de carga de 300 mg (2 ampollas) en 30 min. Mantenimiento: 7-8 ampollas en 250 cc de SG durante 24 h. Iniciar a la vez la vía oral (normalmente 200 mg cada 8 h la 1.ª semana y luego 200 mg/día) para conseguir impregnación y poder suspender la PIV lo antes posible. Pasadas 24 h, plantear CVE si no hay RS. Tras CVE/CVF, valorar tratamiento antiarrítmico crónico.
-- Flecainida: dosis de carga de 300 mg v.o. Mantenimiento: 50-100 mg cada 12 h v.o.
-- Digoxina: 2 ampollas (0,5 mg) en bolo, luego 0,25 mg cada 2 h hasta control de la FC. Mantenimiento: 0,25 mg/24 h v.o.
-- Betabloqueantes: propranolol v.o., hasta 40 mg cada 8 h.
-- Diltiazem: dosis inicial de 0,25 mg/kg en 2-3 min IV, luego BIC a 5-15 mg/h IV. Mantenimiento: 60-90 mg cada 8 h v.o. o 120 mg cada 12 h (retard).
+- Anticoagulación (calcular CHA2DS2-VA: TAO indicado si ≥ 2 y sugerido si = 1; no si < 65 años sin factores de riesgo, CHA2DS2-VA = 0): iniciar Clexane 60 mg cada 12 h (o Clexane 100 mg cada 24 h) + 1/2 comprimido de Sintrom 4 mg cada 24 h, con control al 3.er día para la pauta de Sintrom. En la FA no valvular, alternativas: apixabán 5 mg cada 12 h (2,5 mg cada 12 h si 2 de estos 3: creatinina ≥ 1,5 mg/dl, edad ≥ 80 años, peso ≤ 60 kg) o edoxabán 60 mg/día (30 mg/día si peso ≤ 60 kg o tratamiento con inhibidores potentes de la glicoproteína P); contraindicados si FG < 15 ml/min.
+- Amiodarona: dosis de carga de 300 mg (2 ampollas) en 30 min. Mantenimiento: 7-8 ampollas en 250 cc de SG durante 24 h. Iniciar a la vez la vía oral (200 mg cada 8 h durante 8-10 días; después, la dosis más baja posible, 100-200 mg/día) para conseguir impregnación y poder suspender la PIV lo antes posible. Pasadas 24 h, plantear CVE si no hay RS. Tras CVE/CVF, valorar tratamiento antiarrítmico crónico.
+- Flecainida (solo si FE normal y sin cardiopatía estructural o isquémica): dosis de carga de 300 mg v.o. Mantenimiento: 50-100 mg cada 12 h v.o.
+- Digoxina: 2 ampollas (0,5 mg) en bolo, luego 0,25 mg cada 2 h hasta control de la FC. Mantenimiento: 0,125-0,25 mg/24 h v.o.
+- Betabloqueantes: bisoprolol 1,25 mg/día v.o., aumentando según tolerancia hasta 10 mg/día. Si hipertiroidismo: propranolol 80-240 mg/día v.o. en 3 tomas.
+- Diltiazem (no si disfunción sistólica de VI ni WPW): dosis inicial de 0,25 mg/kg en 2-3 min IV, luego BIC a 5-15 mg/h IV. Mantenimiento: 120-240 mg/día v.o.
+Objetivo inicial: FC < 110 lpm en reposo.
 Los pacientes sin cardiopatía estructural con un 1.er episodio de FA no necesitan antiarrítmicos al alta.
-Si se considera necesaria la reversión a ritmo sinusal en una FA de más de 48 h o de duración indeterminada, hay que descartar antes trombos intracavitarios mediante ecocardiograma transesofágico.
+Si se considera necesaria la reversión a ritmo sinusal en una FA de más de 48 h o de duración indeterminada: TAO al menos 3 semanas antes y mínimo 1 mes después de la cardioversión, salvo que un ecocardiograma transesofágico descarte trombos en la aurícula izquierda (cardioversión precoz, administrando heparina previamente). Si la FA se inició hace menos de 48 h, no precisa TAO previo.
 `
   },
 
@@ -913,9 +938,18 @@ Si se considera necesaria la reversión a ritmo sinusal en una FA de más de 48 
     ambito: ["urgencias"],
     grupo: "Cardiovascular",
     titulo: "Taquicardias: TPSV / flutter (adenosina)",
-    etiquetas: "TPSV taquicardia supraventricular adenosina",
+    etiquetas: "TPSV taquicardia supraventricular adenosina verapamilo maniobras vagales flutter cardioversion",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, taquicardia paroxística y flúter auricular): primero maniobras vagales si es bien tolerada; adenosina en bolo rápido de 6 mg y, si no es eficaz, 12 mg cada 1-2 min hasta efectividad (máx. 3 bolos; antes un solo bolo de 12 mg); en asmáticos, atópicos o recurrencia tras adenosina, verapamilo 5 mg IV lento; cardioversión eléctrica si no responde y hay mala tolerancia. Flúter: la adenosina solo enlentece transitoriamente la arritmia y la primera elección es la cardioversión eléctrica.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Taquicardia paroxística", url: "https://guiaterapeutica.net/problemas/157/taquicardia-paroxistica" },
+      { titulo: "Guía Terapéutica semFYC · Flúter auricular", url: "https://guiaterapeutica.net/problemas/148/fluter-auricular" }
+    ],
     texto: `
-Adenosina: bolo inicial de 6 mg IV (1 ampolla). Si no es eficaz, repetir con un bolo de 12 mg. Contraindicada en asmáticos y en pacientes tratados con teofilina (antagoniza su efecto); el dipiridamol potencia su efecto. Es muy frecuente la bradicardia sinusal o el BAV transitorio, así como una sensación intensa de calor o náuseas.
+Taquicardia bien tolerada y con estabilidad hemodinámica: maniobras vagales (Valsalva, tos continua, estimulación de náuseas, masaje unilateral del seno carotídeo con monitor ECG, vía venosa y atropina preparada).
+Adenosina (si fracasan las maniobras vagales o en taquicardias con QRS estrecho mal toleradas): bolo rápido inicial de 6 mg IV (1 ampolla). Si no es eficaz, repetir bolos de 12 mg cada 1-2 min hasta efectividad (máx. 3 bolos). Contraindicada en asmáticos y en pacientes tratados con teofilina (antagoniza su efecto); el dipiridamol potencia su efecto. Es muy frecuente la bradicardia sinusal o el BAV transitorio, así como una sensación intensa de calor o náuseas.
+QRS estrecho en asmáticos, atópicos o recurrencia después de adenosina: verapamilo 5 mg IV en bolo lento (2-3 min) y repetir 3 bolos (máx. cada 30 min).
+Si no responde al tratamiento farmacológico y hay mala tolerancia: cardioversión eléctrica (100, 200, 360 J).
+Flúter: la adenosina solo enlentece transitoriamente la arritmia (permite ver la actividad auricular y hacer el diagnóstico). Tratamiento de primera elección: cardioversión eléctrica escalonada (20-50-100-200-360 J).
 `
   },
 
@@ -944,12 +978,17 @@ Adenosina: bolo inicial de 6 mg IV (1 ampolla). Si no es eficaz, repetir con un 
     ambito: ["urgencias"],
     grupo: "Cardiovascular",
     titulo: "SCASEST / SCACEST",
-    etiquetas: "sindrome coronario agudo infarto IAM AAS clopidogrel heparina",
-    revisar: "Tal como está escrito parece combinar enoxaparina (Clexane) con heparina sódica en perfusión, y no deben asociarse. Aclarar que son alternativas: enoxaparina 1 mg/kg cada 12 h SC, o heparina sódica en bolo + perfusión ajustada por TTPA.",
+    etiquetas: "sindrome coronario agudo infarto IAM AAS clopidogrel heparina nitroglicerina",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, sospecha de síndrome coronario agudo): AAS 250 mg masticado (antes 300 mg); carga de clopidogrel según la guía (SCACEST < 75 años: 300 mg antes de fibrinólisis y 600 mg antes de ICP primaria; SCASEST < 75 años: 300 mg; > 75 años: 75 mg); nitroglicerina sublingual de elección y NTG IV a 5 ml/h (antes 4-6 ml/h hasta 10 ml/h) si el dolor no cede; oxígeno si SatO2 < 90 %. Sigue pendiente (la guía solo indica anticoagular en la urgencia hospitalaria, sin dosis): tal como está escrito parece combinar enoxaparina (Clexane) con heparina sódica en perfusión, y no deben asociarse; aclarar que son alternativas.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Sospecha de síndrome coronario agudo", url: "https://guiaterapeutica.net/problemas/142/cardiopatia-isquemica-sospecha-de-sindrome-coronario-agudo" }
+    ],
     texto: `
-- AAS 300 mg + clopidogrel 300 mg (600 mg si SCACEST).
+- AAS 250 mg vo (masticado) + clopidogrel: SCACEST en < 75 años, 300 mg antes de fibrinólisis y 600 mg antes de ICP primaria; SCASEST en < 75 años, 300 mg; en > 75 años, 75 mg. No dar la carga del 2.º antiagregante si ya tomaba doble antiagregación, DM o IAM extenso. Alergia a AAS: clopidogrel 300-600 mg.
+- Nitroglicerina sublingual 0,4-0,8 mg (1-2 puffs) o 0,8-1 mg vo (1 comprimido), repetible hasta 4 veces cada 5-10 min (no si PAS < 90 mmHg, FC < 50 o > 100 lpm, IAM de VD o inhibidores de la fosfodiesterasa-5 en las 24 h previas).
+- Oxígeno a 3-4 l/min (gafas nasales) o al 35-40 % (mascarilla) si SatO2 < 90 %.
 - Clexane 100 mg (o bolo de 5.000 UI) + BIC de heparina sódica 24.000 UI/24 h a 10 ml/h.
-- BIC de NTG [2]: 4-6 ml/h según TA, hasta 10 ml/h.
+- Si el dolor no cede con NTG sublingual: BIC de NTG [2] (50 mg en 250 ml de SG 5 %) a 5 ml/h, según TA.
 `
   },
 
@@ -988,10 +1027,14 @@ Adenosina: bolo inicial de 6 mg IV (1 ampolla). Si no es eficaz, repetir con un 
     grupo: "Endocrino y metabolismo",
     titulo: "Hiponatremia / SIADH",
     etiquetas: "sodio hipoNa suero hipertonico osmolalidad",
-    revisar: "Añadir el límite de corrección para evitar la desmielinización osmótica: no subir el sodio más de 10 mmol/l en las primeras 24 h (8 mmol/l en pacientes de riesgo).",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, hiponatremia): límite de corrección (nunca más de 10 mEq/l en las primeras 24 h y máximo 8 mEq/l en los días siguientes), restricción hídrica de 800-1.500 ml/día y retirada de los fármacos que favorecen la hiponatremia. La guía es de manejo ambulatorio (deriva a urgencias hospitalarias si Na < 125 mmol/l o síntomas graves) y no recoge el suero hipertónico, los sellos de sal ni el tolvaptán: se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Hiponatremia", url: "https://guiaterapeutica.net/problemas/443/hiponatremia" }
+    ],
     texto: `
+Nunca corregir más de 10 mEq/l en las primeras 24 h y máximo 8 mEq/l en los días siguientes.
 SIADH (osmolalidad baja, VEC normal: sin edemas ni deshidratación):
-- Tratar la causa. Restricción hídrica ± sellos de sal ± suero hipertónico (control de AG cada hora).
+- Tratar la causa (suspender los fármacos que la favorecen: diuréticos tiazídicos, antidepresivos, antiepilépticos, desmopresina). Restricción hídrica (800-1.500 ml/día) ± sellos de sal ± suero hipertónico (control de AG cada hora).
 - Tolvaptán (no en urgencias).
 Diagnóstico diferencial:
 - Osmolalidad elevada: pensar en hiperglucemia (calcular el Na corregido por la glucosa).
@@ -1012,9 +1055,16 @@ Hiponatremia grave (Na <120 o clínica): CORRECCIÓN URGENTE.
     ambito: ["familia", "urgencias"],
     grupo: "Endocrino y metabolismo",
     titulo: "Hipopotasemia",
-    etiquetas: "hipokaliemia potasio boi-k",
+    etiquetas: "hipokaliemia potasio cloruro potasico boi-k",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): en la hipopotasemia moderada, potasio 20-80 mEq/día en varias tomas con alimentos (antes 25 mEq en una toma); en la leve suelen bastar los alimentos ricos en potasio; la grave (< 2,5 mEq/l) o con síntomas graves se deriva a urgencias hospitalarias; tratar la causa y corregir el magnesio. La guía prefiere el cloruro potásico; Boi-K y la duración de 14 días no figuran en ella y se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Hipopotasemia", url: "https://guiaterapeutica.net/problemas/442/hipopotasemia" }
+    ],
     texto: `
-Boi-K 25 mEq cada 24 h durante 14 días y control clínico.
+- Hipopotasemia leve (3,0-3,5 mEq/l): suele bastar con alimentos ricos en potasio (plátano, naranja, kiwi, tomate, espinacas, frutos secos, zumos de frutas).
+- Moderada (2,5-3,0 mEq/l): potasio 20-80 mEq/día repartido en varias tomas, con alimentos (Boi-K 25 mEq; la guía prefiere el cloruro potásico: potasio 600 mg = 8 mEq), durante 14 días y control clínico.
+- Grave (< 2,5 mEq/l) o síntomas graves (arritmias, debilidad muscular, alteraciones del ECG): derivar a urgencias hospitalarias.
+- Tratar la causa; si hay hipomagnesemia, corregir a la vez el magnesio.
 `
   },
 
@@ -1025,12 +1075,17 @@ Boi-K 25 mEq cada 24 h durante 14 días y control clínico.
     ambito: ["urgencias"],
     grupo: "Endocrino y metabolismo",
     titulo: "Tirotoxicosis",
-    etiquetas: "hipertiroidismo tiroides metimazol propranolol",
+    etiquetas: "hipertiroidismo tiroides metimazol tiamazol propranolol",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, hipertiroidismo y tiroiditis subaguda): propranolol oral 20-40 mg cada 8 h durante 2-3 semanas; metimazol con dosis inicial según gravedad (15, 30-40 o 60 mg/día en 3 tomas durante 4-6 semanas) y control del hemograma; la tiroiditis subaguda se trata con AAS 0,5-1 g cada 6-8 h (antes ibuprofeno). Pendiente de decidir: la guía no recoge el propranolol IV, la Actocortina IV ni el aviso de evitar AINE (que choca con el AAS de la tiroiditis); se conservan.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Hipertiroidismo", url: "https://guiaterapeutica.net/problemas/172/tiroides-hipertiroidismo" },
+      { titulo: "Guía Terapéutica semFYC · Tiroiditis subaguda", url: "https://guiaterapeutica.net/problemas/175/tiroides-tiroiditis-subaguda-de-de-quervain" }
+    ],
     texto: `
-- Explorar bocio. Solicitar TSH y T4. Diagnóstico diferencial con la tiroiditis subaguda (tratamiento: ibuprofeno).
+- Explorar bocio. Solicitar TSH y T4. Diagnóstico diferencial con la tiroiditis subaguda (tratamiento: ácido acetilsalicílico 0,5-1 g cada 6-8 h durante 2-3 semanas vo; si no hay mejoría en 3-5 días, prednisona 40-60 mg/día durante 7-10 días vo, con descenso gradual durante 4-6 semanas).
 - Evitar AINE.
-- Propranolol IV o v.o. hasta normalizar la FC.
-- Metimazol (Thyrozol): su efecto tarda 24 h.
+- Propranolol IV, o 20-40 mg cada 8 h v.o. durante 2-3 semanas, hasta normalizar la FC (alivia los síntomas hasta que actúa el antitiroideo).
+- Metimazol (Thyrozol): su efecto tarda 24 h. Dosis inicial: 15 mg/día si hipertiroidismo leve, 30-40 mg/día si moderado y 60 mg/día si severo, en 3 tomas, durante 4-6 semanas v.o. Controlar el hemograma (riesgo de agranulocitosis).
 - Actocortina 100 mg cada 6-8 h IV.
 - Prealta: solicitar AG con perfil tiroideo y anti-TPO.
 `
@@ -1130,14 +1185,21 @@ IRA en cirróticos: prerrenal FeNa <1 %, Na urinario >20; renal FeNa >2 %, Na ur
     ambito: ["urgencias"],
     grupo: "Hepatología",
     titulo: "Encefalopatía hepática",
-    etiquetas: "cirrosis lactitol flapping",
+    etiquetas: "cirrosis lactitol lactulosa rifaximina flapping",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): se añaden la corrección del factor desencadenante y la restricción proteica (40-70 g/día), que son el tratamiento de elección; evitar fármacos depresores del SNC, sobre todo BZD (haloperidol si agitación grave); rifaximina para reducir las recurrencias y profilaxis secundaria con lactulosa (2-3 deposiciones al día) tras un primer episodio. La guía no da dosis de lactitol ni recoge la SNG ni el SG: se conserva la pauta de la plantilla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Encefalopatía hepática", url: "https://guiaterapeutica.net/problemas/252/encefalopatia-hepatica" }
+    ],
     texto: `
 Grados: I, alteración del grado de vigilia, somnolencia; II, flapping; III, estupor; IV, coma.
 Etiología: 80 %, hemorragia digestiva, infecciones, diuréticos; 20 %, estreñimiento, antihistamínicos, BZD, hiper/hipoglucemia. Diagnóstico clínico (TC craneal si focalidad).
+- Corregir el factor desencadenante (HDA, dieta rica en proteínas, estreñimiento, infecciones, fármacos, IR, hipopotasemia, hipoglucemia). Restricción proteica (40-70 g/día).
 - Suspender diuréticos.
 - SNG si grado III o IV.
 - SG.
-- Laxantes: grados I-II: 1 sobre de lactitol cada 8 h v.o. + 5 sobres de lactitol cada 8 h por vía rectal. Grados III-IV: 20 sobres en 1 l de agua + balón rectal.
+- Laxantes (lactulosa o lactitol): grados I-II: 1 sobre de lactitol cada 8 h v.o. + 5 sobres de lactitol cada 8 h por vía rectal. Grados III-IV: 20 sobres en 1 l de agua + balón rectal.
+- Evitar los fármacos depresores del SNC, especialmente las BZD. Si agitación grave: haloperidol.
+- Para reducir las recurrencias: rifaximina 400 mg cada 8 h o 550 mg cada 12 h. Tras un primer episodio manifiesto, profilaxis secundaria con lactulosa ajustada a 2-3 deposiciones al día.
 `
   },
 
@@ -1148,9 +1210,14 @@ Etiología: 80 %, hemorragia digestiva, infecciones, diuréticos; 20 %, estreñi
     ambito: ["urgencias"],
     grupo: "Hepatología",
     titulo: "Descompensación ascítica (DAE)",
-    etiquetas: "cirrosis ascitis paracentesis diureticos",
+    etiquetas: "cirrosis ascitis paracentesis diureticos espironolactona furosemida",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, ascitis): se concreta el aumento de diuréticos (espironolactona 25-100 mg/día, máx. 400 mg/día; si no hay mejoría o ascitis moderada, asociar furosemida 20-120 mg/día en 2-3 tomas, máx. 160 mg/día), el peso diario con la pérdida máxima de peso, la restricción de sodio y evitar AINE, IECA y ARA II.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Ascitis", url: "https://guiaterapeutica.net/problemas/242/ascitis" }
+    ],
     texto: `
-- Aumentar diuréticos y control en hospital de día al día siguiente.
+- Aumentar diuréticos: espironolactona 25-100 mg/día v.o. (máx. 400 mg/día); si no hay mejoría (o ascitis moderada), asociar furosemida 20-120 mg/día en 2-3 tomas v.o. (máx. 160 mg/día). Control en hospital de día al día siguiente.
+- Pesarse a diario: pérdida máxima de 0,5 kg/día si no hay edemas y de 1 kg/día si hay edemas. Restricción de sodio. Ajustar, suspender o evitar AINE, IECA y ARA II.
 - Si es la 1.ª DAE: orina de 24 h + paracentesis + ingreso para estudio.
 `
   },
@@ -1181,9 +1248,14 @@ Marcadores de fracaso de la función hepática: BD, albúmina, TP.
     ambito: ["familia", "urgencias"],
     grupo: "Dolor y paliativos",
     titulo: "Sedación paliativa (pauta)",
-    etiquetas: "paliativos morfina midazolam buscapina fentanilo infusor",
-    revisar: "Corregido: el documento expresaba el fentanilo en mg; son microgramos (cada ampolla tiene 150 mcg). Revisad que la dosis de 24 h sea la deseada.",
+    etiquetas: "paliativos morfina midazolam buscapina butilescopolamina levopromazina haloperidol fentanilo infusor",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026, paciente al final de la vida): se añaden los requisitos (síntoma refractario, información y consentimiento), la inducción con midazolam (2,5-5 mg sc en bolo, o 5-10 mg si ya tomaba benzodiazepinas, repetible cada 15-30 min), la levopromazina 25-75 mg/día sc si hay mala respuesta al midazolam y que la morfina no es un sedante. Pendiente de decidir (la guía no da pautas de infusor de 12 h): midazolam en infusión continua 30-120 mg/24 h (máx. 150-200 mg/día; dosis inicial en infusor 0,4-0,8 mg/h, o 1-2 mg/h si ya tomaba benzodiazepinas); butilescopolamina para los estertores 10-20 mg cada 6 h sc; haloperidol 0,5-5 mg cada 2-12 h; el fentanilo no figura en la guía. Sigue pendiente: el fentanilo va en microgramos (cada ampolla tiene 150 mcg); revisad que la dosis de 24 h sea la deseada.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Paciente al final de la vida", url: "https://guiaterapeutica.net/problemas/415/paciente-al-final-de-la-vida" }
+    ],
     texto: `
+Antes: asegurar que el síntoma es refractario a los tratamientos disponibles, informar al paciente y a la familia y solicitar el consentimiento.
+Inducción: midazolam 2,5-5 mg sc en bolo (5-10 mg si ya tomaba benzodiazepinas); si no responde, repetir la misma dosis cada 15-30 min hasta lograr la sedación.
 SF 250 ml cada 12 h y asociar:
 - Morfina 10-30 mg (o fentanilo 600-750 mcg).
 - Midazolam 5-20 mg.
@@ -1191,6 +1263,8 @@ SF 250 ml cada 12 h y asociar:
 En urgencias se pauta igual, pero en BIC (velocidad 11-12).
 Rescates: morfina 2,5 mg IV, midazolam 5 mg IV, Buscapina 20 mg IV, haloperidol 5 mg si agitación.
 Rescates con fentanilo: fentanilo 300 mcg (2 ampollas) + midazolam 5 mg.
+Si mala respuesta al midazolam: asociar levopromazina 25-75 mg/día sc.
+La morfina no es un sedante sino un analgésico: para la sedación deben usarse fármacos con perfil sedante (midazolam, haloperidol).
 `
   },
 
