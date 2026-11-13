@@ -237,20 +237,22 @@ Diagnóstico: contusión de pie.
     tipo: "tratamiento",
     grupo: "Columna",
     titulo: "Cervicalgia / lumbalgia: tratamiento",
-    etiquetas: "diclofenaco metamizol yurelax lyrica pregabalina",
-    revisar: "Pregabalina (Lyrica): no ha demostrado beneficio en la cervicalgia ni en la lumbalgia sin radiculalgia, y la exploración de estas plantillas dice «no radiculalgia»; valorad reservarla para el dolor radicular. El último escalón de la pauta (1-1-1) está incompleto.",
+    etiquetas: "ibuprofeno naproxeno paracetamol tramadol diazepam diclofenaco metamizol yurelax lyrica pregabalina",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): cervicalgia, paracetamol 0,5-1 g cada 4-6 h o ibuprofeno 400-1.200 mg/día; lumbalgia, ibuprofeno 400-1.200 mg/día o naproxeno 500 mg cada 12-24 h, y tramadol 50 mg/día si el dolor es intenso o no mejora (antes diclofenaco 50 mg cada 8 h, que estas entradas no recogen y que, según la de dolor crónico, añade riesgo cardiovascular). Metamizol solo si no puede tomar AINE; se conserva su dosis. Diazepam 5-10 mg cada 12-24 h si hay contractura, insomnio o ansiedad, en lugar de Yurelax: la guía considera escasa la evidencia de los miorrelajantes. Se retira la pregabalina (Lyrica), que resuelve la observación anterior: la guía no la recoge en la cervicalgia ni en la lumbalgia y, en la lumbociatalgia, dice que muestra escaso efecto sobre el dolor neuropático; para ese dolor da amitriptilina (10-25 mg al acostarse, subiendo 10-25 mg cada 3-4 días, máx. 75 mg/día) y después gabapentina. Reposo de no más de 2 días y mantener la actividad. Omeprazol solo si hay riesgo de sangrado digestivo (entrada de dolor crónico).",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Cervicalgia", url: "https://guiaterapeutica.net/problemas/285/cervicalgia" },
+      { titulo: "Guía Terapéutica semFYC · Lumbalgia simple", url: "https://guiaterapeutica.net/problemas/321/lumbalgia-simple" },
+      { titulo: "Guía Terapéutica semFYC · Lumbociatalgia. Ciática", url: "https://guiaterapeutica.net/problemas/322/lumbociatalgia-ciatica" }
+    ],
     texto: `
-Reposo relativo.
+Reposo relativo, no más de 2 días; mantener la actividad habitual en la medida de lo posible, sin esfuerzos ni sobrecargas.
 Calor local.
-Diclofenaco 50 mg cada 8 horas, después de las comidas.
-Metamizol 575 mg cada 8 horas, alternando con el diclofenaco si dolor.
-Omeprazol 20 mg cada 24 horas, en ayunas.
-Yurelax 1 comprimido cada 24 horas, antes de dormir.
-Lyrica 75 mg en pauta ascendente:
-- 0-0-1 durante 3 días.
-- 1-0-1 durante 3 días.
-- 1-1-1...
-En caso de precisar su retirada, hacerlo de forma descendente.
+Cervicalgia: paracetamol 0,5-1 g cada 4-6 horas (máx. 4 g/día; ancianos o IR grave, 3 g/día; IH, 2 g/día) o ibuprofeno 400-1.200 mg al día en 1-3 tomas, después de las comidas.
+Lumbalgia: ibuprofeno 400-1.200 mg al día en 1-3 tomas o naproxeno 500 mg cada 12-24 horas, después de las comidas. Si el dolor es intenso o no mejora, asociar tramadol 50 mg al día (máx. 400 mg/día; ancianos o IR crónica, 25 mg/día, máx. 300 mg/día).
+Metamizol 575 mg cada 8 horas solo si no puede tomar AINE.
+Omeprazol 20 mg cada 24 horas, en ayunas, si hay riesgo de sangrado digestivo.
+Si hay contractura muscular, dificultad para dormir o ansiedad: diazepam 5-10 mg cada 12-24 horas, un máximo de 2 semanas.
+Ejercicios de estiramiento a partir de la 2.ª semana.
 Control por su MAP.
 `
   },
@@ -263,11 +265,16 @@ Control por su MAP.
     titulo: "Contusión / esguince: tratamiento",
     etiquetas: "frio diclofenaco metamizol hombro codo muñeca mano rodilla tobillo pie cadera",
     nota: "Es el tratamiento común de las plantillas de hombro, codo, muñeca, mano, rodilla, tobillo y pie. En la de cadera el documento original no incluía «Frío local».",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): de elección, paracetamol 0,5-1 g cada 4-6 h o diclofenaco tópico cada 6-8 h; si no mejora, naproxeno 500 mg cada 12-24 h o ibuprofeno 400-1.200 mg/día (antes diclofenaco 50 mg oral cada 8 h, alternando con metamizol). Metamizol solo si el paracetamol o los AINE están contraindicados; se conserva su dosis, que la guía no da aquí. Frío 3 veces al día durante 10-15 minutos; el calor es más eficaz a partir de las 48-72 h.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Dolor osteomuscular agudo", url: "https://guiaterapeutica.net/problemas/448/dolor-osteomuscular-agudo" }
+    ],
     texto: `
 Reposo relativo.
-Frío local.
-Diclofenaco 50 mg cada 8 horas, después de las comidas.
-Metamizol 575 mg cada 8 horas, alternando con el diclofenaco si dolor.
+Frío local, 3 veces al día durante 10-15 minutos.
+Paracetamol 0,5-1 g cada 4-6 horas (máx. 4 g/día; ancianos o IR grave, 3 g/día; IH, 2 g/día) o diclofenaco tópico 1 aplicación cada 6-8 horas.
+Si no mejora: naproxeno 500 mg cada 12-24 horas o ibuprofeno 400-1.200 mg al día en 1-3 tomas, después de las comidas.
+Metamizol 575 mg cada 8 horas solo si el paracetamol o los AINE están contraindicados.
 Control por su MAP.
 `
   },
@@ -318,11 +325,14 @@ Adolonta + 1/2 ampolla de Yatrox IV (2.º rescate).
     grupo: "Analgesia",
     titulo: "Analgesia en niños",
     etiquetas: "pediatria ibuprofeno paracetamol",
-    revisar: "Dosis fijas: solo sirven a partir de unos 35-40 kg. En niños, mejor pautar por peso (ibuprofeno 10 mg/kg/dosis cada 8 h; paracetamol 15 mg/kg/dosis cada 6-8 h).",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): paracetamol de elección y por peso, 10-20 mg/kg cada 4-6 h (máx. 65 mg/kg/día) (antes 500 mg cada 8 h alternando con el ibuprofeno); el AINE, si no mejora. Resuelve en parte la observación anterior sobre las dosis fijas. A decidir: la entrada de dolor osteomuscular agudo no da dosis pediátrica de ibuprofeno (la de lumbalgia simple: 5-10 mg/kg cada 8 h, máx. 400 mg); se conservan 400 mg cada 8 h como valor por defecto. El diclofenaco tópico no tiene datos en menores de 14 años.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Dolor osteomuscular agudo", url: "https://guiaterapeutica.net/problemas/448/dolor-osteomuscular-agudo" }
+    ],
     texto: `
 Reposo relativo.
-Ibuprofeno 400 mg cada 8 horas, después de las comidas.
-Paracetamol 500 mg cada 8 horas, alternando con el ibuprofeno si dolor.
+Paracetamol {{Paracetamol (mg por dosis)}} mg (10-20 mg/kg) cada 4-6 horas, vía oral (máximo 65 mg/kg al día).
+Si no mejora: ibuprofeno {{Ibuprofeno (mg por dosis)=400}} mg cada 8 horas, después de las comidas.
 `
   },
 
@@ -332,10 +342,17 @@ Paracetamol 500 mg cada 8 horas, alternando con el ibuprofeno si dolor.
     tipo: "tratamiento",
     grupo: "Otros",
     titulo: "Agitación",
-    etiquetas: "haloperidol largactil clorpromazina",
-    revisar: "Pauta incompleta: falta la dosis de haloperidol en gotas y aclarar la unidad «1/2 sp» de Largactil.",
+    etiquetas: "haloperidol midazolam diazepam largactil clorpromazina",
+    revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): se completan las dosis de haloperidol (anciano, 0,5-3 mg/día vo, 5-30 gotas; agitación grave, 2,5-5 mg IM cada 30-60 min, máx. 20 mg/24 h) y se añaden el midazolam IM, la asociación de haloperidol y midazolam y el diazepam vo, según el tipo de agitación. Resuelve la falta de dosis del haloperidol de la observación anterior. A decidir: la clorpromazina (Largactil) no figura en la guía y sigue sin aclarar la unidad «1/2 sp»; se conserva.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Agresividad. Agitación psicomotriz", url: "https://guiaterapeutica.net/problemas/60/agresividad-agitacion-psicomotriz" }
+    ],
     texto: `
-- Haloperidol gotas.
+- Entrevista clínica para evitar que la agresividad pase a violencia.
+- Agitación en el anciano: haloperidol 0,5-3 mg/día vo (5-30 gotas/día), repartido, si procede, en varias tomas.
+- Agitación grave con síntomas psicóticos, patología respiratoria o intoxicación por alcohol o benzodiacepinas: haloperidol 2,5-5 mg IM, si es preciso cada 30-60 min (máx. 20 mg/24 h). En casos graves, haloperidol (media o 1 ampolla) + midazolam (1 ml) en la misma jeringa IM; si es preciso, repetir a los 30-45 min, hasta un máximo de 2-3 dosis.
+- Agitación grave con predominio de la ansiedad, intoxicación por cocaína o drogas de diseño, hipertermia o rigidez: midazolam 5 mg (1 ml) IM, repetir cada 30-60 min (máx. 30 mg/24 h).
+- Ansiedad, trastornos de personalidad o cuadros situacionales: diazepam 5 mg cada 8-12 h vo.
 - Largactil (clorpromazina IM) 1/2 sp.
 `
   }

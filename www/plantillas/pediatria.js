@@ -1173,11 +1173,18 @@ Mantener la zona seca y no compartir la ropa. La tiña contagia hasta 10-15 día
       grupo: "Genitourinario",
       titulo: "Balanopostitis",
       etiquetas: "prepucio glande fimosis betnovate",
+      nota: "Según la Guía Terapéutica semFYC: balanopostitis inespecífica, limpieza correcta y secado de la zona 2-3 veces al día (se resuelve en varios días); irritativa, evitar los irritantes, emolientes varias veces al día y, si es preciso, hidrocortisona al 1 % en capa fina durante 1-2 semanas; por Candida, clotrimazol al 1 % en crema cada 12 h durante 1-2 semanas (dosis de adultos). Fimosis sin mejoría después de los 3 años o con complicaciones (balanitis de repetición): betametasona al 0,05-0,1 % o clobetasol al 0,05 %, 1-2 aplicaciones al día durante 4-6 semanas, con retracciones cuidadosas del prepucio y enjuagues con agua tibia.",
+      revisar: "Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026): limpieza y secado de la zona 2-3 veces al día, lavados con agua salada, sin jabones mientras dure la inflamación, y emolientes; derivar a urología si no cede o aparece una fimosis. A decidir: la guía da la betametasona para la fimosis (1-2 aplicaciones al día durante 4-6 semanas) y, en la balanopostitis irritativa, hidrocortisona al 1 % durante 1-2 semanas; se conserva el Betnovate cada 12 h durante 5-7 días. La Terramicina no figura en la guía; se conserva.",
+      enlaces: [
+        { titulo: "Guía Terapéutica semFYC · Balanitis y balanopostitis", url: "https://guiaterapeutica.net/problemas/90/balanitis-y-balanopostitis" },
+        { titulo: "Guía Terapéutica semFYC · Fimosis", url: "https://guiaterapeutica.net/problemas/376/fimosis" }
+      ],
       texto: `
-- Lavados frecuentes con agua de manzanilla tibia.
+- Limpieza y secado cuidadosos de la zona 2-3 veces al día, con lavados con agua salada (o agua de manzanilla) tibia. Evitar los jabones mientras dure la inflamación. Emolientes varias veces al día.
 - Masajear para drenar la secreción.
 - Betnovate pomada cada 12 horas durante 5-7 días (betametasona; para las adherencias).
 - Terramicina si sobreinfección.
+- Si no mejora con el tratamiento o aparece una fimosis: derivar a urología.
 `
     },
 
