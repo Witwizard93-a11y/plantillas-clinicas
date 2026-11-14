@@ -4,6 +4,8 @@ Guía Terapéutica en Atención Primaria (semFYC), consultada el 13/11/2026 con 
 
 Resumen: **15 actualizadas**, **0 sin cambios**, **5 no aplica**, **4 no están en la guía**.
 
+Nota del 14/11/2026: las 5 plantillas de «Evolución y alta» y las 4 de «Corticoides: pautas descendentes» se retiraron de la app después de esta revisión, a petición de Íñigo. Se dejan en la tabla como registro.
+
 | id | título | entrada de la guía | estado | cambios hechos |
 |---|---|---|---|---|
 | mg-evol-alta | Evolutivo: alta a domicilio | — | no aplica | Evolutivo sin tratamiento farmacológico. |
