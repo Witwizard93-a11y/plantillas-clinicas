@@ -88,6 +88,28 @@ FO {{Ojo|OD|OI|AO}}: papila de bordes nítidos, coloración normal, excavación 
   },
 
   {
+    id: "of-trat-conjuntivitis-alergica",
+    categoria: "oftalmologia",
+    tipo: "tratamiento",
+    grupo: "Conjuntiva",
+    titulo: "Conjuntivitis alérgica",
+    etiquetas: "alergia picor prurito colirio antihistaminico levocabastina olopatadina cetirizina loratadina",
+    ejemplo: true,
+    nota: "Según la Guía Terapéutica semFYC: antihistamínico en colirio como tratamiento sintomático; antihistamínico oral si el paciente está más sintomático o tiene rinoconjuntivitis. Si hay múltiples crisis estacionales, tratamiento preventivo con nedocromilo sódico colirio, 1 gota cada 8-12 h. Corticoides tópicos solo en las reacciones alérgicas graves: al mejorar el cuadro agudo, disminuir la dosis y la frecuencia; en los tratamientos largos, controlar la presión intraocular. El uso diario de vasoconstrictores tópicos puede producir hiperemia ocular de rebote. Niños: levocabastina en > 4 años, 1 gota cada 8-12 h; olopatadina en > 3 años, 1 gota cada 12 h; nedocromilo en > 6 años; cetirizina o loratadina en > 6 años, 10 mg/día (la cetirizina, en 2 tomas si < 13 años); fluorometolona en > 3 años, 1 gota cada 4-6 h.",
+    revisar: "Plantilla nueva (14/11/2026), hecha con la Guía Terapéutica semFYC (consultada 13/11/2026, conjuntivitis alérgica). La guía no da signos de alarma ni criterios de derivación en esta entrada. Revisadla antes de usarla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Conjuntivitis alérgica", url: "https://guiaterapeutica.net/problemas/354/conjuntivitis-alergica" }
+    ],
+    texto: `
+- Evitar el agente que la desencadena. Compresas frías y lágrimas artificiales frescas para aliviar las molestias. Limpiar las secreciones.
+- No frotarse los ojos. No usar lentes de contacto mientras haya síntomas.
+- {{Colirio antihistamínico|*levocabastina|olopatadina}} colirio, 1 gota cada 12 horas en {{Ojo|OD|OI|AO}}.
+- Si hay síntomas generales o rinoconjuntivitis: {{Antihistamínico oral|*cetirizina|loratadina}} 10 mg cada 24 horas, vía oral.
+- Si no mejora y la reacción es grave: {{Corticoide en colirio|*fluorometolona al 0,1-0,25 %|dexametasona}}, 1-2 gotas cada 4-6 horas; al mejorar, reducir la dosis y la frecuencia. Si el tratamiento se alarga, controlar la presión intraocular.
+`
+  },
+
+  {
     id: "of-trat-ojo-seco",
     categoria: "oftalmologia",
     tipo: "tratamiento",
