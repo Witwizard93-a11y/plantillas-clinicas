@@ -17,7 +17,7 @@ Las partes 3 y 4 no se habían hecho en su día; se han hecho en esta misma ejec
 
 **Plantillas retiradas (14/11/2026).** A petición de Íñigo se han quitado de la app 10 plantillas de Medicina general. Son la exploración «Exploración de columna dorsal» y 9 tratamientos de la parte 1: los 5 de «Evolución y alta» («no aplica») y las 4 «Corticoides: pautas descendentes» («no están en la guía»). Las 63 actualizadas siguen en la app. De los 107 tratamientos revisados que quedan, 6 están sin cambios, 12 no aplican y 26 no están en la guía.
 
-**Plantillas nuevas (14/11/2026).** En Oftalmología, junto a «Conjuntivitis bacteriana», se ha añadido «Conjuntivitis alérgica», hecha con su entrada de la guía. Lleva la marca de ejemplo, como el resto de Oftalmología, y un `revisar` para validarla.
+**Plantillas nuevas (14/11/2026).** En Oftalmología, junto a «Conjuntivitis bacteriana», se han añadido «Conjuntivitis vírica» y «Conjuntivitis alérgica», hechas con sus entradas de la guía. Llevan la marca de ejemplo, como el resto de Oftalmología, y un `revisar` para validarlas.
 
 - **Actualizadas:** fármacos, dosis, pautas y duraciones corregidos para que sean los de la guía, conservando el estilo, las marcas, los campos `{{...}}` y lo que la guía no contradice. Cada una lleva en `revisar` qué ha cambiado y la fuente, y en `enlaces` la entrada de la guía.
 - **Sin cambios:** la plantilla coincide con la guía.
@@ -54,7 +54,7 @@ Nada se ha añadido de memoria ni de otras fuentes. Lo que la guía no recoge se
 
 ## Word de revisión
 
-`Plantillas-revision-semfyc.docx` contiene las 151 plantillas que tiene ahora la app con su texto, nota, enlaces y observaciones. Las 63 actualizadas empiezan su observación por «Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026)». Se generó con `npm run word -- revision-semfyc/Plantillas-revision-semfyc.docx`. Si se edita, se puede devolver a la app con `npm run word:importar`.
+`Plantillas-revision-semfyc.docx` contiene las 152 plantillas que tiene ahora la app con su texto, nota, enlaces y observaciones. Las 63 actualizadas empiezan su observación por «Actualizado según Guía Terapéutica semFYC (consultada 13/11/2026)». Se generó con `npm run word -- revision-semfyc/Plantillas-revision-semfyc.docx`. Si se edita, se puede devolver a la app con `npm run word:importar`.
 
 ## Siguiente paso
 

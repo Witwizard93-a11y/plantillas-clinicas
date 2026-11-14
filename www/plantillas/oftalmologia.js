@@ -88,6 +88,28 @@ FO {{Ojo|OD|OI|AO}}: papila de bordes nítidos, coloración normal, excavación 
   },
 
   {
+    id: "of-trat-conjuntivitis-virica",
+    categoria: "oftalmologia",
+    tipo: "tratamiento",
+    grupo: "Conjuntiva",
+    titulo: "Conjuntivitis vírica",
+    etiquetas: "adenovirus contagio ojo rojo lagrimas artificiales compresas frias diclofenaco",
+    ejemplo: true,
+    nota: "Según la Guía Terapéutica semFYC: es autolimitada y no requiere tratamiento farmacológico. Si se sospecha sobreinfección bacteriana, tratarla como una conjuntivitis bacteriana. La adenovírica es muy contagiosa y puede asociarse a queratoconjuntivitis epidémica: en esos casos, que los niños no vayan a la guardería ni a la escuela hasta que mejoren los síntomas. Valorar la infección por herpes.",
+    revisar: "Plantilla nueva (14/11/2026), hecha con la Guía Terapéutica semFYC (consultada 14/11/2026, conjuntivitis vírica). Revisadla antes de usarla.",
+    enlaces: [
+      { titulo: "Guía Terapéutica semFYC · Conjuntivitis vírica", url: "https://guiaterapeutica.net/problemas/356/conjuntivitis-virica" }
+    ],
+    texto: `
+- No requiere tratamiento farmacológico: es un proceso autolimitado.
+- Compresas frías. Lágrimas artificiales si hay sequedad ocular.
+- Si hay una sensación intensa de cuerpo extraño: diclofenaco colirio, 1-2 gotas cada 6-8 horas en {{Ojo|OD|OI|AO}} durante 3-5 días.
+- Es muy contagiosa: lavado frecuente de manos; toallas, sábanas, almohadas y teclados de ordenador de uso individual; pañuelos desechables.
+- Si no se ha curado en 5-7 días, remitir a oftalmología.
+`
+  },
+
+  {
     id: "of-trat-conjuntivitis-alergica",
     categoria: "oftalmologia",
     tipo: "tratamiento",
