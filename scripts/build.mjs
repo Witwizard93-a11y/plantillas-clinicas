@@ -5,7 +5,7 @@
     node scripts/build.mjs
 
   1. Copia la versión de package.json a www/js/app.js.
-  2. Comprueba el contenido de www/plantillas/ (scripts/validar.mjs).
+  2. Comprueba el contenido de www/contenido/ (scripts/validar.mjs).
   3. dist/web/                     → web/PWA lista para publicar (GitHub Pages, Netlify...).
   4. dist/PlantillasClinicas.html  → un único archivo autónomo: se abre con doble clic
                                      en cualquier PC, sin instalar nada y sin conexión.
@@ -37,7 +37,7 @@ if (appJsVersionado !== appJs) writeFileSync(rutaApp, appJsVersionado);
 const revision = validar();
 revision.avisos.forEach((a) => console.warn('  aviso: ' + a));
 if (revision.errores.length) {
-  console.error(`\n✖ ${revision.errores.length} error(es) en www/plantillas/:`);
+  console.error(`\n✖ ${revision.errores.length} error(es) en www/contenido/:`);
   revision.errores.forEach((e) => console.error('  - ' + e));
   console.error('');
   process.exit(1);

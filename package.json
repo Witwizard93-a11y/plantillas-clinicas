@@ -1,8 +1,8 @@
 {
   "name": "plantillas-clinicas",
   "productName": "Plantillas Clínicas",
-  "version": "1.1.0",
-  "description": "Plantillas de exploración y tratamiento (Medicina general: Familia y Urgencias; Pediatría; Traumatología; Oftalmología) que se copian al portapapeles con un clic.",
+  "version": "2.0.0",
+  "description": "Plantillas de exploración y tratamiento, calculadora NEWS2, códigos del SEM (IAM, ictus, sepsis, politraumatizado y riesgo de suicidio), algoritmos de RCP y abordaje ABCDE.",
   "author": "Íñigo Arandes Azkoiti",
   "license": "UNLICENSED",
   "private": true,
@@ -10,8 +10,6 @@
   "scripts": {
     "web": "node scripts/build.mjs",
     "validar": "node scripts/validar.mjs",
-    "word": "node scripts/exportar-word.mjs",
-    "word:importar": "node scripts/importar-word.mjs",
     "servir": "node scripts/servir.mjs",
     "iconos": "python3 scripts/generar-iconos.py",
     "windows": "node scripts/build.mjs && electron-builder --win --x64 --publish never",

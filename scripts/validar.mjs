@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /*
-  Comprueba el contenido de www/plantillas/ antes de empaquetar.
+  Comprueba el contenido de www/contenido/ antes de empaquetar.
 
     node scripts/validar.mjs
 
-  Ejecuta los archivos de contenido en el mismo orden que index.html y
-  revisa cada plantilla: identificador único, categoría y tipo válidos,
-  texto presente, campos {{...}} bien cerrados, enlaces correctos...
+  Ejecuta los archivos de contenido en el mismo orden que index.html y revisa:
+  - Plantillas: identificador único, categoría, tipo y ámbito válidos, texto
+    presente, campos {{...}} bien cerrados, enlaces correctos.
+  - Códigos, RCP y ABCDE: que existan y que sus bloques sean de un tipo conocido.
+  - NEWS2: que estén todos los tramos de puntuación.
   Los errores detienen la compilación; los avisos solo se muestran.
 */
 import { readFileSync } from 'node:fs';
@@ -17,8 +19,8 @@ import vm from 'node:vm';
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WWW = join(RAIZ, 'www');
 
-const CLAVES = ['id', 'categoria', 'tipo', 'ambito', 'grupo', 'titulo', 'etiquetas', 'texto', 'texto_ca',
-  'nota', 'enlaces', 'revisar', 'ejemplo'];
+const CLAVES = ['id', 'categoria', 'tipo', 'ambito', 'grupo', 'titulo', 'etiquetas', 'texto', 'texto_ca', 'nota', 'enlaces', 'revisar'];
+const TIPOS_BLOQUE = ['paso', 'ramas', 'lista', 'tabla', 'nota', 'race', 'escala'];
 const RE_CAMPO = /\{\{\s*([^{}|]+?)\s*(?:\|([^{}]*))?\}\}/g;
 const norm = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
 
@@ -35,73 +37,102 @@ export function archivosContenido() {
 function campos(texto) {
   const lista = [];
   for (const m of texto.matchAll(RE_CAMPO)) {
-    const crudo = m[0];
     let etiqueta = m[1].trim();
     const opciones = m[2] == null ? null : m[2].split('|').map((o) => o.trim());
     if (opciones == null && etiqueta.indexOf('=') > 0) etiqueta = etiqueta.slice(0, etiqueta.indexOf('=')).trim();
-    lista.push({ crudo, etiqueta, clave: norm(etiqueta), opciones });
+    lista.push({ crudo: m[0], etiqueta, clave: norm(etiqueta), opciones });
   }
   return lista;
+}
+
+function revisarBloques(bloques, donde, errores) {
+  if (!Array.isArray(bloques) || !bloques.length) { errores.push(`${donde}: no tiene bloques.`); return; }
+  bloques.forEach((b, i) => {
+    const aqui = `${donde} · bloque n.º ${i + 1}`;
+    if (!b || !TIPOS_BLOQUE.includes(b.tipo)) { errores.push(`${aqui}: tipo «${b && b.tipo}» desconocido (${TIPOS_BLOQUE.join(', ')}).`); return; }
+    if (b.tipo === 'paso' && !b.titulo) errores.push(`${aqui}: el paso no tiene título.`);
+    if (b.tipo === 'lista' && (!b.titulo || !Array.isArray(b.items) || !b.items.length)) errores.push(`${aqui}: la lista necesita título e items.`);
+    if (b.tipo === 'nota' && !b.texto) errores.push(`${aqui}: la nota no tiene texto.`);
+    if (b.tipo === 'tabla') {
+      if (!b.titulo || !Array.isArray(b.columnas) || !Array.isArray(b.filas)) errores.push(`${aqui}: la tabla necesita título, columnas y filas.`);
+      else b.filas.forEach((f, j) => { if (!Array.isArray(f) || f.length !== b.columnas.length) errores.push(`${aqui} («${b.titulo}»): la fila ${j + 1} no tiene ${b.columnas.length} celdas.`); });
+    }
+    if (b.tipo === 'escala' && (!b.id || !Array.isArray(b.items) || !Array.isArray(b.bandas))) errores.push(`${aqui}: la escala necesita id, items y bandas.`);
+    if (b.tipo === 'ramas') {
+      if (!Array.isArray(b.ramas) || !b.ramas.length) errores.push(`${aqui}: «ramas» está vacío.`);
+      else b.ramas.forEach((r) => revisarBloques(r.bloques, `${aqui} · rama «${r.titulo}»`, errores));
+    }
+  });
 }
 
 export function validar() {
   const { rutas } = archivosContenido();
   const errores = [];
   const avisos = [];
-  const fuentes = {};
 
   const ctx = vm.createContext({ console });
   ctx.window = ctx;
   for (const ruta of rutas) {
-    const codigo = readFileSync(join(WWW, ruta), 'utf8');
-    fuentes[ruta] = codigo;
-    const antes = Array.isArray(ctx.PLANTILLAS) ? ctx.PLANTILLAS.length : 0;
     try {
-      vm.runInContext(codigo, ctx, { filename: 'www/' + ruta });
+      vm.runInContext(readFileSync(join(WWW, ruta), 'utf8'), ctx, { filename: 'www/' + ruta });
     } catch (e) {
       const linea = (e.stack || '').split('\n').find((l) => l.includes('www/' + ruta)) || '';
-      errores.push(`${ruta}: ${e.message}${linea ? ' (' + linea.trim().replace(/^at\s+/, '') + ')' : ''}. Revisa comas, llaves y comillas invertidas (\`).`);
-      continue;
-    }
-    const despues = Array.isArray(ctx.PLANTILLAS) ? ctx.PLANTILLAS.length : 0;
-    if (ruta !== 'plantillas/config.js' && despues === antes) avisos.push(`${ruta}: no añade ninguna plantilla.`);
-    for (let i = antes; i < despues; i++) {
-      const p = ctx.PLANTILLAS[i];
-      if (p && typeof p === 'object') Object.defineProperty(p, '__archivo', { value: ruta, enumerable: false });
+      errores.push(`${ruta}: ${e.message}${linea ? ' (' + linea.trim().replace(/^at\s+/, '') + ')' : ''}. Revisa comas, llaves y comillas.`);
     }
   }
-  if (errores.length) return { errores, avisos, plantillas: [], fuentes, rutas };
+  if (errores.length) return { errores, avisos, plantillas: [], rutas };
+  const C = ctx.CONTENIDO || {};
 
-  const config = ctx.PLANTILLAS_CONFIG;
-  if (!config || !Array.isArray(config.categorias) || !Array.isArray(config.tipos)) {
-    errores.push('plantillas/config.js: falta PLANTILLAS_CONFIG con categorias y tipos.');
-    return { errores, avisos, plantillas: [], fuentes, rutas };
+  // NEWS2
+  const tramos = C.news2 && C.news2.tramos;
+  ['fr', 'spo2Escala1', 'spo2Escala2Base', 'spo2Escala2ConOxigeno', 'oxigeno', 'tas', 'fc', 'conciencia', 'temperatura'].forEach((k) => {
+    if (!tramos || tramos[k] == null) errores.push(`contenido/news2.js: falta el tramo «${k}».`);
+  });
+  ['cero', 'bajo', 'rojo', 'medio', 'alto'].forEach((k) => {
+    if (!C.news2 || !C.news2.respuestas || !C.news2.respuestas[k]) errores.push(`contenido/news2.js: falta la respuesta «${k}».`);
+  });
+
+  // Códigos, RCP y ABCDE
+  const codigos = ['iam', 'ictus', 'sepsis', 'ppt', 'suicidio'];
+  codigos.forEach((k) => {
+    if (!C[k] || !C[k].titulo) errores.push(`contenido/${k}.js: falta el contenido o el título.`);
+    else revisarBloques(C[k].bloques, `contenido/${k}.js`, errores);
+  });
+  if (!C.rcp || !Array.isArray(C.rcp.versiones) || !C.rcp.versiones.length) errores.push('contenido/rcp.js: faltan las versiones.');
+  else C.rcp.versiones.forEach((v) => revisarBloques(v.bloques, `contenido/rcp.js · ${v.nombre}`, errores));
+  if (!C.abcde || !Array.isArray(C.abcde.apartados) || C.abcde.apartados.length !== 5) errores.push('contenido/abcde.js: deben estar los cinco apartados A, B, C, D y E.');
+  if (C.ictus && C.ictus.bloques && C.ictus.bloques.some((b) => b.tipo === 'race') && !C.ictus.race) errores.push('contenido/ictus.js: hay un bloque «race» pero falta la escala.');
+
+  // Plantillas
+  const config = C.plantillasConfig;
+  if (!config || !Array.isArray(config.categorias) || !Array.isArray(config.tipos) || !Array.isArray(config.ambitos)) {
+    errores.push('contenido/plantillas.js: falta plantillasConfig con categorias, ambitos y tipos.');
+    return { errores, avisos, plantillas: [], rutas };
   }
   const cats = new Map(config.categorias.map((c) => [c.id, c]));
   const tipos = new Set(config.tipos.map((t) => t.id));
-  const plantillas = Array.isArray(ctx.PLANTILLAS) ? ctx.PLANTILLAS : [];
-  const ids = new Map();
+  const ambitos = new Set(config.ambitos.map((a) => a.id));
+  const plantillas = Array.isArray(C.plantillas) ? C.plantillas : [];
+  const ids = new Set();
 
   plantillas.forEach((p, i) => {
-    const donde = `${(p && p.__archivo) || '?'} · ${(p && (p.id || p.titulo)) || 'plantilla n.º ' + (i + 1)}`;
+    const donde = `plantillas.js · ${(p && (p.id || p.titulo)) || 'plantilla n.º ' + (i + 1)}`;
     if (!p || typeof p !== 'object' || Array.isArray(p)) { errores.push(`${donde}: no es un bloque { ... }.`); return; }
-
     Object.keys(p).forEach((k) => { if (!CLAVES.includes(k)) avisos.push(`${donde}: clave desconocida «${k}» (se ignora).`); });
 
     if (typeof p.id !== 'string' || !p.id.trim()) errores.push(`${donde}: falta «id».`);
     else if (!/^[a-z0-9-]+$/.test(p.id)) avisos.push(`${donde}: el id debería llevar solo minúsculas, números y guiones.`);
-    else if (ids.has(p.id)) errores.push(`${donde}: id repetido (también en ${ids.get(p.id)}).`);
-    else ids.set(p.id, p.__archivo);
+    else if (/^propia-/.test(p.id)) errores.push(`${donde}: los id que empiezan por «propia-» están reservados para las plantillas creadas en el dispositivo.`);
+    else if (ids.has(p.id)) errores.push(`${donde}: id repetido.`);
+    else ids.add(p.id);
 
-    const cat = cats.get(p.categoria);
-    if (!cat) errores.push(`${donde}: categoría «${p.categoria}» no existe (${[...cats.keys()].join(', ')}).`);
+    if (!cats.has(p.categoria)) errores.push(`${donde}: categoría «${p.categoria}» no existe (${[...cats.keys()].join(', ')}).`);
     if (!tipos.has(p.tipo)) errores.push(`${donde}: tipo «${p.tipo}» no existe (${[...tipos].join(', ')}).`);
-    if (cat) {
-      const validos = (cat.ambitos || []).map((a) => a.id);
-      const amb = p.ambito == null ? [] : (Array.isArray(p.ambito) ? p.ambito : [p.ambito]);
-      amb.forEach((a) => { if (!validos.includes(a)) errores.push(`${donde}: ámbito «${a}» no existe en ${cat.nombre}.`); });
-      if (validos.length && !amb.length) avisos.push(`${donde}: sin ámbito (${validos.join('/')}): no saldrá al filtrar por ámbito.`);
-    }
+    if (p.ambito != null) {
+      if (!Array.isArray(p.ambito)) errores.push(`${donde}: «ambito» debe ser una lista, por ejemplo ["familia", "urgencias"].`);
+      else p.ambito.forEach((a) => { if (!ambitos.has(a)) errores.push(`${donde}: ámbito «${a}» no existe (${[...ambitos].join(', ')}).`); });
+      if (p.categoria !== 'adultos') avisos.push(`${donde}: el ámbito solo se usa en adultos.`);
+    } else if (p.categoria === 'adultos') avisos.push(`${donde}: sin ámbito (familia/urgencias): saldrá en los dos filtros.`);
 
     if (typeof p.titulo !== 'string' || !p.titulo.trim()) errores.push(`${donde}: falta «titulo».`);
     ['grupo', 'etiquetas', 'nota', 'revisar'].forEach((k) => {
@@ -134,8 +165,6 @@ export function validar() {
       const ca = new Map(porIdioma.texto_ca.map((c) => [c.clave, c]));
       [...es.keys()].filter((c) => !ca.has(c)).forEach((c) => avisos.push(`${donde}: el campo «${es.get(c).etiqueta}» no está en catalán.`));
       [...ca.keys()].filter((c) => !es.has(c)).forEach((c) => avisos.push(`${donde}: el campo «${ca.get(c).etiqueta}» no está en castellano.`));
-      [...es.keys()].filter((c) => ca.has(c) && !!es.get(c).opciones !== !!ca.get(c).opciones)
-        .forEach((c) => avisos.push(`${donde}: «${es.get(c).etiqueta}» es desplegable en un idioma y libre en el otro.`));
     }
 
     if (p.enlaces != null) {
@@ -145,7 +174,6 @@ export function validar() {
         else if (!e.titulo) avisos.push(`${donde}: el enlace ${e.url} no tiene título.`);
       });
     }
-    if (p.ejemplo != null && typeof p.ejemplo !== 'boolean') avisos.push(`${donde}: «ejemplo» debería ser true o false.`);
   });
 
   const resumen = config.categorias.map((c) => {
@@ -153,13 +181,12 @@ export function validar() {
     const porTipo = config.tipos.map((t) => `${deCat.filter((p) => p.tipo === t.id).length} ${t.nombre.toLowerCase()}`).join(', ');
     return `${c.nombre}: ${deCat.length} (${porTipo})`;
   });
-  const total = plantillas.length;
   const catalan = plantillas.filter((p) => p && typeof p.texto_ca === 'string' && p.texto_ca.trim()).length;
   const revisar = plantillas.filter((p) => p && typeof p.revisar === 'string' && p.revisar.trim()).length;
-  const enlaces = plantillas.reduce((n, p) => n + (p && Array.isArray(p.enlaces) ? p.enlaces.length : 0), 0);
-  resumen.push(`Total: ${total} · con catalán: ${catalan} · pendientes de revisar: ${revisar} · enlaces: ${enlaces}`);
+  resumen.push(`Plantillas: ${plantillas.length} · con catalán: ${catalan} · pendientes de revisar: ${revisar}`);
+  resumen.push(`Códigos: ${codigos.length} · RCP: ${C.rcp.versiones.map((v) => v.nombre.toLowerCase()).join(' y ')} · NEWS2 · ABCDE`);
 
-  return { errores, avisos, plantillas, fuentes, rutas, resumen, config };
+  return { errores, avisos, plantillas, rutas, resumen, config };
 }
 
 // Uso directo: node scripts/validar.mjs

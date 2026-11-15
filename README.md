@@ -1,30 +1,34 @@
 # Plantillas Clínicas
 
-App para consultar plantillas de exploración y tratamiento y copiarlas al portapapeles con un clic, para pegarlas en la historia clínica.
+Versión 2.0.0. Herramientas para la consulta y la urgencia de medicina de familia, con un solo código para web/PWA, Windows (Electron) y Android (Capacitor).
 
-**Versión web:** <https://witwizard93-a11y.github.io/plantillas-clinicas/> (se puede instalar como app desde Chrome o Edge y funciona sin conexión).
-
-- **Medicina general** (filtro Familia / Urgencias), **Pediatría**, **Traumatología** y **Oftalmología**.
-- En cada categoría, **Exploraciones** y **Tratamientos**.
-- Plantillas en **castellano y catalán** cuando el documento original las tenía en los dos idiomas.
-- Un mismo código para **Android** (APK), **Windows** (instalador o portable) y **web/PWA** (se instala desde Chrome o Edge).
-- Funciona sin conexión. No hay servidor ni analítica: no sale ningún dato del dispositivo.
+Herramienta de apoyo para profesionales sanitarios: no sustituye al juicio clínico ni a los protocolos del centro.
 
 ## Qué incluye
 
-| Función | Para qué sirve |
-|---|---|
-| Copiar con un clic | Botón en cada plantilla de la lista y en la ficha abierta. |
-| Búsqueda global | Busca en todas las categorías, sin importar tildes. En Windows: escribe e **Intro** copia el primer resultado. |
-| Campos rellenables | `{{TA}}` crea un campo libre y `{{Ojo\|OD\|OI\|AO}}` un desplegable. Lo vacío se copia como `___` o `OD/OI/AO`; `{{FC=80}}` y `{{Lado\|*derecho\|izquierdo}}` llevan valor por defecto. Lo que se escribe **no se guarda**. |
-| Castellano / català | Selector en la ficha y en Ajustes. Lo escrito en los campos se conserva al cambiar de idioma. |
-| Notas, enlaces y avisos | La **nota** de cada plantilla se ve pero no se copia. Los **enlaces** (hojas SEUP, calculadoras, guías) se abren fuera de la app. Las plantillas con una observación clínica pendiente llevan la etiqueta **Revisar**; buscar «revisar» las lista todas. |
-| Retocar | Cambia el texto solo para esa copia, sin tocar la plantilla. |
-| Favoritos | Estrella en la ficha; pestaña propia. |
-| Plantillas propias | Crear, editar, duplicar u ocultar plantillas en el dispositivo. Exportar/Importar para pasarlas a otro dispositivo o a un compañero. |
-| Tema y letra | Claro, oscuro (guardias) o automático; tres tamaños de texto. |
+| Sección | Contenido | Fuente |
+|---|---|---|
+| NEWS2 | Calculadora con los 7 parámetros, escalas 1 y 2 de SpO2, riesgo y respuesta | Royal College of Physicians, 2017 |
+| ABCDE | Qué mirar y qué hacer en cada letra | Resuscitation Council UK, 2024 |
+| RCP | Adulto y pediátrico; ramas desfibrilable y no desfibrilable; causas reversibles con qué hacer en cada una | ERC Guidelines 2025 |
+| Código IAM | Activación, reperfusión, tratamiento, fibrinólisis | Tríptico SEM, V 03, abril de 2023 |
+| Código Ictus | RAPID, RANCOM, tiempo, calculadora RACE, destino, complicaciones | Tríptico SEM, V.03, abril de 2023 |
+| Código Sepsis | Riesgo vital, NEWS, sospecha de infección, tratamiento | Tríptico SEM, enero de 2021 |
+| Código PPT | Prioridades 0 a 3, destino, inmovilización, transferencia, escalas | Tríptico SEM, revisión de diciembre de 2017 |
+| Código Riesgo de Suicidio | Calculadora MINI, activación, factores de riesgo, seguimiento | Tríptico SEM, V 01, junio de 2024 |
+| Plantillas | 57: exploraciones de adultos (14), pediatría (13) y traumatología (10), y 20 tratamientos al alta de adultos | Versión 1.1.0 y Guía Terapéutica semFYC |
 
-Atajos en Windows: `Ctrl K` buscar · `↑ ↓` moverse · `Intro` copiar la marcada · `Ctrl Intro` copiar la ficha abierta · `Esc` borrar búsqueda o cerrar · `Ctrl +/-` zoom.
+Funciones de las plantillas: búsqueda, campos rellenables y desplegables, castellano y català, favoritos, retocar el texto antes de copiar, plantillas propias con exportar e importar, y filtro Familia/Urgencias en adultos. Favoritos y plantillas propias se guardan solo en el dispositivo.
+
+Lo pendiente de validar está en `REVISION.md` y, dentro de la app, en el recuadro amarillo de cada sección y en la etiqueta «Revisar» de las plantillas.
+
+## Cambios respecto a la versión 1.1.0
+
+- Nuevo: NEWS2, ABCDE, RCP y los cinco códigos del SEM.
+- Plantillas: se conservan 37 exploraciones. Se han retirado todos los tratamientos de la versión 1, Oftalmología y cuatro exploraciones (columna dorsal; lactante con cuadro catarral; ABCDE en traumatismo con collarín; exploración completa pediátrica del documento RESIS). Los 20 tratamientos de adultos son nuevos.
+- Los favoritos y las plantillas propias de la versión 1 no pasan a la 2: antes de actualizar, exporta las propias desde la versión 1 si las quieres conservar.
+- La exportación e importación con Word no está adaptada a la versión 2.
+- La versión 1.1.0 está en el historial del repositorio de GitHub y, en la carpeta de trabajo, en `copia-v1.1.0/`.
 
 ## Instalar
 
@@ -38,57 +42,12 @@ Atajos en Windows: `Ctrl K` buscar · `↑ ↓` moverse · `Intro` copiar la mar
 
 **Web/PWA.** Publica la carpeta `dist/web` (ver más abajo). En Android: Chrome → menú `⋮` → Instalar aplicación. En Windows: Edge o Chrome → icono de instalar en la barra de direcciones.
 
-## Añadir o corregir plantillas
 
-El contenido está en **`www/plantillas/`**, un archivo por especialidad: `medicina-general.js`, `pediatria.js`, `traumatologia.js` y `oftalmologia.js`. Las categorías y tipos se definen en `config.js`, cuya cabecera explica cada campo. Ejemplo:
+## Cambiar el contenido
 
-```js
-{
-  id: "pe-conjuntivitis",             // único y fijo: de él dependen los favoritos
-  categoria: "pediatria",             // "general", "pediatria", "traumatologia" u "oftalmologia"
-  tipo: "tratamiento",                // "exploracion" o "tratamiento"
-  grupo: "Ojos",                      // opcional: sección de la lista
-  titulo: "Conjuntivitis",
-  etiquetas: "ojo rojo tobrex",       // opcional: palabras para la búsqueda
-  nota: "Alternativa: ...",           // opcional: se ve, pero no se copia
-  enlaces: [{ titulo: "SEUP · Fiebre", url: "https://..." }],   // opcional
-  revisar: "Frecuencia del Tobrex...",   // opcional: aviso hasta que el equipo lo valide
-  texto: `
-- Tobrex colirio 1 gota cada {{Tobrex cada (horas)|*4|8}} horas durante 7 días.
-`,
-  texto_ca: `                          // opcional: versión en catalán
-- Tobrex col·liri 1 gota cada {{Tobrex cada (horas)|*4|8}} hores durant 7 dies.
-`
-},
-```
+Todo el contenido clínico está en `www/contenido/`, un archivo por sección: `news2.js`, `abcde.js`, `rcp.js`, `iam.js`, `ictus.js`, `sepsis.js`, `ppt.js`, `suicidio.js` y `plantillas.js`. Son listas de texto que se pueden corregir con el Bloc de notas; cada archivo explica su formato en la cabecera. `www/js/app.js` y `www/css/app.css` son la lógica y el aspecto.
 
-En Medicina general se añade `ambito: ["familia"]`, `["urgencias"]` o ambos. Usa la misma etiqueta de campo en castellano y en catalán para que lo escrito se conserve al cambiar de idioma.
-
-Cuando el equipo valide una observación, **borra la línea `revisar`** de esa plantilla (y corrige el texto si hace falta). El aviso de «pendientes de revisar» desaparece solo cuando no queda ninguna. Las plantillas de oftalmología llevan `ejemplo: true` hasta que se sustituyan por las del servicio.
-
-Después de editar:
-
-```bash
-npm run validar       # comprueba comas, llaves, ids repetidos, categorías, campos {{ }} y enlaces
-```
-
-Sube la versión en `package.json` (por ejemplo `"version": "1.1.1"`) y vuelve a compilar. La versión se aplica a la vez a la web, a Windows y a Android. `npm run web` también valida y no compila si hay errores.
-
-Las plantillas creadas desde la propia app se guardan solo en ese dispositivo. Para incorporarlas a la app de todos: **Ajustes → Exportar mis plantillas** y añadir ese contenido al archivo de su especialidad.
-
-`REVISION.md` resume qué se ha incorporado de cada documento, qué se ha corregido y qué observaciones clínicas quedan pendientes.
-
-### Editar con Word
-
-Para revisar o reescribir muchas plantillas a la vez, el contenido se puede pasar a un documento de Word y volver:
-
-```bash
-npm run word                                   # dist/Plantillas-Clinicas-<versión>.docx
-npm run word:importar -- Plantillas.docx       # informe: nuevas, modificadas y eliminadas
-npm run word:importar -- Plantillas.docx --aplicar   # reescribe www/plantillas/*.js
-```
-
-El propio Word explica en su primera página cómo editarlo (cada plantilla es un título y una tabla; para añadir una, se copia otra y se escribe `nueva` en el ID). El importador acepta los cambios hechos con «Control de cambios», convierte las viñetas automáticas de Word en «- » y no escribe nada si encuentra un problema. Después de `--aplicar`, revisa el resultado con `git diff www/plantillas`, sube la versión y compila.
+Después de cada cambio: `npm run validar`. Para publicar una versión nueva, sube el número de `version` en `package.json`.
 
 ## Compilar
 
@@ -109,25 +68,26 @@ npm run iconos        # regenera los iconos (requiere: pip install cairosvg pill
 1. Crea un repositorio y sube esta carpeta. `firma-android/` queda excluida por `.gitignore`: **no la subas**.
 2. En el repositorio: *Settings → Secrets and variables → Actions*. Crea los cuatro secretos que aparecen en `firma-android/para-github.txt`.
 3. Cada cambio en la rama `main` genera el APK, los ejecutables de Windows y el archivo HTML en *Actions → última ejecución → Artifacts*.
-4. Una etiqueta `v1.1.1` crea además una *Release* con todos los archivos para descargar.
+4. Una etiqueta `v2.0.0` crea además una *Release* con todos los archivos para descargar.
 5. Web/PWA: *Settings → Pages → Source: GitHub Actions* la publica automáticamente. GitHub Pages es gratuito en repositorios públicos; con un repositorio privado necesita un plan de pago. Alternativa gratuita: arrastra la carpeta `dist/web` a <https://app.netlify.com/drop>.
 
 ## Clave de firma de Android
 
 `firma-android/` contiene la clave con la que se firma el APK y sus contraseñas. **Guarda una copia segura.** Si se pierde, la siguiente versión no se podrá instalar encima de la actual: habría que desinstalar (perdiendo favoritos y plantillas propias) y reinstalar.
 
+
 ## Estructura
 
 ```
-www/                 la app (HTML, CSS, JS): la misma para todas las plataformas
-  plantillas/        el contenido: config.js y un archivo por especialidad
-  js/app.js          la lógica
-android/             proyecto Android (Capacitor 8)
-electron/            envoltorio de escritorio para Windows (Electron)
-scripts/             compilación web, validación del contenido, Word de plantillas, iconos y servidor local
-assets/, build/      iconos de Android y Windows
+www/                 la app (lo mismo para web, Windows y Android)
+  contenido/         contenido clínico, un archivo por sección
+  js/app.js          lógica
+  css/app.css        aspecto
+scripts/             compilación y comprobación del contenido
+electron/            ventana de Windows
+android/             proyecto de Android (Capacitor)
+github-actions/      copia del flujo de compilación (en el repositorio: .github/workflows/compilar.yml)
+CODIGOS Y PLANTILLAS/  documentos de origen (solo en la carpeta de trabajo)
+copia-v1.1.0/        versión anterior (solo en la carpeta de trabajo)
 firma-android/       clave de firma del APK (no subir a internet)
-.github/workflows/   compilación automática
 ```
-
-Licencias de terceros: tipografía Atkinson Hyperlegible Next (SIL Open Font License, `www/fonts/`), Electron y Capacitor (MIT).

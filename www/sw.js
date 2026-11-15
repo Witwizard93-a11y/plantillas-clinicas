@@ -1,6 +1,6 @@
 /* Service worker de Plantillas Clínicas: permite usar la app sin conexión.
    Estrategia: responde desde la caché al instante y la actualiza en segundo
-   plano; los cambios de plantillas llegan en la siguiente apertura.
+   plano; los cambios de contenido llegan en la siguiente apertura.
    scripts/build.mjs sustituye __VERSION__ por un resumen del contenido. */
 'use strict';
 
@@ -9,11 +9,15 @@ var ARCHIVOS = [
   './',
   'index.html',
   'css/app.css',
-  'plantillas/config.js',
-  'plantillas/medicina-general.js',
-  'plantillas/pediatria.js',
-  'plantillas/traumatologia.js',
-  'plantillas/oftalmologia.js',
+  'contenido/news2.js',
+  'contenido/abcde.js',
+  'contenido/rcp.js',
+  'contenido/iam.js',
+  'contenido/ictus.js',
+  'contenido/sepsis.js',
+  'contenido/ppt.js',
+  'contenido/suicidio.js',
+  'contenido/plantillas.js',
   'js/app.js',
   'fonts/atkinson-hyperlegible-next.woff2',
   'manifest.webmanifest',

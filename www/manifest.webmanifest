@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Plantillas Clínicas",
   "short_name": "Plantillas",
-  "description": "Plantillas de exploración y tratamiento para Medicina general (Familia y Urgencias), Pediatría, Traumatología y Oftalmología. Se copian al portapapeles con un clic.",
+  "description": "Plantillas de exploración y tratamiento, calculadora NEWS2, códigos del SEM (IAM, ictus, sepsis, politraumatizado y riesgo de suicidio), algoritmos de RCP y abordaje ABCDE.",
   "lang": "es",
   "dir": "ltr",
   "start_url": "./",
@@ -11,17 +11,80 @@
   "orientation": "any",
   "background_color": "#F3F6F5",
   "theme_color": "#F3F6F5",
-  "categories": ["medical", "productivity"],
+  "categories": [
+    "medical",
+    "productivity"
+  ],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    { "name": "Medicina general", "url": "./?c=general", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Pediatría", "url": "./?c=pediatria", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Traumatología", "url": "./?c=traumatologia", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Oftalmología", "url": "./?c=oftalmologia", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Favoritos", "url": "./?c=favoritos", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+    {
+      "name": "NEWS2",
+      "url": "./#/news2",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "RCP",
+      "url": "./#/rcp",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Código IAM",
+      "url": "./#/iam",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Código Ictus",
+      "url": "./#/ictus",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Plantillas",
+      "url": "./#/plantillas",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }
