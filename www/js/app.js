@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  var VERSION_APP = '2.0.0';
+  var VERSION_APP = '2.1.0';
   var ENTORNO = window.PC_ENTORNO || 'app'; // 'vista-previa' en el archivo único de vista previa
   var C = window.CONTENIDO || {};
 
@@ -11,6 +11,7 @@
     { id: 'inicio', nombre: 'Inicio' },
     { grupo: 'Paciente crítico' },
     { id: 'news2', nombre: 'NEWS2', texto: 'Calculadora de alerta precoz', clase: 'tarjeta-critica' },
+    { id: 'news', nombre: 'NEWS', texto: 'Calculadora de alerta precoz, versión original de 2012', clase: 'tarjeta-critica' },
     { id: 'abcde', nombre: 'ABCDE', texto: 'Qué mirar y qué hacer en cada letra', clase: 'tarjeta-critica' },
     { id: 'rcp', nombre: 'RCP', texto: 'Ritmos desfibrilables y no desfibrilables · 4 H y 4 T', clase: 'tarjeta-critica' },
     { grupo: 'Códigos' },
@@ -19,6 +20,8 @@
     { id: 'sepsis', nombre: 'Código Sepsis', texto: 'Riesgo vital, NEWS y sospecha de infección', clase: 'tarjeta-codigo' },
     { id: 'ppt', nombre: 'Código PPT', texto: 'Politraumatizado: prioridades 0 a 3 y destino', clase: 'tarjeta-codigo' },
     { id: 'suicidio', nombre: 'Código Riesgo de Suicidio', texto: 'MINI, activación y seguimiento', clase: 'tarjeta-codigo' },
+    { grupo: 'Pediatría' },
+    { id: 'urgped', nombre: 'Urgencias pediátricas', texto: 'Protocolos de la SEUP: manejo y tratamiento', clase: 'tarjeta-pediatria' },
     { grupo: 'Consulta' },
     { id: 'plantillas', nombre: 'Plantillas', texto: 'Adultos, Pediatría y Traumatología, para copiar', clase: 'tarjeta-plantillas' }
   ];
@@ -29,7 +32,7 @@
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
   function lista(items, clase) {
-    return '<ul class="puntos' + (clase ? ' ' + clase : '') + '">' + items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>';
+    return '<ul class="puntos' + (clase ? ' ' + clase : '') + '">' + items.map(function (i) { return '<li>' + tx(i) + '</li>'; }).join('') + '</ul>';
   }
   function leerLocal(clave) { try { return localStorage.getItem(clave); } catch (e) { return null; } }
   function guardarLocal(clave, valor) { try { localStorage.setItem(clave, valor); } catch (e) {} }
@@ -114,11 +117,11 @@
   /* ---------- bloques de algoritmo ---------- */
   function bloqueHTML(b, doc) {
     if (b.tipo === 'paso') {
-      return '<div class="paso paso-' + esc(b.tono || 'accion') + '"><div class="paso-titulo">' + esc(b.titulo) + '</div>' +
-        (b.texto && !b.items ? '<p class="paso-texto">' + esc(b.texto) + '</p>' : '') +
-        (b.items && b.texto && b.tono === 'inicio' ? '<p class="paso-texto">' + esc(b.texto) + '</p>' : '') +
+      return '<div class="paso paso-' + esc(b.tono || 'accion') + '"><div class="paso-titulo">' + tx(b.titulo) + '</div>' +
+        (b.texto && !b.items ? '<p class="paso-texto">' + tx(b.texto) + '</p>' : '') +
+        (b.items && b.texto && b.tono === 'inicio' ? '<p class="paso-texto">' + tx(b.texto) + '</p>' : '') +
         (b.items ? lista(b.items) : '') +
-        (b.items && b.texto && b.tono !== 'inicio' ? '<p class="paso-texto">' + esc(b.texto) + '</p>' : '') +
+        (b.items && b.texto && b.tono !== 'inicio' ? '<p class="paso-texto">' + tx(b.texto) + '</p>' : '') +
         '</div>';
     }
     if (b.tipo === 'ramas') {
@@ -132,12 +135,16 @@
     if (b.tipo === 'tabla') {
       return '<section class="panel"><h2>' + esc(b.titulo) + '</h2><div class="tabla-caja"><table><thead><tr>' +
         b.columnas.map(function (c) { return '<th scope="col">' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' +
-        b.filas.map(function (f) { return '<tr>' + f.map(function (c) { return '<td>' + esc(c) + '</td>'; }).join('') + '</tr>'; }).join('') +
-        '</tbody></table></div>' + (b.nota ? '<p class="nota">' + esc(b.nota) + '</p>' : '') + '</section>';
+        b.filas.map(function (f) {
+          var iMax = b.columnas.map(function (c) { return /^m[aá]x/i.test(c); }).indexOf(true);
+          return '<tr>' + f.map(function (c, i) { return '<td>' + tx(c, iMax >= 0 && i !== iMax ? f[iMax] : '', true) + '</td>'; }).join('') + '</tr>';
+        }).join('') +
+        '</tbody></table></div>' + (b.nota ? '<p class="nota">' + tx(b.nota) + '</p>' : '') + '</section>';
     }
-    if (b.tipo === 'nota') return '<p class="nota">' + esc(b.texto) + '</p>';
+    if (b.tipo === 'nota') return '<p class="nota">' + tx(b.texto) + '</p>';
     if (b.tipo === 'race' && doc && doc.race) return raceHTML(doc.race);
     if (b.tipo === 'escala') return escalaHTML(b);
+    if (b.tipo === 'puntuacion') return puntuacionHTML(b);
     return '';
   }
   // Entre dos pasos consecutivos se dibuja una flecha.
@@ -173,7 +180,11 @@
   }
 
   /* ---------- NEWS2 ---------- */
-  var news = { fr: '', spo2: '', escala: '1', oxigeno: '', tas: '', fc: '', conciencia: '', temperatura: '' };
+  function newsVacio() { return { fr: '', spo2: '', escala: '1', oxigeno: '', tas: '', fc: '', conciencia: '', temperatura: '' }; }
+  var estadosNews = { news2: newsVacio(), news: newsVacio() };
+  var newsId = 'news2';                 // calculadora visible: 'news2' o 'news' (original de 2012)
+  var news = estadosNews.news2;
+  function usarNews(id) { newsId = id; news = estadosNews[id]; }
   var NEWS_CAMPOS = [
     { id: 'fr', nombre: 'Frecuencia respiratoria', unidad: 'rpm', min: 0, max: 80 },
     { id: 'spo2', nombre: 'SpO2', unidad: '%', min: 50, max: 100 },
@@ -200,7 +211,7 @@
   }
   // Devuelve { puntos: {campo: n|null}, total, faltan, alguno3 }
   function calcularNews() {
-    var T = C.news2.tramos, p = {};
+    var T = C[newsId].tramos, p = {};
     var v = {};
     NEWS_CAMPOS.forEach(function (d) { v[d.id] = valorCampo(d); });
     p.fr = v.fr === null ? null : porTramos(v.fr, T.fr);
@@ -210,6 +221,7 @@
     p.oxigeno = news.oxigeno === '' ? null : T.oxigeno[news.oxigeno];
     p.conciencia = news.conciencia === '' ? null : T.conciencia[news.conciencia];
     if (v.spo2 === null) p.spo2 = null;
+    else if (newsId === 'news') p.spo2 = porTramos(v.spo2, T.spo2);
     else if (news.escala === '1') p.spo2 = porTramos(v.spo2, T.spo2Escala1);
     else if (v.spo2 <= 92) p.spo2 = porTramos(v.spo2, T.spo2Escala2Base);
     else if (news.oxigeno === '') p.spo2 = null;            // hace falta saber si lleva oxígeno
@@ -221,7 +233,7 @@
     return { puntos: p, valores: v, total: total, faltan: faltan, alguno3: alguno3 };
   }
   function respuestaNews(r) {
-    var R = C.news2.respuestas;
+    var R = C[newsId].respuestas;
     if (r.total >= 7) return R.alto;
     if (r.total >= 5) return R.medio;
     if (r.alguno3) return R.rojo;
@@ -238,28 +250,28 @@
       '" autocomplete="off" value="' + esc(news[def.id]) + '"><span class="unidad">' + esc(def.unidad) + '</span></div></div>';
   }
   function vistaNews() {
-    var d = C.news2, porId = {};
+    var d = C[newsId], original = newsId === 'news', porId = {};
     NEWS_CAMPOS.forEach(function (c) { porId[c.id] = c; });
     return '<div class="vista vista-ancha">' + cabecera(d.titulo, d.subtitulo) +
       '<div class="calc"><section class="panel" style="margin-top:0"><div class="campos">' +
       campoNumero(porId.fr) +
       campoNumero(porId.spo2) +
-      '<div class="campo"><span class="campo-nombre">Escala de SpO2</span><span></span>' +
+      (original ? '' : '<div class="campo"><span class="campo-nombre">Escala de SpO2</span><span></span>' +
         '<div class="campo-control"><div class="segmentos">' + seg('escala', '1', 'Escala 1', news.escala) + seg('escala', '2', 'Escala 2 (hipercapnia)', news.escala) + '</div></div>' +
-        '<p class="campo-ayuda">' + esc(d.notas[0]) + '</p></div>' +
+        '<p class="campo-ayuda">' + esc(d.notas[0]) + '</p></div>') +
       '<div class="campo"><span class="campo-nombre">Aire u oxígeno</span><span class="puntos-campo" id="p-oxigeno">–</span>' +
         '<div class="campo-control"><div class="segmentos">' + seg('oxigeno', 'aire', 'Aire ambiente', news.oxigeno) + seg('oxigeno', 'oxigeno', 'Oxígeno', news.oxigeno) + '</div></div></div>' +
       campoNumero(porId.tas) +
       campoNumero(porId.fc) +
       '<div class="campo"><span class="campo-nombre">Conciencia</span><span class="puntos-campo" id="p-conciencia">–</span>' +
-        '<div class="campo-control"><div class="segmentos">' + seg('conciencia', 'alerta', 'Alerta', news.conciencia) + seg('conciencia', 'cvpu', 'Confusión nueva, V, P o U', news.conciencia) + '</div></div>' +
+        '<div class="campo-control"><div class="segmentos">' + seg('conciencia', 'alerta', 'Alerta', news.conciencia) + (original ? seg('conciencia', 'vpu', 'V, P o U', news.conciencia) : seg('conciencia', 'cvpu', 'Confusión nueva, V, P o U', news.conciencia)) + '</div></div>' +
         '<p class="campo-ayuda">' + esc(d.notas[1]) + '</p></div>' +
       campoNumero(porId.temperatura) +
       '</div></section>' +
       '<aside class="calc-resultado"><div class="resultado" id="newsResultado" aria-live="polite"></div>' +
       '<div class="acciones"><button type="button" class="boton boton-primario" id="newsCopiar">Copiar resultado</button>' +
       '<button type="button" class="boton" id="newsBorrar">Borrar</button></div></aside></div>' +
-      '<p class="nota">' + esc(d.notas[2]) + '</p>' + pie(d) + '</div>';
+      '<p class="nota">' + esc(original ? d.notas[0] + ' ' + d.notas[2] : d.notas[2]) + '</p>' + pie(d) + '</div>';
   }
   function pintarNews() {
     var r = calcularNews();
@@ -276,12 +288,12 @@
     var caja = $('#newsResultado'), h;
     if (r.faltan) {
       caja.removeAttribute('data-nivel');
-      h = '<div class="resultado-etiqueta">NEWS2</div><div class="resultado-cifra">' + (r.faltan === 7 ? '–' : r.total) + '</div>' +
+      h = '<div class="resultado-etiqueta">' + esc(C[newsId].titulo) + '</div><div class="resultado-cifra">' + (r.faltan === 7 ? '–' : r.total) + '</div>' +
         '<p class="resultado-pendiente">' + (r.faltan === 7 ? 'Introduce los 7 parámetros.' : 'Puntuación parcial: ' + (r.faltan === 1 ? 'falta 1 parámetro.' : 'faltan ' + r.faltan + ' parámetros.')) + '</p>';
     } else {
       var resp = respuestaNews(r);
       caja.setAttribute('data-nivel', resp.nivel);
-      h = '<div class="resultado-etiqueta">NEWS2</div><div class="resultado-cifra">' + r.total + '</div>' +
+      h = '<div class="resultado-etiqueta">' + esc(C[newsId].titulo) + '</div><div class="resultado-cifra">' + r.total + '</div>' +
         '<div class="resultado-riesgo">Riesgo: ' + esc(resp.riesgo) + '</div>' +
         '<div class="resultado-monit">' + esc(resp.monitorizacion) + '</div>' + lista(resp.respuesta);
     }
@@ -291,10 +303,10 @@
   function textoNews() {
     var r = calcularNews(), v = r.valores, p = r.puntos, resp = respuestaNews(r);
     var t = String(v.temperatura.toFixed(1)).replace('.', ',');
-    return 'NEWS2: ' + r.total + ' puntos. Riesgo: ' + resp.riesgo.toLowerCase() + '.\n' +
-      'FR ' + v.fr + ' rpm [' + p.fr + ']; SpO2 ' + v.spo2 + ' % (escala ' + news.escala + ') [' + p.spo2 + ']; ' +
+    return C[newsId].titulo + ': ' + r.total + ' puntos. Riesgo: ' + resp.riesgo.toLowerCase() + '.\n' +
+      'FR ' + v.fr + ' rpm [' + p.fr + ']; SpO2 ' + v.spo2 + ' %' + (newsId === 'news' ? '' : ' (escala ' + news.escala + ')') + ' [' + p.spo2 + ']; ' +
       (news.oxigeno === 'oxigeno' ? 'con oxígeno' : 'aire ambiente') + ' [' + p.oxigeno + ']; TAS ' + v.tas + ' mmHg [' + p.tas + ']; FC ' + v.fc + ' lpm [' + p.fc + ']; ' +
-      'conciencia: ' + (news.conciencia === 'alerta' ? 'alerta' : 'confusión nueva o V/P/U') + ' [' + p.conciencia + ']; T.ª ' + t + ' °C [' + p.temperatura + '].';
+      'conciencia: ' + (news.conciencia === 'alerta' ? 'alerta' : newsId === 'news' ? 'V/P/U' : 'confusión nueva o V/P/U') + ' [' + p.conciencia + ']; T.ª ' + t + ' °C [' + p.temperatura + '].';
   }
 
   /* ---------- RACE ---------- */
@@ -342,6 +354,9 @@
     Object.keys(C).forEach(function (k) {
       (C[k].bloques || []).forEach(function (b) { if (b.tipo === 'escala' && b.id === id) hallado = b; });
     });
+    ((C.urgped && C.urgped.protocolos) || []).forEach(function (pr) {
+      (pr.bloques || []).forEach(function (b) { if (b.tipo === 'escala' && b.id === id) hallado = b; });
+    });
     return hallado;
   }
   function totalEscala(b) {
@@ -375,13 +390,326 @@
     return b.titulo.split(' · ')[0] + ': ' + total + ' puntos. ' + (banda ? banda.texto : 'Sin respuestas afirmativas.') + (si.length ? '\n' + si.join(' ') : '');
   }
 
+  /* ---------- puntuaciones con varias opciones por ítem (p. ej. Pulmonary Score) ---------- */
+  var puntuaciones = {};
+  function bloquePuntuacion(id) {
+    var hallado = null;
+    function buscar(bloques) {
+      (bloques || []).forEach(function (b) {
+        if (b.tipo === 'puntuacion' && b.id === id) hallado = b;
+        if (b.tipo === 'ramas') b.ramas.forEach(function (r) { buscar(r.bloques); });
+      });
+    }
+    ((C.urgped && C.urgped.protocolos) || []).forEach(function (pr) { buscar(pr.bloques); });
+    Object.keys(C).forEach(function (k) { buscar(C[k].bloques); });
+    return hallado;
+  }
+  function grupoDe(b, i) {
+    var g = (b.grupoUnico || []).filter(function (x) { return x.indexOf(i) >= 0; })[0];
+    return g || [i];
+  }
+  function estadoPuntuacion(b) {
+    var m = puntuaciones[b.id] || {}, total = 0, vistos = {}, completos = true;
+    b.items.forEach(function (it, i) {
+      if (m[i] != null) total += it.opciones[m[i]][1];
+      var g = grupoDe(b, i), clave = g.join(',');
+      if (vistos[clave]) return;
+      vistos[clave] = true;
+      if (!g.some(function (j) { return m[j] != null; })) completos = false;
+    });
+    var banda = null;
+    for (var k = 0; k < b.bandas.length; k++) if (total >= b.bandas[k].desde) { banda = b.bandas[k]; break; }
+    return { total: total, completos: completos, banda: banda };
+  }
+  function puntuacionHTML(b) {
+    var m = puntuaciones[b.id] || {}, e = estadoPuntuacion(b);
+    var h = '<section class="panel" id="puntuacion-' + esc(b.id) + '"><h2>' + esc(b.titulo) + '</h2>' +
+      (b.intro ? '<p class="campo-ayuda" style="margin-bottom:10px">' + esc(b.intro) + '</p>' : '') + '<div class="campos">';
+    b.items.forEach(function (it, i) {
+      h += '<div class="campo"><span class="campo-nombre">' + esc(it.nombre) + '</span><span class="puntos-campo"' +
+        (m[i] != null ? ' data-p="' + it.opciones[m[i]][1] + '"' : '') + '>' + (m[i] != null ? it.opciones[m[i]][1] : '–') + '</span>' +
+        '<div class="campo-control"><div class="segmentos">' + it.opciones.map(function (o, j) {
+          return '<button type="button" class="segmento" data-punt="' + esc(b.id) + '" data-item="' + i + '" data-valor="' + j + '" aria-pressed="' + (m[i] === j) + '">' + esc(o[0]) + ' <small>(' + o[1] + ')</small></button>';
+        }).join('') + '</div></div></div>';
+    });
+    var texto = e.completos ? (e.banda ? e.banda.texto : '') : 'Faltan ítems por puntuar.';
+    h += '</div><div class="resultado" style="margin-top:14px"' + (e.completos && e.banda ? ' data-nivel="' + e.banda.nivel + '"' : '') + '>' +
+      '<div class="resultado-etiqueta">Puntuación</div><div class="resultado-cifra">' + e.total + '</div>' +
+      '<p class="resultado-riesgo">' + esc(texto) + '</p></div>' +
+      (b.nota ? '<p class="nota">' + tx(b.nota) + '</p>' : '') +
+      '<div class="acciones"><button type="button" class="boton boton-primario" data-punt-copiar="' + esc(b.id) + '">Copiar resultado</button>' +
+      '<button type="button" class="boton" data-punt-borrar="' + esc(b.id) + '">Borrar</button></div></section>';
+    return h;
+  }
+  function textoPuntuacion(b) {
+    var m = puntuaciones[b.id] || {}, e = estadoPuntuacion(b);
+    var det = b.items.map(function (it, i) { return m[i] != null ? it.nombre + ': ' + it.opciones[m[i]][0] + ' (' + it.opciones[m[i]][1] + ').' : ''; }).filter(Boolean);
+    return b.titulo + ': ' + e.total + ' puntos. ' + (e.completos ? (e.banda ? e.banda.texto : '') : 'Incompleto.') + (det.length ? '\n' + det.join(' ') : '');
+  }
+
+  /* ---------- Urgencias pediátricas (protocolos SEUP) ---------- */
+  function subRuta() {
+    var partes = (location.hash || '').replace(/^#\/?/, '').split('/');
+    return partes[1] || '';
+  }
+  function protocoloPorId(id) {
+    return ((C.urgped && C.urgped.protocolos) || []).filter(function (p) { return p.id === id; })[0] || null;
+  }
+  // Si el protocolo tiene dosis por kg, se añade el campo de peso y cada dosis muestra su cálculo al lado.
+  function tieneDosisKg(p) { return /\/\s*kg/.test(JSON.stringify(p.bloques)); }
+  function cuerpoConDosis(p) {
+    if (!tieneDosisKg(p)) return bloquesHTML(p.bloques, p);
+    anotarActivo = true;
+    try {
+      return pesoPanelHTML('Dosis según el peso', 'Con un peso válido, cada dosis por kg del protocolo muestra al lado la dosis calculada (en verde), con el máximo o el mínimo que indique el texto. Comprueba los tramos por edad o peso que dé el propio texto.') +
+        bloquesHTML(p.bloques, p);
+    } finally { anotarActivo = false; }
+  }
+  function vistaUrgped() {
+    var d = C.urgped, p = protocoloPorId(subRuta());
+    if (p && p.bloques) {
+      return '<div class="vista vista-ancha"><a class="volver volver-siempre" href="#/urgped">‹ Urgencias pediátricas</a>' +
+        '<header class="cabecera"><h1>' + esc(p.titulo) + '</h1>' + (p.subtitulo ? '<p>' + esc(p.subtitulo) + '</p>' : '') + '</header>' +
+        cuerpoConDosis(p) + pie(p) + '</div>';
+    }
+    var hechos = d.protocolos.filter(function (x) { return x.bloques; });
+    var pendientes = d.protocolos.filter(function (x) { return !x.bloques; });
+    var h = '<div class="vista vista-ancha">' + cabecera(d.titulo, d.subtitulo) + '<div class="rejilla">';
+    hechos.forEach(function (x) {
+      h += '<a class="tarjeta tarjeta-pediatria" href="#/urgped/' + esc(x.id) + '"><span class="tarjeta-titulo">' + esc(x.titulo) +
+        '</span><span class="tarjeta-texto">' + esc(x.texto || '') + '</span></a>';
+    });
+    h += '</div>';
+    if (pendientes.length) {
+      h += '<h2 class="grupo-titulo">En preparación</h2><ul class="puntos pendientes">' +
+        pendientes.map(function (x) { return '<li>' + esc(x.titulo) + '</li>'; }).join('') + '</ul>';
+    }
+    h += '<p class="nota">Resumen práctico de los Protocolos diagnósticos y terapéuticos en Urgencias de Pediatría de la SEUP (4.ª edición, 2024). No sustituye al documento original ni al juicio clínico.</p>' +
+      '<section class="fuentes"><strong>Fuentes</strong><ul><li>' + enlaceHTML('https://seup.org/protocolos/', 'SEUP · Protocolos') + '</li></ul></section></div>';
+    return h;
+  }
+
   /* ---------- vistas de contenido ---------- */
   var rcpVersion = 'adulto';
   function vistaRcp() {
     var d = C.rcp, v = d.versiones.filter(function (x) { return x.id === rcpVersion; })[0] || d.versiones[0];
     return '<div class="vista vista-ancha">' + cabecera(d.titulo, d.subtitulo) +
       '<div class="segmentos segmentos-anchos versiones">' + d.versiones.map(function (x) { return seg('rcp', x.id, x.nombre, v.id); }).join('') + '</div>' +
+      (v.dosisPeso ? dosisHTML(v.dosisPeso) : '') +
       bloquesHTML(v.bloques, d) + pie(v) + '</div>';
+  }
+
+  /* ---------- Peso del niño: compartido por RCP pediátrica y Urgencias pediátricas ---------- */
+  var peso = { kg: '', edad: '', unidad: 'años' };
+  var PESO_MIN = 0.5, PESO_MAX = 150;
+  function cifra(n) {
+    var dec = n < 1 ? 2 : n < 10 ? 1 : 0;
+    var f = Math.pow(10, dec), r = Math.round(n * f) / f;
+    return String(r).replace('.', ',');
+  }
+  function pesoValido() {
+    var t = String(peso.kg).trim();
+    if (!/^\d+([.,]\d+)?$/.test(t)) return null;
+    var n = parseFloat(t.replace(',', '.'));
+    return n >= PESO_MIN && n <= PESO_MAX ? n : null;
+  }
+  // Fórmulas APLS 2011 (Seddon et al., ISRN Pediatr 2012): 1-11 meses, 1-5 años y 6-12 años.
+  function pesoPorEdad() {
+    var t = String(peso.edad).trim();
+    if (!/^\d+$/.test(t)) return { error: t === '' ? '' : 'Escribe la edad en números enteros.' };
+    var e = +t;
+    if (peso.unidad === 'meses') {
+      if (e < 1 || e > 11) return { error: 'La fórmula en meses es para 1-11 meses. Por encima, usa años.' };
+      return { kg: 0.5 * e + 4, formula: '(0,5 × meses) + 4' };
+    }
+    if (e < 1 || e > 12) return { error: 'La fórmula por edad es para 1-12 años.' };
+    if (e <= 5) return { kg: 2 * e + 8, formula: '(2 × años) + 8' };
+    return { kg: 3 * e + 7, formula: '(3 × años) + 7' };
+  }
+  function pesoPanelHTML(titulo, ayuda) {
+    return '<section class="panel peso-panel" style="margin-top:0"><h2>' + esc(titulo) + '</h2><div class="campos">' +
+      '<div class="campo"><label class="campo-nombre" for="pesoKg">Peso del niño</label><span></span>' +
+      '<div class="campo-control"><input type="text" id="pesoKg" inputmode="decimal" autocomplete="off" value="' + esc(peso.kg) + '"><span class="unidad">kg</span></div></div>' +
+      '<div class="campo"><label class="campo-nombre" for="pesoEdad">Sin peso: estimarlo por la edad</label><span></span>' +
+      '<div class="campo-control"><input type="text" id="pesoEdad" inputmode="numeric" autocomplete="off" value="' + esc(peso.edad) + '">' +
+      '<div class="segmentos">' + seg('peso-unidad', 'meses', 'Meses', peso.unidad) + seg('peso-unidad', 'años', 'Años', peso.unidad) + '</div></div>' +
+      '<p class="campo-ayuda" id="pesoEstimado"></p></div></div>' +
+      '<p class="resultado-pendiente" id="pesoEstado" aria-live="polite"></p>' +
+      '<div class="acciones"><button type="button" class="boton" id="pesoBorrar">Borrar peso</button></div>' +
+      (ayuda ? '<p class="campo-ayuda">' + esc(ayuda) + '</p>' : '') +
+      '<p class="campo-ayuda">Mejor el peso real o el que digan los padres; si no, un método por talla. La fórmula por edad (APLS 2011) es la última opción y no tiene en cuenta el sobrepeso.</p></section>';
+  }
+  function pintarPeso() {
+    var est = $('#pesoEstimado'); if (!est) return;
+    var r = pesoPorEdad();
+    est.innerHTML = r.kg ? 'Peso estimado: <strong>' + esc(cifra(r.kg)) + ' kg</strong> · ' + esc(r.formula) + ' <button type="button" class="boton boton-mini" id="pesoUsar" data-kg="' + r.kg + '">Usar este peso</button>' : esc(r.error || '');
+    var kg = pesoValido(), inp = $('#pesoKg');
+    inp.classList.toggle('fuera', String(peso.kg).trim() !== '' && kg === null);
+    $('#pesoEstado').textContent = kg !== null ? 'Dosis calculadas para ' + cifra(kg) + ' kg.' :
+      (String(peso.kg).trim() === '' ? 'Escribe el peso y se calculan las dosis.' : 'Peso no válido: entre ' + cifra(PESO_MIN) + ' y ' + PESO_MAX + ' kg.');
+    pintarDosis();
+    pintarAnotaciones();
+  }
+
+  /* ---------- Dosis por kg dentro del texto de los protocolos ---------- */
+  // Busca «0,15-0,3 mg/kg», «10 µg/kg/min», «50 mg/kg/día»… y deja al lado un hueco que se rellena con el peso.
+  var anotarActivo = false;
+  var NUM = '(\\d+(?:,\\d+)?)';
+  var UNIDAD = '(mg|µg|mcg|g|ml|l|UI|mEq|mmol|J)(?![a-zA-Záéíóúµ])';
+  var TIEMPO = '(\\s*\\/\\s*(?:kg|24\\s*h|\\d+\\s*h|dosis|día|min|h|d)(?![a-zA-Záéíóú]))?';
+  var RE_DOSIS = new RegExp(NUM + '(?:\\s*[-–]\\s*' + NUM + ')?\\s*' + UNIDAD + '\\s*\\/\\s*kg' + TIEMPO, 'g');
+  var RE_LIMITE = new RegExp('(máximo|máx\\.?|mínimo|mín\\.?)\\s*(?:de\\s*)?(\\d{1,3}(?:\\.\\d{3})+|\\d+(?:,\\d+)?)(?:\\s*[-–]\\s*(\\d+(?:,\\d+)?))?\\s*' + UNIDAD + TIEMPO + '(\\s+en\\s|\\s*\\((?:menos|más|mayor|menor|si|en|neonatos|lactantes|niños|adultos)\\b)?', 'gi');
+  var RE_VALOR = new RegExp('()(\\d{1,3}(?:\\.\\d{3})+|\\d+(?:,\\d+)?)(?:\\s*[-–]\\s*(\\d+(?:,\\d+)?))?\\s*' + UNIDAD + TIEMPO + '()', 'g');
+  var FACTOR = { mg: ['m', 1], 'µg': ['m', 0.001], g: ['m', 1000], ml: ['v', 1], l: ['v', 1000] };
+  function aNumero(s) { return parseFloat(String(s).replace(/\./g, '').replace(',', '.')); }
+  function tiempo(s) {
+    var t = String(s || '').replace(/[\s\/]/g, '');
+    if (t === 'd' || t === 'día' || t === '24h') return 'día';
+    if (t === '' || t === 'dosis' || /^\d+h$/.test(t)) return '';   // «/6 h»: cada 6 horas, es dosis a dosis
+    return t;
+  }
+  function convertir(valor, de, a) {
+    if (de === a) return valor;
+    var x = FACTOR[de], y = FACTOR[a];
+    if (!x || !y || x[0] !== y[0]) return null;
+    return valor * x[1] / y[1];
+  }
+  // Lee los límites de un trozo de texto. esMaximoSiempre: columna «Máximo» de una tabla (sin la palabra delante).
+  function limitesDe(texto, esMaximoSiempre) {
+    var re = esMaximoSiempre ? RE_VALOR : RE_LIMITE, l, r = [];
+    re.lastIndex = 0;
+    while ((l = re.exec(texto))) {
+      if (l[0] === '') { re.lastIndex++; continue; }
+      if (l[5] && /kg/.test(l[5])) continue;                 // «máximo 2 mg/kg/dosis»: tope por kg, no absoluto
+      // «máximo 6-8 mg»: se toma el valor alto y se avisa para mirar el texto
+      r.push({ max: esMaximoSiempre || /^máx/i.test(l[1]), v: aNumero(l[3] || l[2]), rango: !!l[3], u: l[4] === 'mcg' ? 'µg' : l[4], t: tiempo(l[5]), condicional: !!l[6] });
+    }
+    return r;
+  }
+  // Aplica un límite a una dosis; devuelve false si no encaja (otra unidad, otro tiempo o con condición).
+  function aplicarLimite(datos, lim) {
+    var v = convertir(lim.v, lim.u, datos.u);
+    if (v === null || lim.condicional || (lim.t !== '' && lim.t !== datos.t)) return false;
+    if (lim.t === '' && (datos.t === 'h' || datos.t === 'min')) return false;   // un tope total no limita un ritmo por hora o minuto
+    if (lim.max && datos.max == null) datos.max = v;
+    if (!lim.max && datos.min == null) datos.min = v;
+    if (lim.rango) datos.revisar = 1;
+    return true;
+  }
+  // Devuelve el texto escapado con un <span class="dosis-calc" data-d="…"> tras cada dosis por kg.
+  // limitesFila: texto de la columna «Máximo» de la misma fila de una tabla, si la hay.
+  // enCelda: en una celda de tabla los límites pueden ir tras un punto («… Máx. 50 µg (menos de 12 años)»).
+  function anotar(texto, limitesFila, enCelda) {
+    var s = String(texto == null ? '' : texto), out = '', ult = 0, m, hits = [];
+    // «máx.», «i.v.», «v.o.» no son puntos finales (se cambian por espacios sin mover las posiciones)
+    var plano = s.replace(/(máx|mín)\./gi, '$1 ').replace(/\b([a-z])\.([a-z])\./gi, '$1 $2 ');
+    // Un «;» dentro de un paréntesis no corta: «20 mg/kg (1 mg/kg/min; máximo 1.500 mg)»
+    var prof = 0;
+    plano = plano.replace(/[();]/g, function (c) { if (c === '(') prof++; else if (c === ')') prof = Math.max(0, prof - 1); else if (prof) return ','; return c; });
+    RE_DOSIS.lastIndex = 0;
+    while ((m = RE_DOSIS.exec(s))) hits.push({ i: m.index, fin: m.index + m[0].length, a: m[1], b: m[2], u: m[3], t: m[4] || '' });
+    hits.forEach(function (h, k) {
+      h.datos = { a: aNumero(h.a), b: h.b ? aNumero(h.b) : null, u: h.u === 'mcg' ? 'µg' : h.u, t: tiempo(h.t) };
+      if (/kg/.test(h.t)) h.datos.omitir = 1;
+      if (/^\s*por los primeros|^\s*por cada kg/.test(s.slice(h.fin, h.fin + 25))) h.datos.omitir = 1;
+      // Los límites se buscan entre esta dosis y la siguiente, sin pasar de un punto y coma o un punto final.
+      var hasta = k + 1 < hits.length ? hits[k + 1].i : s.length;
+      var resto = plano.slice(h.fin, hasta), corte = resto.search(enCelda ? /;/ : /;|\.\s|\.$/);
+      if (corte >= 0) resto = resto.slice(0, corte);
+      // Si hay límites pero ninguno encaja con esta dosis, se avisa para mirar el texto.
+      var sueltos = 0, aplicados = 0;
+      limitesDe(resto, false).forEach(function (lim) {
+        if (aplicarLimite(h.datos, lim)) { aplicados++; return; }
+        // «0,01 mg/kg (0,01 ml/kg), máximo 0,5 mg»: el límite es de una dosis anterior con la misma unidad.
+        for (var j = k - 1; j >= 0 && j >= k - 2; j--) {
+          if (convertir(lim.v, lim.u, hits[j].datos.u) !== null && aplicarLimite(hits[j].datos, lim)) return;
+        }
+        if (lim.condicional) h.datos.revisar = 1; else sueltos++;
+      });
+      if (limitesFila) limitesDe(limitesFila, true).forEach(function (lim) { if (aplicarLimite(h.datos, lim)) aplicados++; else sueltos++; });
+      if (sueltos && !aplicados) h.datos.revisar = 1;
+      // «3-4 mg/kg (máx. 5 mg/kg, 200 mg)»: el tope absoluto vale también para la dosis de antes.
+      if (k > 0 && /^\s*\(?\s*(máx|máximo)\b/i.test(plano.slice(hits[k - 1].fin, h.i)) && h.datos.max != null && hits[k - 1].datos.max == null && hits[k - 1].datos.u === h.datos.u && hits[k - 1].datos.t === h.datos.t) hits[k - 1].datos.max = h.datos.max;
+    });
+    // En una celda, un «Máximo …» suelto al final vale para todas las dosis de la celda que encajen.
+    if (enCelda && hits.length) {
+      var cola = plano.slice(hits[hits.length - 1].fin), pf = cola.search(/\.\s+(máximo|máx)\b/i);
+      if (pf >= 0) limitesDe(cola.slice(pf + 1), false).forEach(function (lim) {
+        hits.forEach(function (h) { if (h.datos.max == null && !aplicarLimite(h.datos, lim) && lim.condicional) h.datos.revisar = 1; });
+      });
+    }
+    hits.forEach(function (h, k) {
+      // «midazolam 0,1-0,2 mg/kg o diazepam 0,1-0,2 mg/kg (máximo …)»: el límite vale para las dos
+      var sig = hits[k + 1];
+      if (sig && /^\s+o\s+[^,;.()]{0,30}$/.test(plano.slice(h.fin, sig.i)) && h.datos.u === sig.datos.u && h.datos.t === sig.datos.t) {
+        if (h.datos.max == null && sig.datos.max != null) h.datos.max = sig.datos.max;
+        if (sig.datos.revisar) h.datos.revisar = 1;
+      }
+    });
+    hits.forEach(function (h) {
+      // Si en lo que queda de frase hay un máximo que no se ha podido aplicar a esta dosis, se avisa.
+      var frase = plano.slice(h.fin), fin = frase.search(/\.\s|\.$/);
+      if (fin >= 0) frase = frase.slice(0, fin);
+      if (h.datos.max == null && !h.datos.omitir && /m[aá]x/i.test(frase)) h.datos.revisar = 1;
+    });
+    hits.forEach(function (h) {
+      out += esc(s.slice(ult, h.fin)) + '<span class="dosis-calc" data-d="' + esc(JSON.stringify(h.datos)) + '" hidden></span>';
+      ult = h.fin;
+    });
+    return out + esc(s.slice(ult));
+  }
+  function tx(s, limitesFila, enCelda) { return anotarActivo ? anotar(s, limitesFila, enCelda) : esc(s); }
+  function textoDosisCalc(d, kg) {
+    if (d.omitir) return '';
+    var unidad = d.u + (d.t ? '/' + d.t : ''), tope = false, suelo = false;
+    var vals = [d.a, d.b].filter(function (x) { return x != null; }).map(function (x) {
+      var v = x * kg;
+      if (d.max != null && v > d.max) { v = d.max; tope = true; }
+      if (d.min != null && v < d.min) { v = d.min; suelo = true; }
+      return v;
+    });
+    var cif = vals.length > 1 && cifra(vals[0]) !== cifra(vals[1]) ? cifra(vals[0]) + '-' + cifra(vals[1]) : cifra(vals[vals.length - 1]);
+    return cif + ' ' + unidad + (tope ? ' (máximo)' : '') + (suelo ? ' (mínimo)' : '') + (d.revisar ? ' · comprobar el límite del texto' : '');
+  }
+  function pintarAnotaciones() {
+    var kg = pesoValido();
+    $$('.dosis-calc').forEach(function (el) {
+      var t = kg === null ? '' : textoDosisCalc(JSON.parse(el.getAttribute('data-d')), kg);
+      el.textContent = t ? '= ' + t : '';
+      el.hidden = !t;
+    });
+  }
+
+  /* ---------- RCP pediátrica: tabla de dosis según el peso ---------- */
+  // Devuelve [{ nombre, texto, tope }] para un peso; tope = se ha aplicado el máximo
+  function dosisPorPeso(defs, kg) {
+    return defs.map(function (f) {
+      var rango = Array.isArray(f.porKg) ? f.porKg : [f.porKg];
+      var vals = rango.map(function (x) { return x * kg; });
+      var tope = false;
+      if (f.max != null) vals = vals.map(function (x) { if (x > f.max) { tope = true; return f.max; } return x; });
+      var dosis = vals.length > 1 && vals[0] !== vals[1] ? cifra(vals[0]) + '-' + cifra(vals[1]) : cifra(vals[vals.length - 1]);
+      var t = dosis + ' ' + f.unidad, vol = '';
+      if (f.volumen) {
+        var ml = vals.map(function (x) { return x / f.volumen.porMl; });
+        vol = (ml.length > 1 && ml[0] !== ml[1] ? cifra(ml[0]) + '-' + cifra(ml[1]) : cifra(ml[ml.length - 1])) + ' ml ' + f.volumen.texto;
+      }
+      return { nombre: f.nombre, pauta: f.pauta, texto: t, volumen: vol, tope: tope };
+    });
+  }
+  function dosisHTML(def) {
+    return pesoPanelHTML(def.titulo, def.nota) +
+      '<section class="panel dosis-peso"><h2>Dosis calculadas</h2><div id="dosisResultado" aria-live="polite"></div></section>';
+  }
+  function pintarDosis() {
+    var v = C.rcp.versiones.filter(function (x) { return x.id === 'pediatrico'; })[0];
+    var caja = $('#dosisResultado'); if (!caja || !v || !v.dosisPeso) return;
+    var kg = pesoValido();
+    if (kg === null) { caja.innerHTML = '<p class="resultado-pendiente">Sin peso válido todavía.</p>'; return; }
+    caja.innerHTML = '<div class="tabla-caja"><table><thead><tr><th>Fármaco y pauta</th><th>Dosis para ' + esc(cifra(kg)) + ' kg</th></tr></thead><tbody>' +
+      dosisPorPeso(v.dosisPeso.farmacos, kg).map(function (r) {
+        return '<tr><td><strong>' + esc(r.nombre) + '</strong><small class="dosis-extra">' + esc(r.pauta) + '</small></td><td><strong class="dosis-cifra">' + esc(r.texto) + '</strong>' + (r.tope ? '<small class="dosis-extra">Dosis máxima</small>' : '') + (r.volumen ? '<small class="dosis-extra">' + esc(r.volumen) + '</small>' : '') + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
   }
   function vistaAlgoritmo(d) {
     return '<div class="vista vista-ancha">' + cabecera(d.titulo, d.subtitulo) + bloquesHTML(d.bloques, d) + pie(d) + '</div>';
@@ -650,7 +978,7 @@
 
   /* ---------- navegación ---------- */
   function rutaActual() {
-    var id = (location.hash || '').replace(/^#\/?/, '');
+    var id = (location.hash || '').replace(/^#\/?/, '').split('/')[0];
     return SECCIONES.some(function (s) { return s.id === id; }) ? id : 'inicio';
   }
   function renderNav(actual) {
@@ -661,17 +989,20 @@
   }
   function render(conservarScroll) {
     var id = rutaActual(), h;
-    if (id === 'news2') h = vistaNews();
+    if (id === 'news2' || id === 'news') { usarNews(id); h = vistaNews(); }
     else if (id === 'abcde') h = vistaAbcde();
     else if (id === 'rcp') h = vistaRcp();
+    else if (id === 'urgped') h = vistaUrgped();
         else if (C[id] && C[id].bloques) h = vistaAlgoritmo(C[id]);
     else if (id === 'plantillas') h = vistaPlantillas();
     else h = vistaInicio();
     $('#principal').innerHTML = h;
     renderNav(id);
-    if (id === 'news2') pintarNews();
+    if (id === 'news2' || id === 'news') pintarNews();
+    if ($('#pesoKg')) pintarPeso();
     var s = SECCIONES.filter(function (x) { return x.id === id; })[0];
-    document.title = (id === 'inicio' ? '' : s.nombre + ' · ') + 'Plantillas Clínicas';
+    var prot = id === 'urgped' ? protocoloPorId(subRuta()) : null;
+    document.title = (id === 'inicio' ? '' : (prot && prot.bloques ? prot.titulo + ' · ' : '') + s.nombre + ' · ') + 'Plantillas Clínicas';
     if (!conservarScroll) window.scrollTo(0, 0);
   }
 
@@ -723,10 +1054,29 @@
       var y3 = window.scrollY; render(true); window.scrollTo(0, y3);
       return;
     }
+    var idp = b.getAttribute('data-punt');
+    if (idp) {
+      var bp = bloquePuntuacion(idp), item = +b.getAttribute('data-item');
+      puntuaciones[idp] = puntuaciones[idp] || {};
+      grupoDe(bp, item).forEach(function (j) { if (j !== item) delete puntuaciones[idp][j]; });
+      puntuaciones[idp][item] = +valor;
+      var y5 = window.scrollY; render(true); window.scrollTo(0, y5);
+      return;
+    }
+    if (b.hasAttribute('data-punt-copiar')) { copiar(textoPuntuacion(bloquePuntuacion(b.getAttribute('data-punt-copiar'))), b); return; }
+    if (b.hasAttribute('data-punt-borrar')) { puntuaciones[b.getAttribute('data-punt-borrar')] = {}; var y6 = window.scrollY; render(true); window.scrollTo(0, y6); return; }
     if (b.hasAttribute('data-escala-copiar')) { copiar(textoEscala(bloqueEscala(b.getAttribute('data-escala-copiar'))), b); return; }
     if (b.hasAttribute('data-escala-borrar')) { escalas[b.getAttribute('data-escala-borrar')] = {}; var y4 = window.scrollY; render(true); window.scrollTo(0, y4); return; }
     if (b.id === 'newsCopiar') { copiar(textoNews(), b); return; }
-    if (b.id === 'newsBorrar') { news = { fr: '', spo2: '', escala: '1', oxigeno: '', tas: '', fc: '', conciencia: '', temperatura: '' }; render(true); return; }
+    if (b.id === 'newsBorrar') { estadosNews[newsId] = newsVacio(); render(true); return; }
+    if (b.id === 'pesoBorrar') { peso.kg = ''; peso.edad = ''; $('#pesoKg').value = ''; $('#pesoEdad').value = ''; pintarPeso(); return; }
+    if (b.id === 'pesoUsar') { peso.kg = cifra(+b.getAttribute('data-kg')); $('#pesoKg').value = peso.kg; pintarPeso(); return; }
+    if (grupo === 'peso-unidad') {
+      peso.unidad = valor;
+      $$('[data-grupo="peso-unidad"]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      pintarPeso();
+      return;
+    }
     if (b.id === 'raceCopiar') { copiar(textoRace(), b); return; }
     if (b.id === 'raceBorrar') { race = { lado: '', facial: '', brazo: '', pierna: '', mirada: '', cortical: '' }; var y2 = window.scrollY; render(true); window.scrollTo(0, y2); return; }
     if (grupo === 'pl-cat' || grupo === 'pl-tipo' || grupo === 'pl-ambito') {
@@ -815,6 +1165,8 @@
       $('#plTexto').textContent = rellenar(plantillaPorId(pl.abierta));
       return;
     }
+    if (e.target.id === 'pesoKg') { peso.kg = e.target.value; pintarPeso(); return; }
+    if (e.target.id === 'pesoEdad') { peso.edad = e.target.value; pintarPeso(); return; }
     var campo = e.target.getAttribute && e.target.getAttribute('data-campo');
     if (!campo) return;
     news[campo] = e.target.value;
@@ -833,7 +1185,7 @@
   }
 
   // Para las pruebas automáticas (scripts/probar.mjs)
-  window.PC_PRUEBAS = { calcularNews: calcularNews, respuestaNews: respuestaNews, estadoNews: function (n) { news = n; } };
+  window.PC_PRUEBAS = { calcularNews: calcularNews, respuestaNews: respuestaNews, estadoNews: function (n, id) { if (id) usarNews(id); news = n; }, dosisPorPeso: dosisPorPeso, anotar: anotar, textoDosisCalc: textoDosisCalc };
 
   // Android: el botón Atrás vuelve al inicio y, desde el inicio, minimiza la app.
   function botonAtrasAndroid() {
@@ -841,7 +1193,8 @@
     var App = window.Capacitor.Plugins && window.Capacitor.Plugins.App;
     if (!App || !App.addListener) return;
     App.addListener('backButton', function () {
-      if (rutaActual() !== 'inicio') location.hash = '#/inicio';
+      if (rutaActual() === 'urgped' && subRuta()) location.hash = '#/urgped';
+      else if (rutaActual() !== 'inicio') location.hash = '#/inicio';
       else if (App.minimizeApp) App.minimizeApp();
       else if (App.exitApp) App.exitApp();
     });

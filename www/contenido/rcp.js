@@ -122,6 +122,28 @@ window.CONTENIDO.rcp = {
     {
       id: "pediatrico",
       nombre: "Pediátrico",
+      // Dosis según el peso: las mismas dosis por kg que el algoritmo y la tabla de causas reversibles de abajo.
+      // porKg: número o [mínimo, máximo]; max: dosis máxima; volumen.porMl: cantidad por ml de la dilución indicada.
+      dosisPeso: {
+        titulo: "Dosis según el peso",
+        nota: "Las dosis por kg y los máximos son los del algoritmo y la tabla de causas reversibles de esta página. Los ml suponen adrenalina diluida 1 mg en 10 ml y amiodarona de 50 mg/ml.",
+        farmacos: [
+          { nombre: "Descarga", porKg: 4, unidad: "J", pauta: "FV/TV sin pulso; cada 2 minutos." },
+          { nombre: "Descarga en FV/TV refractaria", porKg: 8, max: 360, unidad: "J", pauta: "Si es necesario, a partir de la 5.ª descarga." },
+          { nombre: "Adrenalina i.v./i.o.", porKg: 10, max: 1000, unidad: "µg", volumen: { porMl: 100, texto: "de la dilución 1 mg en 10 ml" }, pauta: "Desfibrilable: a los 4 minutos. No desfibrilable: lo antes posible. Después, cada 4 minutos." },
+          { nombre: "Amiodarona i.v./i.o. (3.ª descarga)", porKg: 5, max: 300, unidad: "mg", volumen: { porMl: 50, texto: "de la ampolla de 50 mg/ml" }, pauta: "Tras la 3.ª descarga." },
+          { nombre: "Amiodarona i.v./i.o. (5.ª descarga)", porKg: 5, max: 150, unidad: "mg", volumen: { porMl: 50, texto: "de la ampolla de 50 mg/ml" }, pauta: "Tras la 5.ª descarga." },
+          { nombre: "Bolo de cristaloide isotónico", porKg: 10, unidad: "ml", pauta: "Hipovolemia o tóxicos con hipotensión. Repetir si es necesario. Shock hemorrágico: máximo 20 ml/kg en total." },
+          { nombre: "Ácido tranexámico", porKg: [15, 20], max: 1000, unidad: "mg", pauta: "Traumatismo o hemorragia vital: i.v. en 10 minutos." },
+          { nombre: "Ácido tranexámico, después", porKg: 2, unidad: "mg/h", pauta: "Perfusión tras la dosis inicial." },
+          { nombre: "Insulina rápida", porKg: 0.1, max: 10, unidad: "UI", pauta: "Hiperpotasemia, con la glucosa al 10 % de la fila siguiente, en bolo i.v." },
+          { nombre: "Glucosa al 10 % con la insulina", porKg: 5, max: 250, unidad: "ml", pauta: "Hiperpotasemia." },
+          { nombre: "Potasio", porKg: 1, max: 30, unidad: "mmol", pauta: "Hipopotasemia: a 2 mmol/min durante 10 minutos y el resto, si hace falta, en 5-10 minutos." },
+          { nombre: "Sulfato de magnesio", porKg: [30, 50], unidad: "mg", pauta: "Hipopotasemia con hipomagnesemia, i.v." },
+          { nombre: "Glucosa al 10 %", porKg: 2, unidad: "ml", pauta: "Hipoglucemia (0,2 g/kg), en bolo i.v. Repetir el control a los 5-10 minutos." },
+          { nombre: "Alteplasa", porKg: [0.3, 0.5], max: 50, unidad: "mg", pauta: "Tromboembolia pulmonar: i.v. en 2 minutos; se puede repetir a los 15 minutos." }
+        ]
+      },
       bloques: [
         { tipo: "paso", tono: "inicio", titulo: "Reconocer la parada cardíaca",
           texto: "Sin signos de vida y/o bradicardia inferior a 60 lpm con mala perfusión.",

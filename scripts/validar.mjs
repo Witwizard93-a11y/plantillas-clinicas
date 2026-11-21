@@ -20,7 +20,7 @@ const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WWW = join(RAIZ, 'www');
 
 const CLAVES = ['id', 'categoria', 'tipo', 'ambito', 'grupo', 'titulo', 'etiquetas', 'texto', 'texto_ca', 'nota', 'enlaces', 'revisar'];
-const TIPOS_BLOQUE = ['paso', 'ramas', 'lista', 'tabla', 'nota', 'race', 'escala'];
+const TIPOS_BLOQUE = ['paso', 'ramas', 'lista', 'tabla', 'nota', 'race', 'escala', 'puntuacion'];
 const RE_CAMPO = /\{\{\s*([^{}|]+?)\s*(?:\|([^{}]*))?\}\}/g;
 const norm = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
 
@@ -58,6 +58,10 @@ function revisarBloques(bloques, donde, errores) {
       else b.filas.forEach((f, j) => { if (!Array.isArray(f) || f.length !== b.columnas.length) errores.push(`${aqui} («${b.titulo}»): la fila ${j + 1} no tiene ${b.columnas.length} celdas.`); });
     }
     if (b.tipo === 'escala' && (!b.id || !Array.isArray(b.items) || !Array.isArray(b.bandas))) errores.push(`${aqui}: la escala necesita id, items y bandas.`);
+    if (b.tipo === 'puntuacion') {
+      if (!b.id || !b.titulo || !Array.isArray(b.items) || !b.items.length || !Array.isArray(b.bandas) || !b.bandas.length) errores.push(`${aqui}: la puntuación necesita id, titulo, items y bandas.`);
+      else b.items.forEach((it, j) => { if (!it.nombre || !Array.isArray(it.opciones) || !it.opciones.length || it.opciones.some((o) => !Array.isArray(o) || o.length !== 2 || typeof o[1] !== 'number')) errores.push(`${aqui} («${b.titulo}»): el ítem ${j + 1} necesita nombre y opciones [[texto, puntos]].`); });
+    }
     if (b.tipo === 'ramas') {
       if (!Array.isArray(b.ramas) || !b.ramas.length) errores.push(`${aqui}: «ramas» está vacío.`);
       else b.ramas.forEach((r) => revisarBloques(r.bloques, `${aqui} · rama «${r.titulo}»`, errores));
@@ -92,6 +96,25 @@ export function validar() {
     if (!C.news2 || !C.news2.respuestas || !C.news2.respuestas[k]) errores.push(`contenido/news2.js: falta la respuesta «${k}».`);
   });
 
+  // NEWS original (2012)
+  const tn = C.news && C.news.tramos;
+  ['fr', 'spo2', 'oxigeno', 'tas', 'fc', 'conciencia', 'temperatura'].forEach((k) => {
+    if (!tn || tn[k] == null) errores.push(`contenido/news.js: falta el tramo «${k}».`);
+  });
+  ['cero', 'bajo', 'rojo', 'medio', 'alto'].forEach((k) => {
+    if (!C.news || !C.news.respuestas || !C.news.respuestas[k]) errores.push(`contenido/news.js: falta la respuesta «${k}».`);
+  });
+
+  // Dosis según el peso (RCP pediátrica)
+  ((C.rcp && C.rcp.versiones) || []).forEach((v) => {
+    if (!v.dosisPeso) return;
+    (v.dosisPeso.farmacos || []).forEach((f, i) => {
+      const r = Array.isArray(f.porKg) ? f.porKg : [f.porKg];
+      if (!f.nombre || !f.unidad || !r.length || r.some((x) => typeof x !== 'number' || !(x > 0))) errores.push(`contenido/rcp.js: dosis por peso n.º ${i + 1} incompleta.`);
+      if (f.max != null && !(f.max > 0)) errores.push(`contenido/rcp.js: máximo no válido en «${f.nombre}».`);
+    });
+  });
+
   // Códigos, RCP y ABCDE
   const codigos = ['iam', 'ictus', 'sepsis', 'ppt', 'suicidio'];
   codigos.forEach((k) => {
@@ -100,6 +123,19 @@ export function validar() {
   });
   if (!C.rcp || !Array.isArray(C.rcp.versiones) || !C.rcp.versiones.length) errores.push('contenido/rcp.js: faltan las versiones.');
   else C.rcp.versiones.forEach((v) => revisarBloques(v.bloques, `contenido/rcp.js · ${v.nombre}`, errores));
+  // Urgencias pediátricas (SEUP)
+  if (!C.urgped || !Array.isArray(C.urgped.protocolos) || !C.urgped.protocolos.length) errores.push('contenido/urgped.js: faltan los protocolos.');
+  else {
+    const idsP = new Set();
+    C.urgped.protocolos.forEach((pr, i) => {
+      const donde = `contenido/urgped.js · ${(pr && (pr.id || pr.titulo)) || 'protocolo n.º ' + (i + 1)}`;
+      if (!pr.id || !/^[a-z0-9-]+$/.test(pr.id)) errores.push(`${donde}: id ausente o no válido (minúsculas, números y guiones).`);
+      else if (idsP.has(pr.id)) errores.push(`${donde}: id repetido.`);
+      else idsP.add(pr.id);
+      if (!pr.titulo) errores.push(`${donde}: falta el título.`);
+      if (pr.bloques != null) revisarBloques(pr.bloques, donde, errores);
+    });
+  }
   if (!C.abcde || !Array.isArray(C.abcde.apartados) || C.abcde.apartados.length !== 5) errores.push('contenido/abcde.js: deben estar los cinco apartados A, B, C, D y E.');
   if (C.ictus && C.ictus.bloques && C.ictus.bloques.some((b) => b.tipo === 'race') && !C.ictus.race) errores.push('contenido/ictus.js: hay un bloque «race» pero falta la escala.');
 

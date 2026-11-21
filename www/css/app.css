@@ -160,6 +160,9 @@ a { color: var(--acento); }
 .tarjeta-critica { border-left: 5px solid var(--alto); }
 .tarjeta-codigo { border-left: 5px solid var(--nochoque); }
 .tarjeta-plantillas { border-left: 5px solid var(--acento); }
+.tarjeta-pediatria { border-left: 5px solid var(--choque-borde); }
+.pendientes { color: var(--tinta-3); columns: 2 220px; }
+.segmento small { opacity: .7; font-weight: 500; }
 .pie-inicio { margin-top: 32px; color: var(--tinta-3); font-size: .875rem; }
 
 /* ---------- Paneles y listas ---------- */
@@ -315,7 +318,7 @@ tr:last-child td { border-bottom: 0; }
 @media print { .rail, .volver, .acciones, .toast { display: none !important; } .principal { padding: 0; } }
 
 /* Ajustes finales */
-@media (min-width: 900px) { .principal .volver { display: none; } }
+@media (min-width: 900px) { .principal .volver { display: none; } .principal .volver.volver-siempre { display: inline-flex; } }
 .algoritmo > .panel + .paso, .algoritmo > .nota + .paso { margin-top: 14px; }
 
 /* ---------- Plantillas: lista y detalle ---------- */
@@ -360,3 +363,19 @@ tr:last-child td { border-bottom: 0; }
 .pl-propias .grupo-titulo { margin-top: 16px; }
 .pl-propias .acciones { margin-top: 0; }
 .pl-propias .campo-ayuda { margin-top: 8px; }
+
+/* RCP pediátrica: dosis según el peso */
+.dosis-peso .campos { margin-bottom: 8px; }
+.dosis-cifra { white-space: nowrap; font-size: 1.0625rem; }
+.dosis-peso td:last-child { width: 38%; }
+.dosis-extra { display: block; color: var(--tinta-2); font-size: .8125rem; font-weight: 400; margin-top: 2px; }
+.dosis-peso .acciones { margin-top: 12px; }
+
+/* Dosis calculadas junto al texto de los protocolos */
+.dosis-calc { display: inline-block; margin-left: 4px; padding: 0 6px; border-radius: 6px; background: var(--dosis-fondo); color: var(--dosis-tinta); font-weight: 600; font-size: .9em; }
+.dosis-calc[hidden] { display: none; }
+.peso-panel .campo-control .segmentos { margin-left: 8px; }
+.peso-panel #pesoEdad { max-width: 5em; }
+.boton-mini { padding: 4px 10px; min-height: 0; font-size: .875rem; margin-left: 6px; }
+:root { --dosis-fondo: #E2F3EA; --dosis-tinta: #155C3A; }
+:root[data-tema="oscuro"] { --dosis-fondo: #1B3A2B; --dosis-tinta: #A9E3C4; }

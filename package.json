@@ -1,8 +1,8 @@
 {
   "name": "plantillas-clinicas",
   "productName": "Plantillas Clínicas",
-  "version": "2.0.0",
-  "description": "Plantillas de exploración y tratamiento, calculadora NEWS2, códigos del SEM (IAM, ictus, sepsis, politraumatizado y riesgo de suicidio), algoritmos de RCP y abordaje ABCDE.",
+  "version": "2.1.0",
+  "description": "Plantillas de exploración, calculadoras NEWS2 y NEWS, códigos del SEM (IAM, ictus, sepsis, politraumatizado y riesgo de suicidio), algoritmos de RCP con dosis pediátricas por peso, abordaje ABCDE y protocolos de Urgencias pediátricas de la SEUP.",
   "author": "Íñigo Arandes Azkoiti",
   "license": "UNLICENSED",
   "private": true,
